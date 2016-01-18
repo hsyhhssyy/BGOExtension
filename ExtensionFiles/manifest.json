@@ -1,7 +1,7 @@
 ﻿{
 	"manifest_version": 2,
 	"name": "BGO Auto Refresh",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"background": { "scripts": ["jquery-2.0.0.min.js", "background.js"] },
 	"page_action": {
 		"default_icon": {
