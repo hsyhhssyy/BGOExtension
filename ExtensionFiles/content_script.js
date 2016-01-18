@@ -50,50 +50,108 @@ function jumpurl(){
   location=document.URL;  
 } 
 
-if(msg.listbox == 0){
-	if(msg.message){
-		setTimeout('jumpurl()',3000);  
-	}
-}else{
-	var notificate = false;
-	//Events that will trigger alert
-	if(msg.message.startsWith("Political Phase")||
-	msg.message.startsWith("Aggression")||
-	msg.message.startsWith("Colonize")||
-	msg.message.startsWith("Send Colonists")||
-	msg.message.startsWith("Event")
-	){
-		notificate = true;
-	}
-	
-	if(msg.message.startsWith("Action")){
-		if(msg.lastAction!=""
-		&& (!msg.lastAction.startsWith(playerColors[msg.playerNo]))){
-			notificate = true;
+var cfgRequestMsg = {
+	type: "bgo-configuration-query"
+};
+
+chrome.extension.sendMessage(cfgRequestMsg,
+function (config){
+	//Auto refresh
+	if(msg.listbox == 0){
+		if(msg.message!=""&& (!msg.message.startsWith("End of")) ){ // check if we are in game webpage
+			if(config['chrome.bgo-extension.auto-refresh']=="true"){
+				var refresh_interval = config['chrome.bgo-extension.refresh-interval']*1000;
+				setTimeout('jumpurl()',refresh_interval);  
+			}
 		}
 	}
 	
-	if(notificate == true){
-		if(beep == undefined){
-			var beep = (function() {
-	    			var audioElement = document.createElement('audio');
-	    			audioElement.setAttribute("src", chrome.extension.getURL("Alert-08.m4a"));
-	    			audioElement.play();
-			});
-			beep();
-			if (Notification) {
-				if (Notification.permission=="granted") {
-					var n_options = {
-	      				body: 'Your rival ['+msg.rivals[0]+"] is waiting for you.",
-	      				icon: chrome.extension.getURL("favicon.ico")
-	  				}
-	             		var notification = new Notification('BGO Ready', n_options);
-	             		
-	             		setTimeout(notification.close.bind(notification), 5000); 
-	       		} else if(Notification.permission=="default"){
-	         			Notification.requestPermission();
-	       		}
-	   		}
+	var notificate = "";
+	var beep = false;
+	
+	//1. Your Turn
+	if(msg.listbox > 0){
+		if(msg.message.startsWith("Political Phase")||
+			msg.message.startsWith("Aggression")||
+			msg.message.startsWith("Colonize")||
+			msg.message.startsWith("Send Colonists")||
+			msg.message.startsWith("Event")
+		){
+			if(config['chrome.bgo-extension.notification-your-turn']=="true"){
+				notificate = 'Your rival ['+msg.rivals[0]+"] is waiting for you.";
+			}
+			if(config['chrome.bgo-extension.beep-your-turn']=="true"){
+				beep = true;
+			}
 		}
+		
+		if(msg.message.startsWith("Action") 
+			&& msg.lastAction!=""
+			&& (!msg.lastAction.startsWith(playerColors[msg.playerNo])))
+		{
+			if(config['chrome.bgo-extension.notification-your-turn']=="true"){
+				notificate = lastAction;
+			}
+			if(config['chrome.bgo-extension.beep-your-turn']=="true"){
+				beep = true;
+			}
+		}
+	}
+	
+	//2. Action Update
+	if(msg.message.startsWith("Action") 
+		&& msg.lastAction!=""
+		&& msg.lastAction.startsWith(playerColors[msg.playerNo]))
+	{
+		if(config['chrome.bgo-extension.notification-action-update']=="true"){
+			notificate = lastAction;
+		}
+		if(config['chrome.bgo-extension.beep-action-update']=="true"){
+			beep = true;
+		}
+	}
+	
+	//3.End of Game
+	if(msg.message.startsWith("End of")){
+		if(config['chrome.bgo-extension.notification-end-of-game']=="true"){
+			notificate = lastAction;
+		}
+		if(config['chrome.bgo-extension.beep-end-of-game']=="true"){
+			beep = true;
+		}
+	}
+	
+	if(config['chrome.bgo-extension.notification-global-enabled']!="true"){
+		notificate="";
+	}
+	
+	if(config['chrome.bgo-extension.beep-global-enabled']!="true"){
+		beep=false;
+	}
+	
+	//Beep and Notificate
+	if(beep == true){
+		//(function() {
+			var audioElement = document.createElement('audio');
+			audioElement.setAttribute("src", chrome.extension.getURL("Alert-08.m4a"));
+			audioElement.play();
+		//})();
+	}
+	
+	if(notificate != ""){
+		if (Notification) {
+			if (Notification.permission=="granted") {
+				var n_options = {
+      				body: notificate,
+      				icon: chrome.extension.getURL("favicon.ico")
+  				}
+             		var notification = new Notification('BGO Ready', n_options);
+             		
+             		setTimeout(notification.close.bind(notification), 5000); 
+       		} else if(Notification.permission=="default"){
+         			Notification.requestPermission();
+       		}
+   		}
 	}
 }
+);

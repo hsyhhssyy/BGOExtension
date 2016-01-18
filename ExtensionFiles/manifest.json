@@ -11,7 +11,7 @@
 		"default_title": "BGO Auto Refresh", // shown in tooltip
 		"default_popup": "popup.html"
 	},
-	"permissions" : ["tabs","notifications","http://localhost/"],
+	"permissions" : ["tabs","notifications","storage","http://localhost/"],
 	"content_scripts":[{
 		"matches":["http://boardgaming-online.com/*","http://www.boardgaming-online.com/*"],
 		"js":["jquery-2.0.0.min.js", "content_script.js"]

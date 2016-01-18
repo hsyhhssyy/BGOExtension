@@ -15,6 +15,9 @@ td{
 td.item-name{
 	text-align: right;
 }
+td.check-box{
+	text-align: right;
+}
 .content-div{
 	width:220px;
 	white-space:nowrap;
