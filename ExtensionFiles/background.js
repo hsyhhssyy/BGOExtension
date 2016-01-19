@@ -38,18 +38,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 	if(request.type=="bgo-board-information"){
 		bgoData = request;
 	}else if(request.type=="bgo-configuration-query"){
-		/*var config={
-			'chrome.bgo-extension.auto-refresh':localStorage['chrome.bgo-extension.auto-refresh'],
-			'chrome.bgo-extension.refresh-interval':localStorage['chrome.bgo-extension.refresh-interval'],
-			'chrome.bgo-extension.notification-global-enabled':localStorage['chrome.bgo-extension.notification-global-enabled'],
-			'chrome.bgo-extension.notification-your-turn':localStorage['chrome.bgo-extension.notification-your-turn'],
-			'chrome.bgo-extension.notification-action-update':localStorage['chrome.bgo-extension.notification-action-update'],
-			'chrome.bgo-extension.notification-end-of-game':localStorage['chrome.bgo-extension.notification-end-of-game'],
-			'chrome.bgo-extension.beep-global-enabled':localStorage['chrome.bgo-extension.beep-global-enabled'],
-			'chrome.bgo-extension.beep-your-turn':localStorage['chrome.bgo-extension.beep-your-turn'],
-			'chrome.bgo-extension.beep-action-update':localStorage['chrome.bgo-extension.beep-action-update'],
-			'chrome.bgo-extension.beep-end-of-game':localStorage['chrome.bgo-extension.beep-end-of-game']
-		};*/
 		var config={};
 		for (var key in localStorage){
 			if(key.startsWith("chrome.bgo-extension")){
@@ -57,6 +45,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
   			}
   		}
 		sendResponse(config);
+	}else if(request.type=="bgo-focus-window"){
+             chrome.tabs.update(null,{active:true})
 	}
 });
 

@@ -46,13 +46,20 @@ if(card_row == undefined){
 //send the package
 chrome.runtime.sendMessage(msg);
 
-function jumpurl(){  
-  location=document.URL;  
-} 
-
 var cfgRequestMsg = {
 	type: "bgo-configuration-query"
 };
+
+function jumpurl(){  
+	chrome.extension.sendMessage(cfgRequestMsg,
+		function (config){
+			if(config['chrome.bgo-extension.auto-refresh']!="true"){
+				setTimeout('jumpurl()',5000);  
+			}else{
+		  		location=document.URL;  
+			}
+	});
+} 
 
 chrome.extension.sendMessage(cfgRequestMsg,
 function (config){
@@ -90,7 +97,7 @@ function (config){
 			&& (!msg.lastAction.startsWith(playerColors[msg.playerNo])))
 		{
 			if(config['chrome.bgo-extension.notification-your-turn']=="true"){
-				notificate = lastAction;
+				notificate = msg.lastAction;
 			}
 			if(config['chrome.bgo-extension.beep-your-turn']=="true"){
 				beep = true;
@@ -104,7 +111,7 @@ function (config){
 		&& msg.lastAction.startsWith(playerColors[msg.playerNo]))
 	{
 		if(config['chrome.bgo-extension.notification-action-update']=="true"){
-			notificate = lastAction;
+			notificate = msg.lastAction;
 		}
 		if(config['chrome.bgo-extension.beep-action-update']=="true"){
 			beep = true;
@@ -114,7 +121,7 @@ function (config){
 	//3.End of Game
 	if(msg.message.startsWith("End of")){
 		if(config['chrome.bgo-extension.notification-end-of-game']=="true"){
-			notificate = lastAction;
+			notificate = "Your game has end. "+msg.lastAction;
 		}
 		if(config['chrome.bgo-extension.beep-end-of-game']=="true"){
 			beep = true;
@@ -146,6 +153,14 @@ function (config){
       				icon: chrome.extension.getURL("favicon.ico")
   				}
              		var notification = new Notification('BGO Ready', n_options);
+             		notification.onclick = function () {
+             			var focusRequestMsg = {
+						type: "bgo-focus-window"
+					};
+					
+					chrome.extension.sendMessage(focusRequestMsg);
+					//	chrome.windows.update(chrome.tab.windowid,{focused:true});
+				};
              		
              		setTimeout(notification.close.bind(notification), 5000); 
        		} else if(Notification.permission=="default"){

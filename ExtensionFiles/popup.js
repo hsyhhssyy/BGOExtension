@@ -65,4 +65,5 @@ document.addEventListener('DOMContentLoaded', function () {
     	registerCheckBox("beep-your-turn");
     	registerCheckBox("beep-action-update");
     	registerCheckBox("beep-end-of-game");
+    
 });
