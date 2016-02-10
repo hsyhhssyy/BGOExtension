@@ -1,0 +1,438 @@
+
+A
+Wonder
+Colossus
+3&nbsp;3&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">2<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="M" title="Ship" class="iconeCarte" src="images/tta7/exploration.png">+1<img class="spacer5" src="images/spacer.gif">&nbsp;
+Hanging Gardens
+2&nbsp;2&nbsp;2&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">1<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Library of Alexandria
+You may have 1 extra civil card and 1 extra military card in your hand.
+1&nbsp;4&nbsp;1&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">1<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">1<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Pyramids
+3&nbsp;2&nbsp;1&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Leader
+Alexander the Great
+You have +1 <img alt="strength" title="Strength" class="iconeTexte" src="images/tta7/strength.png"> for each of your military units. As a political action, you may remove Alexander from play and add 1 yellow token from the box to your yellow bank.
+<img class="spacer5" src="images/spacer.gif">?<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Aristotle
+Every time you take a technology card from the card row, you score 1 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> point.
+&nbsp;
+Hammurabi
+On your turn, you may use one of your <img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif"> as a <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif">. Taking a leader from the card row costs you 1 <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif"> less.
+Homer
+Each turn, you have an extra 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> for building and upgrading military units. When you replace Homer, you may give up the returned <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif"> to add 1 <img alt="happy face" title="Happy face" class="iconeTexte" src="images/tta7/happy.png"> to one of your completed wonders.
+<img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Julius Caesar
+After you played a political action, you may play another political action. This ability can be used only once per game.
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">1<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Moses
+Increasing your population costs you 1 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> less.
+Action
+Cultural Heritage
+Score 1 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> and 4 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">.
+Engineering Genius
+Build one stage of a wonder; pay 2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Frugality
+Increase your population. After you pay the <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> cost, gain 1 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.
+Patriotism
+For this turn, you have an extra 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> for building and upgrading military units and 1 extra <img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif">.
+Rich Land
+Build or upgrade a mine or farm; pay 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Stockpile
+Gain 1 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> and 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">.
+Urban Growth
+Build or upgrade an urban building; pay 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+I
+Farm
+Irrigation
+3<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+4&nbsp;<img alt="C" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">2<img alt="F" title="Food" class="iconeCarte" src="images/tta7/food.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Mine
+Iron
+5<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+5&nbsp;<img alt="C" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">2<img alt="R" title="Resource" class="iconeCarte" src="images/tta7/resource.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Arena
+Bread &amp; Circuses
+3&nbsp;<img alt="C" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">1<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Lab
+Alchemy
+4<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+6&nbsp;<img alt="C" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">2<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Library
+Printing Press
+Temple
+Theology
+2<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+Theater
+Drama
+<img class="spacer5" src="images/spacer.gif">2<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Cavalry
+Knights
+<img class="spacer5" src="images/spacer.gif">2<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Infantry
+Swordsmen
+Great Wall
+You have +1 <img alt="strength" title="Strength" class="iconeTexte" src="images/tta7/strength.png"> for each of your infantry and artillery units.
+2&nbsp;2&nbsp;3&nbsp;2&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">1<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">?<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+St. Peter's Basilica
+Any other card or worker that gives you at least 1 <img alt="happy face" title="Happy face" class="iconeTexte" src="images/tta7/happy.png"> now gives you an extra 1 <img alt="happy face" title="Happy face" class="iconeTexte" src="images/tta7/happy.png">.
+4&nbsp;4&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+Taj Mahal
+If you replaced your leader this turn, taking this wonder costs you 2 <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif"> less.
+2&nbsp;4&nbsp;2&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">3<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Universitas Carolina
+3&nbsp;3&nbsp;3&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">1<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">2<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Christopher Columbus
+As a political action, you may remove Columbus from play to colonize a territory in your hand without sacrificing any unit.
+Frederick Barbarossa
+For 1 <img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif">, you can increase your population and build a new military unit with it. This costs you 1 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> and 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less than usual.
+Genghis Khan
+One or more of your infantry units can be considered cavalry for purposes of tactics. At the end of turn, score 3 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> if you are one of the 2 strongest civilizations (you win ties).
+<img class="spacer5" src="images/spacer.gif">?<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Joan of Arc
+Your <img alt="temple" title="Temple" class="iconeTexte" src="images/tta7/temple.png"> and government give you +1 <img alt="strength" title="Strength" class="iconeTexte" src="images/tta7/strength.png"> for each of their <img alt="happy face" title="Happy face" class="iconeTexte" src="images/tta7/happy.png">. At the beginning of your political phase, you may look at the top current event card.
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">1<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Leonardo Da Vinci
+Your best <img alt="lab" title="Lab" class="iconeTexte" src="images/tta7/lab.png"> or <img alt="library" title="Library" class="iconeTexte" src="images/tta7/library.png"> produces an additional amount of <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> equal to its level.<br> Every time you develop a technology, gain 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">.
+<img class="spacer5" src="images/spacer.gif">?<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Michelangelo
+Your <img alt="temple" title="Temple" class="iconeTexte" src="images/tta7/temple.png">, <img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png">, and wonders produce an extra 1 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> for each of their <img alt="happy face" title="Happy face" class="iconeTexte" src="images/tta7/happy.png">.<br> When taking a wonder from the card row, you do not pay extra actions for the wonders you have.
+Government
+Monarchy
+2(8)<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img class="spacer5" src="images/spacer.gif">
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif">
+Theocracy
+1(6)<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img class="spacer5" src="images/spacer.gif">
+<img class="spacer5" src="images/spacer.gif">1<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">1<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Civil
+Code of Laws
+6<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+Construction
+Masonry
+Cost of urban buildings is reduced:<br> Age III -1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"><br> Age II -1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"><br> Age I -1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"><br> You may build up to 2 stages of a wonder for 1 <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif">.
+Exploration
+Cartography
+<img class="spacer5" src="images/spacer.gif">1<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="M" title="Ship" class="iconeCarte" src="images/tta7/exploration.png">+2<img class="spacer5" src="images/spacer.gif">&nbsp;
+Military
+Warfare
+Breakthrough
+Develop a technology. After you pay the <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> cost, score 2 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png">.
+Score 2 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> and 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">.
+Build one stage of a wonder; pay 3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Increase your population. After you pay the <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> cost, gain 2 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.
+For this turn, you have an extra 2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> for building and upgrading military units and 1 extra <img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif">.
+Reserves
+Gain either 2 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> or 2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">.
+Build or upgrade a mine or farm; pay 2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Build or upgrade an urban building; pay 2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+II
+Selective Breeding
+<img class="spacer5" src="images/spacer.gif">3<img alt="F" title="Food" class="iconeCarte" src="images/tta7/food.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Coal
+7<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+8&nbsp;<img alt="C" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">3<img alt="R" title="Resource" class="iconeCarte" src="images/tta7/resource.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Team Sports
+<img class="spacer5" src="images/spacer.gif">2<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Scientific Method
+<img class="spacer5" src="images/spacer.gif">3<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Journalism
+<img class="spacer5" src="images/spacer.gif">2<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">2<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Organized Religion
+7&nbsp;<img alt="C" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">1<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Opera
+<img class="spacer5" src="images/spacer.gif">3<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Artillery
+Cannon
+<img class="spacer5" src="images/spacer.gif">3<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Cavalrymen
+Riflemen
+Eiffel Tower
+3&nbsp;7&nbsp;3&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">4<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Kremlin
+4&nbsp;4&nbsp;4&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img class="spacer5" src="images/spacer.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">2<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/unhappy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Ocean Liner
+During your Action Phase, you can gain 1 population. (This costs no <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif"> or <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.)
+4&nbsp;2&nbsp;2&nbsp;4&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+Transcontinental Railroad
+One of your best mines produces twice as many <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> (One of the workers on it produces 2 blue tokens instead of 1).
+3&nbsp;3&nbsp;3&nbsp;3&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">4<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Isaac Newton
+You best <img alt="lab" title="Lab" class="iconeTexte" src="images/tta7/lab.png"> or <img alt="library" title="Library" class="iconeTexte" src="images/tta7/library.png"> produces an additional amount of <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> equal to its level.<br> Every time you develop a technology, you get back 1 spent <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif">.
+James Cook
+When colonizing, you may discard up to 2 military card to get +1 <img alt="ship" title="Ship" class="iconeTexte" src="images/tta7/exploration.png">. One of your colonies produces 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">. Every colony after that produces 1 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">.
+Johannes Sebastian Bach
+Each of your <img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png"> produces an extra 1 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">. It costs you 2 less <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> to develop <img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png"> technologies. Once during your turn, you may spend a <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif"> to upgrade any urban building to a <img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png"> of the same level or higher for the usual cost.
+Maximillien Robespierre
+A revolution costs you all of your <img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif"> instead of all of your <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif">. You score 3 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> when declaring a revolution.
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Napoleon Bonaparte
+You have +2 <img alt="strength" title="Strength" class="iconeTexte" src="images/tta7/strength.png"> for each different type of military unit you have. (The four types are infantry, cavalry, artillery, and air force)
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">?<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+William Shakespeare
+If you have a <img alt="library" title="Library" class="iconeTexte" src="images/tta7/library.png">, you can build <img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png"> for 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less and develop <img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png"> technologies for 1 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> less. Vice versa if you have a <img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png">. Each <img alt="library" title="Library" class="iconeTexte" src="images/tta7/library.png">-<img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png"> pair produces an extra 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">.
+<img class="spacer5" src="images/spacer.gif">?<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Constitutional Monarchy
+6(12)<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img class="spacer5" src="images/spacer.gif">
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif">
+Republic
+3(13)<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img class="spacer5" src="images/spacer.gif">
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif">
+Justice System
+<img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Architecture
+Cost of urban buildings is reduced:<br> Age III -2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"><br> Age II -2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"><br> Age I -1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"><br> You may build up to 3 stages of a wonder for 1 <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif">.
+Navigation
+<img class="spacer5" src="images/spacer.gif">2<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="M" title="Ship" class="iconeCarte" src="images/tta7/exploration.png">+3<img class="spacer5" src="images/spacer.gif">&nbsp;
+Strategy
+8<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">3<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Develop a technology. After you pay the <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> cost, score 3 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png">.
+Efficient Upgrade
+Upgrade a farm, mine or urban building; pay 3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Build one stage of a wonder; pay 4 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Increase your population. After you pay the <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> cost, gain 3 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.
+For this turn, you have an extra 3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> for building and upgrading military units and 1 extra <img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif">.
+Gain either 3 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> or 3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">.
+Revolutionary Idea
+Scores 4 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png">.
+Build or upgrade a mine or farm; pay 3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Build or upgrade an urban building. Pay 3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Wave of Nationalism
+For each civilization stronger than yours, you have extra <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> for building and upgrading military units this round:<br> 2 in a 4-player game<br> 3 in a 3-player game<br> 6 in a 2-player game
+III
+Mechanized Agriculture
+<img class="spacer5" src="images/spacer.gif">5<img alt="F" title="Food" class="iconeCarte" src="images/tta7/food.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Oil
+9<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+11&nbsp;<img alt="C" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif">5<img alt="R" title="Resource" class="iconeCarte" src="images/tta7/resource.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Professional Sports
+<img class="spacer5" src="images/spacer.gif">3<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Computers
+<img class="spacer5" src="images/spacer.gif">5<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Multimedia
+<img class="spacer5" src="images/spacer.gif">3<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">3<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Movies
+10<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+Air Force
+Air Forces
+12<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+Each unit also doubles the tactics card bonus for 1 army.
+<img class="spacer5" src="images/spacer.gif">5<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Rockets
+Tanks
+Modern Infantry
+Fast Food Chains
+You immediately score 1 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> for every worker in a military unit or urban building and 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> for every worker in a farm or mine.
+4&nbsp;4&nbsp;4&nbsp;4&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+First Space Flight
+You immediately score 1 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per level of each of your technology cards.
+1&nbsp;2&nbsp;4&nbsp;9&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+Hollywood
+You immediately score <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> equal to twice the <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> produced by your <img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png"> and <img alt="library" title="Library" class="iconeTexte" src="images/tta7/library.png">.
+5&nbsp;6&nbsp;5&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+Internet
+You immediately score <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> equal to the <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> and <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> produced by your urban buildings plus any <img alt="strength" title="Strength" class="iconeTexte" src="images/tta7/strength.png"> bonuses they provide.
+2&nbsp;3&nbsp;4&nbsp;3&nbsp;2&nbsp;<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+Albert Einstein
+You best <img alt="lab" title="Lab" class="iconeTexte" src="images/tta7/lab.png"> or <img alt="library" title="Library" class="iconeTexte" src="images/tta7/library.png"> produces an additional amount of <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> equal to its level.<br> Every time you develop a technology, you score 3 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">.
+Bill Gates
+Each of your <img alt="lab" title="Lab" class="iconeTexte" src="images/tta7/lab.png"> also produces <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> equal to its level. When Bill Gates leaves play or at the end of the game, score <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> equal to this additional production.
+Charles Chaplin
+Your best <img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png"> produces twice as much <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">.
+<img class="spacer5" src="images/spacer.gif">?<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Mahatma Gandhi
+You may not play aggression or war cards. Your rivals must pay twice as many <img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif"> to declare aggression or war against you.
+<img class="spacer5" src="images/spacer.gif">2<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Sid Meier
+Each of your <img alt="lab" title="Lab" class="iconeTexte" src="images/tta7/lab.png"> produces an amount of <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> equal to its level. However, each produces 1 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> less.
+<img class="spacer5" src="images/spacer.gif">?<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">?<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Winston Churchill
+On your turn, choose one:<br> Score 3 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">;<br> or you have 3 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> and 3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> for developing military unit technologies and building and upgrading military units.
+Communism
+5(19)<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif">
+<img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/unhappy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Democracy
+9(17)<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img class="spacer5" src="images/spacer.gif">3<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Fundamentalism
+7(18)<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img class="spacer5" src="images/spacer.gif">5<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">-2<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Civil Service
+<img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Engineering
+Cost of urban buildings is reduced:<br> Age III -3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"><br> Age II -2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"><br> Age I -1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"><br> You may build up to 4 stages of a wonder for 1 <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif">.
+Satellites
+<img class="spacer5" src="images/spacer.gif">3<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="M" title="Ship" class="iconeCarte" src="images/tta7/exploration.png">+4<img class="spacer5" src="images/spacer.gif">&nbsp;
+Military Theory
+11<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">5<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Upgrade a farm, mine or urban building; pay 4 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Endowment for the Arts
+You score <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> for each civilization with more <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> than your have:<br> 2 in a 4-player game<br> 3 in a 3-player game<br> 6 in a 2-player game
+Build one stage of a wonder; pay 5 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Military Build-Up
+For each civilization stronger than yours, you have extra <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> for building and upgrading military units this round:<br> 3 in a 4-player game<br> 5 in a 3-player game<br> 8 in a 2-player game
+For this turn, you have an extra 4 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> for building and upgrading military units and 1 extra <img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif">.
+Gain either 4 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> or 4 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">.
+Scores 6 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png">.
+Build or upgrade an urban building; pay 4 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> less.
+Event
+Development of Agriculture
+Each civilization gains 2 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.
+Development of Civilization
+Immediately, each civilization may either: increase its population; or build a farm, mine or urban building; or develop a technology. It costs 1 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> or 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> or 1 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> less than usual.
+Development of Crafts
+Each civilization gains 2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">.
+Development of Markets
+Each civilization gains 2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> or 2 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> (player's choice).
+Development of Politics
+Each player draws 3 military cards.
+Development of Religion
+Each player with an unused worker may immediately build an Age A <img alt="temple" title="Temple" class="iconeTexte" src="images/tta7/temple.png"> for free.
+Development of Science
+Each civilization scores 2 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png">.
+Development of Settlement
+Each civilization gains 1 population.
+Development of Trade Routes
+Each civilization scores 1 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> and gains 1 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> and 1 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.
+Development of Warfare
+Each player with an unused worker may immediately build a Warrior unit for free.
+Developed Territory
+3 <img alt="science" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img class="spacer5" src="images/spacer.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Historic Territory
+6 <img alt="culture" title="Culture" class="iconeCarte" src="images/tta7/culture.png">
+Inhabited Territory
+Increase population by 1
+<img class="spacer5" src="images/spacer.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Strategic Territory
+3 military cards
+Vast Territory
+3 <img alt="food" title="Food" class="iconeCarte" src="images/tta7/food.png">
+<img class="spacer5" src="images/spacer.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">-<img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Wealthy Territory
+5 <img alt="resource" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Barbarians
+If the civilization with the most <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> points is one of the two weakest civilizations it loses 1 population.
+Border Conflict
+The weakest civilization must destroy one of its own urban building, farm, or mine. The strongest civilization gains 3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">.
+Crusades
+The strongest civilization scores 4 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">. The weakest civilization loses 4 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">.
+Cultural Influence
+Each civilization immediately scores <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> equal to the amount of <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> it produces.
+Foray
+Each of the two strongest civilizations gains a total of 3 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> and/or <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.
+Good Harvest
+Each civilization produces <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> immediately. Ignore corruption and consumption.
+Immigration
+All civilizations with the most <img alt="happy face" title="Happy face" class="iconeTexte" src="images/tta7/happy.png"> gain 1 population.
+New Deposits
+Each civilization produces <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> immediately. Ignore corruption.
+Pestilence
+Each civilization loses 1 population.
+Raiders
+Each of the two weakest civilizations lose a total of 2 <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> and/or <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.
+Rats
+Each civilization loses all stored <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.
+Rebellion
+Each civlization immediately spends 2 <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif"> (without effect) per discontent worker.
+Reign of Terror
+The weakest civilization loses 1 population.
+Scientific Breakthrough
+Each civilization immediately scores <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> equal to the amount of <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> it produces.
+Uncertain Borders
+The strongest civilization takes 1 yellow token from the weakest civilization's yellow bank.
+5 <img alt="science" title="Science" class="iconeCarte" src="images/tta7/science.png">
+<img class="spacer5" src="images/spacer.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+11 <img alt="culture" title="Culture" class="iconeCarte" src="images/tta7/culture.png">
+<img class="spacer5" src="images/spacer.gif"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Increase population by 2
+<img class="spacer5" src="images/spacer.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+5 military cards
+4 <img alt="food" title="Food" class="iconeCarte" src="images/tta7/food.png">
+<img class="spacer5" src="images/spacer.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif"><img class="spacer5" src="images/spacer.gif"><img class="spacer5" src="images/spacer.gif">-<img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+9 <img alt="resource" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+<img class="spacer5" src="images/spacer.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif"><img class="spacer5" src="images/spacer.gif">&nbsp;
+Civil Unrest
+Each civilization loses 4 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per discontent worker. All civilizations with the most discontent workers also returns 1 blue token to the box. If no one has discontent workers, this event has no effect.
+Cold War
+The two strongest civilizations score 6 <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png">.
+Crime Wave
+The two weakest civilizations lose 3 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> and return 1 blue token to the box.
+Economic Progress
+Each player produces immediately:<br> Evaluate corruption.<br> Produce <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">.<br> Evaluate consumption.<br> Produce <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">.
+Emigration
+Each civilization loses half of its discontent workers, rounded up (return them to your yellow bank).
+Iconoclasm
+Each civilization with a leader that is not from the current age must remove that leader from play.
+Independence Declaration
+The weakest civilization loses 1 colony (the player choses which one).
+International Agreement
+The strongest civilization may immediately take up to 5 <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif"> in cards by giving up its next chance to take a political action. Replenish the card row. This may end the Age.
+National Pride
+The civilization with the most <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> points scores 5 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">.
+Politics of Strength
+The strongest civilization draws 5 military cards. The weakest civilization discards 3 military cards. In the game-ending age, <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> is scored or lost instead.
+Popularization of Science
+Each civilization scores <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> equal to the amount of <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> it produces.
+Prosperity
+Each civilization gains 1 <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> for each of its <img alt="happy face" title="Happy face" class="iconeTexte" src="images/tta7/happy.png"> (max 8).
+Ravages of Time
+Each player chooses one of his or her completed wonder from Age A or I and turns it face down. These wonders lose their effects and produce 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> instead.
+Refugees
+The strongest scores 3 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> and gains 1 population. The weakest civilization loses 3 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> and 1 population. 
+Terrorism
+The civilization with the least <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> points destroys 1 urban building of each other civilization.
+Impact of Agriculture
+Each civilization scores <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> equal to the amount of <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png"> it produces with a bonus of 4 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> if this exceeds consumption.
+Impact of Architecture
+Each civilization scores 1 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per level of each of its urban buildings.
+Impact of Balance
+Each civilization scores <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> equal to double the amount of whatever it produces the least (<img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png">, <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">, <img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">, or <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">). Ignore corruption and consumption.
+Impact of Colonies
+Each civilization scores 3 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per colony.
+Impact of Competition
+Each civilization scores 1 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per level of each of its military units and <img alt="arena" title="Arena" class="iconeTexte" src="images/tta7/arena.png">.
+Impact of Government
+Each civilization scores 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per <img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif"> and 1 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per <img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif">.
+Impact of Happiness
+Each civilization scores 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per <img alt="happy face" title="Happy face" class="iconeTexte" src="images/tta7/happy.png"> (no more than 16 points) and loses 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per discontent worker.
+Impact of Industry
+Each civilization scores <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> equal to the amount of <img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png"> its mines produce. (Ignore any production from other sources)
+Impact of Population
+Each civilization scores 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per content worker above 10.
+Impact of Progress
+Each civilization scores 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> per level of each of its government and special (blue) technologies.
+Impact of Science
+Each civilizations score <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> according to the relative amount of <img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png"> it produces:<br> 15/10/5/0 for 4-player<br> 14/7/0 for 3-player<br> 10/0 for 2-player
+Impact of Strength
+Each civilizations score <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> according to their relative <img alt="strength" title="Strength" class="iconeTexte" src="images/tta7/strength.png">:<br> 15/10/5/0 for 4-player<br> 14/7/0 for 3-player<br> 10/0 for 2-player
+Impact of Technology
+Each civilization scores 4 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> for each of its level III technologies (level II in Advanced game).
+Impact of Variety
+Each civilization scores 2 <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> for each type of unit, urban building and special (blue) technology.
+Impact of Wonders
+Each civilization scores <img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png"> for each wonders:<br> 5 for age A<br> 4 for age I<br> 3 for age II<br> 2 for age III

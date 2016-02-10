@@ -168,3 +168,47 @@ function (config) {
     }
 }
 );
+
+
+//汉化部分
+var dictionary //= localStorage["tta_dictonary"];
+if(dictionary == undefined){
+    dictionary = [];
+}
+var gathered_text_list = "";
+
+function gather_text(iterators){
+    var i=0;
+    while (iterators[i] != undefined) {
+        var text_gathered = $(iterators[i]).html();
+        if(text_gathered != undefined){
+            if(dictionary.indexOf(text_gathered)<0){
+                dictionary.push(text_gathered);
+                gathered_text_list += ("<SEP>"+text_gathered);
+            }
+        }else{
+            text_gathered=text_gathered;
+        }
+        
+        i++;
+    }
+}
+//收集原文本 <p> <li>
+//卡排列 面板标题
+//gather_text($("p[class=\"nomCarte\"]"));
+
+//鼠标提示卡文本
+var mouse_over=$("ul[id=\"carte\"]");
+var i=0;
+    while (mouse_over[i] != undefined) {
+        gather_text($(mouse_over[i]).find("p"));
+        i++;
+}
+//gather_text($("p[class=\"tta_wonder1 nomCarte nomCarteCivile\"]"));
+//gather_text($("p[class=\"tta_leader1 nomCarte nomCarteCivile\"]"));
+//gather_text($("p[class=\"tta_urban1 nomCarte nomCarteCivile\"]"));
+//gather_text($("p[class=\"tta_action1 nomCarte nomCarteCivile\"]"));
+//gather_text($("p[class=\"tta_military1 nomCarte nomCarteCivile\"]"));
+
+localStorage["tta_dictonary"]=dictionary;
+localStorage["gathered_text_list"]=gathered_text_list;
