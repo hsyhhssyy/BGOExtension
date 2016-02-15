@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $("#content-last-action").text(data.lastAction);
         $("#activate-refresh").get(0).checked = (localStorage['chrome.bgo-extension.auto-refresh'] == "true");
         $("#refresh-interval").get(0).value = localStorage['chrome.bgo-extension.refresh-interval'];
+	    $("#translate-language").get(0).value = localStorage['chrome.bgo-extension.translate-language'];
 
         //$("#notification-global-enabled").get(0).checked = (localStorage['chrome.bgo-extension.notification-global-enabled'] == "true");
         setCheckboxValue("notification-global-enabled");
@@ -41,6 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
     //bind actions
     $("#activate-refresh").get(0).addEventListener('click', function () {
         localStorage['chrome.bgo-extension.auto-refresh'] = $("#activate-refresh").get(0).checked;
+    });
+    
+    $("#translate-language").get(0).addEventListener('change', function () {
+        localStorage['chrome.bgo-extension.translate-language'] = $("#translate-language").get(0).value;
     });
 
     var refreshIntervalCheck = function () {
