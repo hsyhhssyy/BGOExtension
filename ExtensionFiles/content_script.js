@@ -327,6 +327,10 @@ chrome.extension.sendMessage(dictRequestMsg,
 	            var eventName = text.substr(11);
 	            actionOptionIterator[i].innerHTML = dict["Play event"] + " " + dict[eventName];
 	        } else if (text.indexOf("Build") == 0) {
+	        	//Build关键字的出现可能有多种情况。包括
+	        	//Build Iron (5R)
+	        	//Build free temple/Build free warrior.
+	        	//Build 4 stage of Library of Alexandria (1R)
 	            var resourceLoc = text.indexOf("(")
 	            var card = text.substr(6, resourceLoc - 6 - 1);
 	            actionOptionIterator[i].innerHTML = dict["Build"] + " " + dict[card] + " " + text.substr(resourceLoc);
@@ -335,6 +339,10 @@ chrome.extension.sendMessage(dictRequestMsg,
 	            var card = text.substr(9, resourceLoc - 9 - 1);
 	            actionOptionIterator[i].innerHTML = dict["Discover"] + " " + dict[card] + " " + text.substr(resourceLoc);
 	        } else if (text.indexOf("Play") == 0) {
+	        	//Play关键字的出现可能有多种情况。包括
+	        	//Play A / Rich Land
+	        	//Play event Pestilence
+	        	//Play event Developed Territory II
 	            var levelLoc = text.indexOf("/")
 	            var card = text.substr(levelLoc+2);
 	            actionOptionIterator[i].innerHTML = dict["Play"] +" "+ text.substr(5, text.length-levelLoc ) + dict[card];
