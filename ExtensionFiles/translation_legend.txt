@@ -1,5 +1,6 @@
 [SP1]<img class="spacer5" src="images/spacer.gif">
 [B]&nbsp;
+[BR]<br>
 [Strength1]<img alt="strength" title="Strength" class="iconeTexte" src="images/tta7/strength.png">
 [Strength2]<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png">
 [Resource1]<img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">

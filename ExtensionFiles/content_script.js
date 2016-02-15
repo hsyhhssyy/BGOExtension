@@ -187,15 +187,22 @@ function gather_text(iterators){
     }
 }
 //收集文本
-gather_text($("a[class=\"nomCarte tta_tactic1\"]"));
+//gather_text($("a[class=\"nomCarte tta_war1\"]"));
+//gather_text($("a[class=\"nomCarte tta_aggression1\"]"));
+gather_text($("p[class=\"texteCarte\"]"));
 
 localStorage["gathered_text_list"]=gathered_text_list;
 
+function replaceAll(source, key, value) {
+    var searchKey = key.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+    return source.replace(new RegExp(searchKey, 'g'), value);
+}
 
 function translate(iterators,dict){
     var i=0;
     while (iterators[i] != undefined) {
         var text_gathered = $(iterators[i]).html();
+        text_gathered = replaceAll(text_gathered, "\n", "");
         if (text_gathered != undefined) {
             if (dict[text_gathered] != undefined) {
                 var translated_text = dict[text_gathered];

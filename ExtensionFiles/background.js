@@ -87,6 +87,10 @@ function loadLegend() {
                 var value = legendRowText.substr(legendRowLoc + 1);
                 legends[key] = value;
             }
+
+            //special legend
+            legends["LR"] = "\n";
+
             //Legend loaded
             loadDict("zh-cn");
         }
