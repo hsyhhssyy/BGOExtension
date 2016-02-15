@@ -18,6 +18,7 @@
 	}],
 	"web_accessible_resources": [
 		"Alert-08.m4a",
-		"favicon.ico"
+		"favicon.ico",
+		"translation_legend.txt"
     	]
 }

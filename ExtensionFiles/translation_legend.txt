@@ -1,0 +1,34 @@
+[SP1]<img class="spacer5" src="images/spacer.gif">
+[B]&nbsp;
+[Strength1]<img alt="strength" title="Strength" class="iconeTexte" src="images/tta7/strength.png">
+[Strength2]<img alt="M" title="Military strength" class="iconeCarte" src="images/tta7/strength.png">
+[Resource1]<img alt="resource" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+[Resource2]<img alt="R" title="Resource" class="iconeTexte" src="images/tta7/resource.png">
+[Resource3]<img alt="C" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+[Resource4]<img alt="R" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+[Resource5]<img alt="resource" title="Resource" class="iconeCarte" src="images/tta7/resource.png">
+[Exploration1]<img alt="ship" title="Ship" class="iconeTexte" src="images/tta7/exploration.png">
+[Exploration2]<img alt="M" title="Ship" class="iconeCarte" src="images/tta7/exploration.png">
+[Culture1]<img alt="culture" title="Culture" class="iconeTexte" src="images/tta7/culture.png">
+[Culture2]<img alt="C" title="Culture" class="iconeCarte" src="images/tta7/culture.png">
+[Culture3]<img alt="culture" title="Culture" class="iconeCarte" src="images/tta7/culture.png">
+[HappyFace1]<img alt="happy face" title="Happy face" class="iconeTexte" src="images/tta7/happy.png">
+[HappyFace2]<img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/happy.png">
+[UnhappyFace1]<img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/unhappy.png">
+[Science1]<img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png">
+[Science2]<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+[MA1]<img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif">
+[MA2]<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif">
+[CA1]<img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif">
+[CA2]<img alt="CA" title="Civil action" class="iconeCarte" src="images/tta7/ca.gif">
+[Food1]<img alt="food" title="Food" class="iconeTexte" src="images/tta7/food.png">
+[Food2]<img alt="F" title="Food" class="iconeCarte" src="images/tta7/food.png">
+[Food3]<img alt="food" title="Food" class="iconeCarte" src="images/tta7/food.png">
+[Temple1]<img alt="temple" title="Temple" class="iconeTexte" src="images/tta7/temple.png">
+[Theater1]<img alt="theater" title="Theater" class="iconeTexte" src="images/tta7/theater.png">
+[Lab1]<img alt="lab" title="Lab" class="iconeTexte" src="images/tta7/lab.png">
+[Library1]<img alt="library" title="Library" class="iconeTexte" src="images/tta7/library.png">
+[Arena1]<img alt="arena" title="Arena" class="iconeTexte" src="images/tta7/arena.png">
+[BlueToken1]<img alt="Blue token" title="Blue token" class="iconeCarte" src="images/tta7/blue.gif">
+[YellowToken1]<img alt="Yellow token" title="Yellow token" class="iconeCarte" src="images/tta7/yellow.gif">
+
