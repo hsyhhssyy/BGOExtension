@@ -8,6 +8,7 @@ Index/目录:<br>
 
 ## Version Update/版本更新说明
 ### 2016.02.25 2.1.0
+![ChineseTranslation](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-version-2.1-2.jpg)<br>
 更新了汉化功能<br>
 修复了很多Bug<br>
 Introduced Chinese translations<br>
