@@ -17,6 +17,7 @@
 [UnhappyFace1]<img alt="HF" title="Happy face" class="iconeCarte" src="images/tta7/unhappy.png">
 [Science1]<img alt="science" title="Science" class="iconeTexte" src="images/tta7/science.png">
 [Science2]<img alt="S" title="Science" class="iconeCarte" src="images/tta7/science.png">
+[Science3]<img alt="science" title="Science" class="iconeCarte" src="images/tta7/science.png">
 [MA1]<img alt="military action" title="Military Action" class="iconeTexte" src="images/tta7/ma.gif">
 [MA2]<img alt="MA" title="Military action" class="iconeCarte" src="images/tta7/ma.gif">
 [CA1]<img alt="civil action" title="Civil Action" class="iconeTexte" src="images/tta7/ca.gif">

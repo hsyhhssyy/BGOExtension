@@ -215,17 +215,21 @@ function translate(iterators,dict){
     var i=0;
     while (iterators[i] != undefined) {
         var text_gathered = $(iterators[i]).html();
-        if(text_gathered != undefined){
-            if(dict[text_gathered] != undefined){
+        if (text_gathered != undefined) {
+            if (dict[text_gathered] != undefined) {
                 var translated_text = dict[text_gathered];
-                var j=0;
-                for(j=0;j<iterators[i].length;j++){
+                var j = 0;
+                for (j = 0; j < iterators[i].length; j++) {
                     iterators[i].removeChild(iterators[i][j]);
                 }
                 //var translated_node = $(translated_text);
                 //iterators[i].prepend(translated_node);
                 iterators[i].innerHTML = translated_text;
+            } else {
+                text_gathered = undefined;
             }
+        } else {
+            text_gathered = undefined;
         }
         
         i++;
@@ -255,9 +259,69 @@ chrome.extension.sendMessage(dictRequestMsg,
            translate(card_title,dict);
            while (card_title[i] != undefined) {
                 if(card_title[i].parentNode.nodeName == "DIV"){
-                    card_title[i].setAttribute("style","width:60");
+                    card_title[i].setAttribute("style","min-width:60");
                 }
                 i++;
            }
-    }
+
+        //Hand
+           translate($("a[class=\"nomCarte tta_production0 tta_production4\"]"), dict);
+           translate($("a[class=\"nomCarte tta_leader0 tta_leader4\"]"), dict);
+           translate($("a[class=\"nomCarte tta_urban0 tta_urban4\"]"), dict);
+           translate($("a[class=\"nomCarte tta_military0 tta_military4\"]"), dict);
+           translate($("a[class=\"nomCarte tta_wonder0 tta_wonder4\"]"), dict);
+           translate($("a[class=\"nomCarte tta_government0 tta_government4\"]"), dict);
+           translate($("a[class=\"nomCarte tta_special0 tta_special4\"]"), dict);
+           translate($("a[class=\"nomCarte tta_action0 tta_action4\"]"), dict);
+
+           translate($("a[class=\"nomCarte tta_event1\"]"), dict);
+           translate($("a[class=\"nomCarte tta_aggression1\"]"), dict);
+           translate($("a[class=\"nomCarte tta_war1\"]"), dict);
+           translate($("a[class=\"nomCarte tta_bonus1\"]"), dict);
+           translate($("a[class=\"nomCarte tta_pact1\"]"), dict);
+           translate($("a[class=\"nomCarte tta_tactic1\"]"), dict);
+
+	    //Gov
+           translate($("strong"), dict);
+
+           translate($("li[class=\"nomCarte\"]"), dict);
+
+	    //Webpage element
+	    //1. Cost:
+          var i = 0;
+	    var costIterator = $("li[class=\"nombreCarte\"]");
+	    while (costIterator[i] != undefined) {
+	        var text = $(costIterator[i]).html();
+            if (text.indexOf("Cost") == 0) {
+                costIterator[i].innerHTML = text.replace("Cost", dict["Cost"]);
+            }
+	        i++;
+	    }
+
+        //Card Row title
+	    var card_title = $("p[class=\"titre3\"]");
+	    translate(card_title, dict);
+
+        //Worker Pool
+	    var workerPool = $("div[class=\"worker_pool\"]").find("p").first();
+	    workerPool[0].innerHTML = dict["Worker pool"];
+
+	    //important
+	    var card_title = $("pan[class=\"important\"]");
+	    translate(card_title, dict);
+
+	    //Action  options:
+	    var actionOptionIterator = $("option");
+	    while (actionOptionIterator[i] != undefined) {
+	        var text = $(actionOptionIterator[i]).html();
+	        if (text.indexOf("End Action Phase") == 0) {
+	            costIterator[i].innerHTML = dict["End Action Phase"];
+	        } else if (text.indexOf("Play") == 0) {
+	            
+	        }
+
+	        i++;
+	    }
+
+	}
 );

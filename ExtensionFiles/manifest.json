@@ -19,6 +19,7 @@
 	"web_accessible_resources": [
 		"Alert-08.m4a",
 		"favicon.ico",
-		"translation_legend.txt"
+    "translation_legend.txt",
+    "dict_zh-cn.txt"
     	]
 }
