@@ -31,6 +31,7 @@ if (localStorage['chrome.bgo-extension.refresh-interval'] == undefined) {
     localStorage['chrome.bgo-extension.beep-your-turn'] = "true";
     localStorage['chrome.bgo-extension.beep-action-update'] = "false";
     localStorage['chrome.bgo-extension.beep-end-of-game'] = "false";
+    localStorage['chrome.bgo-extension.translate-language'] = "enUS";
 }
 
 var bgoData = {};
@@ -45,7 +46,18 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             }
         }
         sendResponse(config);
-    } else if (request.type == "bgo-focus-window") {
+    }else if (request.type == "bgo-translation-query") {
+        //load dict
+        var dict={};
+        dict["Every time you take a technology card from the card row, you score 1 <img alt=\"science\" title=\"Science\" class=\"iconeTexte\" src=\"images/tta7/science.png\"> point."] = "每当你从卡牌列获得一张科技牌时，你获得1<img alt=\"science\" title=\"Science\" class=\"iconeTexte\" src=\"images/tta7/science.png\">";
+        dict["Breakthrough<br>"] = "突破<br>";
+        dict["Breakthrough"] = "突破";
+        dict["II&nbsp;-&nbsp;Breakthrough"] = "II - 突破";
+        sendResponse(dict);
+        
+        chrome.extension.getURL("dict_zhCN");
+    } 
+    else if (request.type == "bgo-focus-window") {
         chrome.tabs.update(null, { active: true })
     }
 });

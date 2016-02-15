@@ -171,6 +171,7 @@ function (config) {
 
 
 //汉化部分
+/*
 var dictionary //= localStorage["tta_dictonary"];
 if(dictionary == undefined){
     dictionary = [];
@@ -200,15 +201,63 @@ function gather_text(iterators){
 //鼠标提示卡文本
 var mouse_over=$("ul[id=\"carte\"]");
 var i=0;
-    while (mouse_over[i] != undefined) {
+while (mouse_over[i] != undefined) {
         gather_text($(mouse_over[i]).find("p"));
         i++;
 }
 //gather_text($("p[class=\"tta_wonder1 nomCarte nomCarteCivile\"]"));
-//gather_text($("p[class=\"tta_leader1 nomCarte nomCarteCivile\"]"));
-//gather_text($("p[class=\"tta_urban1 nomCarte nomCarteCivile\"]"));
-//gather_text($("p[class=\"tta_action1 nomCarte nomCarteCivile\"]"));
-//gather_text($("p[class=\"tta_military1 nomCarte nomCarteCivile\"]"));
 
-localStorage["tta_dictonary"]=dictionary;
-localStorage["gathered_text_list"]=gathered_text_list;
+//localStorage["tta_dictonary"]=dictionary;
+//localStorage["gathered_text_list"]=gathered_text_list;
+*/
+
+function translate(iterators,dict){
+    var i=0;
+    while (iterators[i] != undefined) {
+        var text_gathered = $(iterators[i]).html();
+        if(text_gathered != undefined){
+            if(dict[text_gathered] != undefined){
+                var translated_text = dict[text_gathered];
+                var j=0;
+                for(j=0;j<iterators[i].length;j++){
+                    iterators[i].removeChild(iterators[i][j]);
+                }
+                //var translated_node = $(translated_text);
+                //iterators[i].prepend(translated_node);
+                iterators[i].innerHTML = translated_text;
+            }
+        }
+        
+        i++;
+    }
+}
+
+var dictRequestMsg = {
+    type: "bgo-translation-query"
+};
+
+chrome.extension.sendMessage(dictRequestMsg,
+	function (dict){
+        if(dict == null){
+            return;
+        }
+        
+           var mouse_over=$("ul[id=\"carte\"]");
+	       var i=0;
+            while (mouse_over[i] != undefined) {
+                var p_node = $(mouse_over[i]).find("p");
+                translate(p_node,dict);
+           	    i++;
+           }
+            
+           var card_title = $("p[class=\"nomCarte\"]");
+           var i=0;
+           translate(card_title,dict);
+           while (card_title[i] != undefined) {
+                if(card_title[i].parentNode.nodeName == "DIV"){
+                    card_title[i].setAttribute("style","width:60");
+                }
+                i++;
+           }
+    }
+);
