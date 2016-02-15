@@ -1,5 +1,20 @@
 # BGOExtension
 
+Index/目录:
+[Introduce](https://github.com/hsyhhssyy/BGOExtension#bgoextension)
+[How To Use](https://github.com/hsyhhssyy/BGOExtension#how-to-use)
+[简介](https://github.com/hsyhhssyy/BGOExtension#bgoextension-1)
+[安装与使用](https://github.com/hsyhhssyy/BGOExtension#如何使用)
+
+## Version Update/版本更新说明
+### 2016.02.25 2.1.0 
+更新了汉化功能
+修复了很多Bug
+Introduced Chinese translations
+Fixed a lot of bugs.
+
+# BGOExtension
+
 A Chrome extension for helping Boardgaming-Online website users.<br>
 It automatically refresh the webpage.<br>
 When it is your turn, it will raise sound alert and send desktop notifications.<br>
