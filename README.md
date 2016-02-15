@@ -1,14 +1,15 @@
 # BGOExtension
 
-Index/目录:<br>
-[Introduce](https://github.com/hsyhhssyy/BGOExtension#bgoextension-1)<br>
-[How To Use](https://github.com/hsyhhssyy/BGOExtension#how-to-use)<br>
-[简介](https://github.com/hsyhhssyy/BGOExtension#bgoextension-2)<br>
-[安装与使用](https://github.com/hsyhhssyy/BGOExtension#如何使用)<br>
+Index / 目录:<br>
+1. [Introduce](https://github.com/hsyhhssyy/BGOExtension#bgoextension-1)<br>
+2. [How To Use](https://github.com/hsyhhssyy/BGOExtension#how-to-use)<br>
+3. [简介](https://github.com/hsyhhssyy/BGOExtension#bgoextension-2)<br>
+4. [安装与使用](https://github.com/hsyhhssyy/BGOExtension#如何使用)<br>
 
 ## Version Update/版本更新说明
 ### 2016.02.25 2.1.0
-![ChineseTranslation](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-version-2.1-2.jpg)<br>
+![ChineseTranslation1](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-version-2.1-2.jpg)<br>
+![ChineseTranslation2](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-version-2.1-1.jpg)<br>
 更新了汉化功能<br>
 修复了很多Bug<br>
 Introduced Chinese translations<br>
