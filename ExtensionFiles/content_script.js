@@ -171,11 +171,6 @@ function (config) {
 
 
 //汉化部分
-/*
-var dictionary //= localStorage["tta_dictonary"];
-if(dictionary == undefined){
-    dictionary = [];
-}
 var gathered_text_list = "";
 
 function gather_text(iterators){
@@ -183,10 +178,7 @@ function gather_text(iterators){
     while (iterators[i] != undefined) {
         var text_gathered = $(iterators[i]).html();
         if(text_gathered != undefined){
-            if(dictionary.indexOf(text_gathered)<0){
-                dictionary.push(text_gathered);
-                gathered_text_list += ("<SEP>"+text_gathered);
-            }
+           gathered_text_list += ("<SEP>"+text_gathered);
         }else{
             text_gathered=text_gathered;
         }
@@ -194,22 +186,11 @@ function gather_text(iterators){
         i++;
     }
 }
-//收集原文本 <p> <li>
-//卡排列 面板标题
-//gather_text($("p[class=\"nomCarte\"]"));
+//收集文本
+gather_text($("a[class=\"nomCarte tta_tactic1\"]"));
 
-//鼠标提示卡文本
-var mouse_over=$("ul[id=\"carte\"]");
-var i=0;
-while (mouse_over[i] != undefined) {
-        gather_text($(mouse_over[i]).find("p"));
-        i++;
-}
-//gather_text($("p[class=\"tta_wonder1 nomCarte nomCarteCivile\"]"));
+localStorage["gathered_text_list"]=gathered_text_list;
 
-//localStorage["tta_dictonary"]=dictionary;
-//localStorage["gathered_text_list"]=gathered_text_list;
-*/
 
 function translate(iterators,dict){
     var i=0;
@@ -310,18 +291,72 @@ chrome.extension.sendMessage(dictRequestMsg,
 	    var card_title = $("pan[class=\"important\"]");
 	    translate(card_title, dict);
 
+        //Board Title
+	    translate($("p[class=\"libBatiment tta_production0 tta_production4\"]"), dict);
+	    translate($("p[class=\"libBatiment tta_urban0 tta_urban4\"]"), dict);
+	    translate($("p[class=\"libBatiment tta_military0 tta_military4\"]"), dict);
+
+	    //
+	    var tdIterator = $("td[class=\"titre1\"]");
+	    var i = 0;
+	    while (tdIterator[i] != undefined) {
+	        var text = $(tdIterator[i]).html();
+	        if (text.indexOf("Civil&nbsp;cards&nbsp;") == 0) {
+	            var civilCount = text.substr("Civil&nbsp;cards&nbsp;".length);
+	            tdIterator[i].innerHTML = dict["Civil cards"] + " " + civilCount;
+	        }
+	        else if (dict[text] != undefined) {
+	            tdIterator[i].innerHTML = dict[text];
+	        } 
+	        i++;
+	    }
+
 	    //Action  options:
 	    var actionOptionIterator = $("option");
+	    var i = 0;
 	    while (actionOptionIterator[i] != undefined) {
 	        var text = $(actionOptionIterator[i]).html();
-	        if (text.indexOf("End Action Phase") == 0) {
-	            costIterator[i].innerHTML = dict["End Action Phase"];
+	        if (text.indexOf("Play event") == 0) {
+	            var eventName = text.substr(11);
+	            actionOptionIterator[i].innerHTML = dict["Play event"] + " " + dict[eventName];
+	        } else if (text.indexOf("Build") == 0) {
+	            var resourceLoc = text.indexOf("(")
+	            var card = text.substr(6, resourceLoc - 6 - 1);
+	            actionOptionIterator[i].innerHTML = dict["Build"] + " " + dict[card] + " " + text.substr(resourceLoc);
+	        } else if (text.indexOf("Discover") == 0) {
+	            var resourceLoc = text.indexOf("(")
+	            var card = text.substr(9, resourceLoc - 9 - 1);
+	            actionOptionIterator[i].innerHTML = dict["Discover"] + " " + dict[card] + " " + text.substr(resourceLoc);
 	        } else if (text.indexOf("Play") == 0) {
-	            
+	            var levelLoc = text.indexOf("/")
+	            var card = text.substr(levelLoc+2);
+	            actionOptionIterator[i].innerHTML = dict["Play"] +" "+ text.substr(5, text.length-levelLoc ) + dict[card];
+	        }  else if (text.indexOf("Set up new tactics") == 0) {
+	            var card = text.substr(21);
+	            actionOptionIterator[i].innerHTML = dict["Set up new tactics"] + " " + dict[card];
+	        } else if (text.indexOf("Adopt tactics") == 0) {
+	            var card = text.substr(16);
+	            actionOptionIterator[i].innerHTML = dict["Adopt tactics"] + " " + dict[card];
+	        } else if (dict[text] != undefined) {
+	            actionOptionIterator[i].innerHTML = dict[text];
+	        } else {
+	            actionOptionIterator[i].innerHTML = actionOptionIterator[i].innerHTML;
 	        }
 
 	        i++;
 	    }
+
+	    var actionOptionIterator = $("optgroup");
+	    var i = 0;
+	    while (actionOptionIterator[i] != undefined) {
+	        var text = actionOptionIterator[i].getAttribute("label");
+	        if (dict[text] != undefined) {
+	            actionOptionIterator[i].setAttribute("label", dict[text]);
+	        }
+
+	        i++;
+	    }
+	    //
 
 	}
 );
