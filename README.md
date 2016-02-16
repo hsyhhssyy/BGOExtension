@@ -8,9 +8,8 @@ Index / 目录:<br>
 
 ## Version Update/版本更新说明
 ### 2016.02.25 2.1.0
-![ChineseTranslation1](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-version-2.1-2.jpg)<br>
-![ChineseTranslation2](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-version-2.1-1.jpg)<br>
 更新了汉化功能<br>
+现在程序可以将BGO的UI，卡牌描述，行动选项等等全部汉化为中文
 修复了很多Bug<br>
 Introduced Chinese translations<br>
 Fixed a lot of bugs.<br>
