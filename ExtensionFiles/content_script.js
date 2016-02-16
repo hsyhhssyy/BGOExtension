@@ -184,6 +184,21 @@ function (config) {
 }
 );
 
+/** ***********************
+**
+** Saved note 支持中文
+**
+** ************************/
+
+var savedNote = $("textarea[name=\"noteJoueur\"]");
+if (savedNote[0] != undefined) {
+    var txt = savedNote[0].value
+    var convert = $("<p>" + txt + "</p>")
+    txt = convert[0].innerHTML;
+    savedNote[0].value = txt;
+}
+
+
 
 /** ***********************
 **
@@ -214,6 +229,26 @@ localStorage["gathered_text_list"] = gathered_text_list;
 
 //汉化帮助函数
 
+if (typeof String.prototype.removeCharacterEntities != 'function') {
+    String.prototype.removeCharacterEntities = function () {
+        var txt = this.toString();
+        var convert = $("<p>" + txt + "</p>")
+        txt = convert[0].innerHTML.replaceAll("&nbsp;", " ");
+
+        var empty_obj = {};
+        empty_obj[txt] = 0;
+        for (var name in empty_obj) {
+            txt = name;
+        }
+        return txt;
+    };
+}
+
+if (typeof String.prototype.startsWith != 'function') {
+    String.prototype.startsWith = function (prefix) {
+        return this.indexOf(prefix) == 0;
+    };
+}
 
 if (typeof String.prototype.endsWith != 'function') {
     String.prototype.endsWith = function (suffix) {
@@ -233,16 +268,12 @@ if (typeof String.prototype.trim != 'function') {
     }
 }
 
-function replaceAll(source, key, value) {
-    var searchKey = key.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
-    return source.replace(new RegExp(searchKey, 'g'), value);
-}
-
 function translateWithAgePrefix(iterators, dict) {
     var i = 0;
     while (iterators[i] != undefined) {
         var text_gathered = $(iterators[i]).html();
-        text_gathered = replaceAll(text_gathered, "\n", "");
+        text_gathered = text_gathered.replaceAll("\n", "").removeCharacterEntities();
+
         if (text_gathered != undefined) {
             if (dict[text_gathered] == undefined) {
                 var slashLoc = text_gathered.indexOf("-");
@@ -281,7 +312,7 @@ function translate(iterators,dict){
     var i=0;
     while (iterators[i] != undefined) {
         var text_gathered = $(iterators[i]).html();
-        text_gathered = replaceAll(text_gathered, "\n", "");
+        text_gathered = text_gathered.replaceAll("\n", "").removeCharacterEntities();
         if (text_gathered != undefined) {
             if (dict[text_gathered] != undefined) {
                 var translated_text = dict[text_gathered];
@@ -337,21 +368,21 @@ chrome.extension.sendMessage(dictRequestMsg,
         }
 
         //手牌区，事件区等任何横条显示卡牌的地方
-        translate($("a[class=\"nomCarte tta_production0 tta_production4\"]"), dict);
-        translate($("a[class=\"nomCarte tta_leader0 tta_leader4\"]"), dict);
-        translate($("a[class=\"nomCarte tta_urban0 tta_urban4\"]"), dict);
-        translate($("a[class=\"nomCarte tta_military0 tta_military4\"]"), dict);
-        translate($("a[class=\"nomCarte tta_wonder0 tta_wonder4\"]"), dict);
-        translate($("a[class=\"nomCarte tta_government0 tta_government4\"]"), dict);
-        translate($("a[class=\"nomCarte tta_special0 tta_special4\"]"), dict);
-        translate($("a[class=\"nomCarte tta_action0 tta_action4\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_production0 tta_production4\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_leader0 tta_leader4\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_urban0 tta_urban4\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_military0 tta_military4\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_wonder0 tta_wonder4\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_government0 tta_government4\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_special0 tta_special4\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_action0 tta_action4\"]"), dict);
 
-        translate($("a[class=\"nomCarte tta_event1\"]"), dict);
-        translate($("a[class=\"nomCarte tta_aggression1\"]"), dict);
-        translate($("a[class=\"nomCarte tta_war1\"]"), dict);
-        translate($("a[class=\"nomCarte tta_bonus1\"]"), dict);
-        translate($("a[class=\"nomCarte tta_pact1\"]"), dict);
-        translate($("a[class=\"nomCarte tta_tactic1\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_event1\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_aggression1\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_war1\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_bonus1\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_pact1\"]"), dict);
+        translateWithAgePrefix($("a[class=\"nomCarte tta_tactic1\"]"), dict);
 
         //建造中的奇迹
         var buildingWonder = $("a[class=\"nomCarte tta_wonder2 tta_wonder1\"]");
@@ -375,6 +406,14 @@ chrome.extension.sendMessage(dictRequestMsg,
 	            var slashLoc = text.indexOf("-");
 	            var card = text.substr(9, slashLoc - 9 - 1);
 	            actionOptionIterator[i].innerHTML = dict["Discover"] + " " + dict[card] + " " + text.substr(slashLoc);
+	        }else if (text.indexOf("Upgrade") == 0) {
+	            //Upgrade Agriculture -> Irrigation (2R)
+	            var toLoc = text.indexOf(" to ");
+	            var arrowLoc = text.indexOf("-");
+
+	            var card1 = dict[text.substr(8, toLoc - 8)];
+	            var card2 = dict[text.substr(toLoc +4, arrowLoc - toLoc - 5)];
+	            actionOptionIterator[i].innerHTML = dict["Upgrade"] + " " + card1 + " -> " + card2 + " " + text.substr(arrowLoc);
 	        }
 	        i++;
 	    }
@@ -452,7 +491,7 @@ chrome.extension.sendMessage(dictRequestMsg,
 	                var resourceLoc1 = text.indexOf("(");
 	                var resourceLoc2 = text.indexOf(")");
 
-	                var resourceCount = text.substr(resourceLoc1+1, resourceLoc2 - resourceLoc1-1);
+	                var resourceCount = text.substr(resourceLoc1+1, resourceLoc2 - resourceLoc1-2);
 	                var stageCount = text.substr(6, 1);
 	                var wonderName = dict[text.substr(17, resourceLoc1 - 17 - 1)];
 	                var translatedActionText = dict["Build [StageCount] stage of [WonderName] ([ResourceCount]R)"];
@@ -470,6 +509,10 @@ chrome.extension.sendMessage(dictRequestMsg,
 	            var resourceLoc = text.indexOf("(")
 	            var card = text.substr(9, resourceLoc - 9 - 1);
 	            actionOptionIterator[i].innerHTML = dict["Discover"] + " " + dict[card] + " " + text.substr(resourceLoc);
+	        } else if (text.indexOf("Elect") == 0) {
+	            //Elect leader: Moses
+	            var leaderName = text.substr(14);
+	            actionOptionIterator[i].innerHTML = dict["Elect leader"] + " " + dict[leaderName];
 	        } else if (text.indexOf("Upgrade") == 0) {
 	            //Upgrade Agriculture -> Irrigation (2R)
 	            var resourceLoc = text.indexOf("(");
@@ -492,7 +535,7 @@ chrome.extension.sendMessage(dictRequestMsg,
 	                if (text.endsWith(" A") || text.endsWith(" I") || text.endsWith(" II") || text.endsWith(" III")) {
 	                    var conlonySplit = text.split(" ");
 	                    var conlonyName = "";
-                        for (var j = 1; j < conlonySplit.length-1; j++) {
+                        for (var j = 2; j < conlonySplit.length-1; j++) {
                             conlonyName += conlonySplit[j] + " ";
                         }
                         conlonyName=conlonyName.trim();
@@ -521,9 +564,8 @@ chrome.extension.sendMessage(dictRequestMsg,
 	            actionOptionIterator[i].innerHTML = dict["Adopt tactics"] + " " + dict[card];
 	        } else if (dict[text] != undefined) {
 	            actionOptionIterator[i].innerHTML = dict[text];
-	        } else {
-	            //可能是侵略牌
-	            if (text.endsWith(" A") || text.endsWith(" I") || text.endsWith(" II") || text.endsWith(" III")) {
+	        } else if (text.endsWith(" A") || text.endsWith(" I") || text.endsWith(" II") || text.endsWith(" III")) {
+	                //可能是侵略牌
 	                var aggressionSplit = text.split(" ");
 	                var aggressionName = "";
 	                for (var j = 0; j < aggressionSplit.length - 1; j++) {
@@ -531,9 +573,14 @@ chrome.extension.sendMessage(dictRequestMsg,
 	                }
 	                aggressionName=aggressionName.trim();
 	                actionOptionIterator[i].innerHTML = dict[aggressionName] + " " + aggressionSplit[aggressionSplit.length - 1];
-	            } else {
+	        } else if (text.startsWith("A/") || text.startsWith("I/") || text.startsWith("II/") || text.startsWith("III/")) {
+	            //是Disband/Destory的Option
+	            var levelLoc = text.indexOf("/");
+	            var card = text.substr(levelLoc + 2);
+	            actionOptionIterator[i].innerHTML = text.substr(0, levelLoc+2) + dict[card];
+	        } else{
 	                actionOptionIterator[i].innerHTML = actionOptionIterator[i].innerHTML;
-	            }
+	            
 	        }
 
 	        i++;

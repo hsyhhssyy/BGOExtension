@@ -58,10 +58,11 @@ function loadDict(languageStr) {
                     var value = convertLegend(dictRowText.substr(dictRowLoc + 1));
                     localDict[key] = value;
                     localDict[key + "<br>"] = value + "<br>";
+                    /*
                     localDict["A&nbsp;-&nbsp;" + key] = "A&nbsp;-&nbsp;" + value;
                     localDict["I&nbsp;-&nbsp;" + key] = "I&nbsp;-&nbsp;" + value;
                     localDict["II&nbsp;-&nbsp;" + key] = "II&nbsp;-&nbsp;" + value;
-                    localDict["III&nbsp;-&nbsp;" + key] = "III&nbsp;-&nbsp;" + value;
+                    localDict["III&nbsp;-&nbsp;" + key] = "III&nbsp;-&nbsp;" + value;*/
                 }
             }
 

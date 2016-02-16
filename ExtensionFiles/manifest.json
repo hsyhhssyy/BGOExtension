@@ -1,7 +1,8 @@
 ﻿{
-	"manifest_version": 2,
+  "manifest_version": 2,
+  "update_url": "https://github.com/hsyhhssyy/BGOExtension/blob/master/CheckForUpdate/CheckForUpdate.xml?raw=true",
 	"name": "BGO Auto Refresh",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"background": { "scripts": ["jquery-2.0.0.min.js", "background.js"] },
 	"page_action": {
 		"default_icon": {
