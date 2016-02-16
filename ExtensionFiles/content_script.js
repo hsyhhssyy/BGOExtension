@@ -1,5 +1,11 @@
 ﻿var playerColors = ["Unknown", "Orange", "Purple", "Green", "Red"];
-//get current player
+
+
+/** ***********************
+**
+** 获得当前玩家的相关信息，构造msg传给后台以供显示
+**
+** ************************/
 var combo = $("form[id=\"formAction\"]");
 var boardInfo = $("div").first();
 var msg = {
@@ -12,7 +18,7 @@ var msg = {
     url: document.URL
 };
 
-//find player list
+//为msg填充player list
 var player_name_table = $("table[class=\"tableau0\"]")[1];
 player_name_table = $(player_name_table);
 var player_names = player_name_table.find("ul[id=\"indJoueur\"]");
@@ -32,7 +38,13 @@ while (player_names[i] != undefined) {
     i++;
 }
 
-//Copy deck row to everyone's panel
+chrome.runtime.sendMessage(msg);
+
+/** ***********************
+**
+** 把卡牌列复制到每个玩家的面板上
+**
+** ************************/
 if (card_row == undefined) {
     var card_row = $("div[id=\"card_row\"]");
     var card_tr = $("<tr></tr>");
@@ -43,8 +55,11 @@ if (card_row == undefined) {
     player2table.prepend(card_tr.clone(true))
 }
 
-//send the package
-chrome.runtime.sendMessage(msg);
+/** ***********************
+**
+** 自动刷新和提示
+**
+** ************************/
 
 var cfgRequestMsg = {
     type: "bgo-configuration-query"
@@ -170,7 +185,13 @@ function (config) {
 );
 
 
-//汉化部分
+/** ***********************
+**
+** 翻译BGO UI
+**
+** ************************/
+
+//收集文本用代码
 var gathered_text_list = "";
 
 function gather_text(iterators){
@@ -186,16 +207,74 @@ function gather_text(iterators){
         i++;
     }
 }
-//收集文本
-//gather_text($("a[class=\"nomCarte tta_war1\"]"));
-//gather_text($("a[class=\"nomCarte tta_aggression1\"]"));
+
 gather_text($("p[class=\"texteCarte\"]"));
 
-localStorage["gathered_text_list"]=gathered_text_list;
+localStorage["gathered_text_list"] = gathered_text_list;
+
+//汉化帮助函数
+
+
+if (typeof String.prototype.endsWith != 'function') {
+    String.prototype.endsWith = function (suffix) {
+        return this.indexOf(suffix, this.length - suffix.length) !== -1;
+    };
+}
+
+if (typeof String.prototype.replaceAll != 'function') {
+    String.prototype.replaceAll = function (key, value) {
+        var searchKey = key.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+        return this.replace(new RegExp(searchKey, 'g'), value);
+    };
+}
+if (typeof String.prototype.trim != 'function') {
+    String.prototype.trim = function() {
+        return this.replace(/^\s+/g, "").replace(/\s+$/g, "");
+    }
+}
 
 function replaceAll(source, key, value) {
     var searchKey = key.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
     return source.replace(new RegExp(searchKey, 'g'), value);
+}
+
+function translateWithAgePrefix(iterators, dict) {
+    var i = 0;
+    while (iterators[i] != undefined) {
+        var text_gathered = $(iterators[i]).html();
+        text_gathered = replaceAll(text_gathered, "\n", "");
+        if (text_gathered != undefined) {
+            if (dict[text_gathered] == undefined) {
+                var slashLoc = text_gathered.indexOf("-");
+                if (slashLoc < 0) {
+                    slashLoc = text_gathered.indexOf("/");
+                }
+
+                if (slashLoc > 0) {
+                    var card = text_gathered.substr(slashLoc + 2, text_gathered.length - slashLoc - 1);
+                    var translated_text = text_gathered.substr(0,slashLoc+2) + dict[card];
+                } else {
+                    translated_text = text_gathered;
+                }
+            }else if (dict[text_gathered] != undefined) {
+                var translated_text = dict[text_gathered];
+            } else {
+                translated_text = text_gathered;
+            }
+
+
+            var j = 0;
+            for (j = 0; j < iterators[i].length; j++) {
+                iterators[i].removeChild(iterators[i][j]);
+            }
+            iterators[i].innerHTML = translated_text;
+
+        } else {
+            text_gathered = undefined;
+        }
+
+        i++;
+    }
 }
 
 function translate(iterators,dict){
@@ -228,54 +307,91 @@ var dictRequestMsg = {
     type: "bgo-translation-query"
 };
 
+// ***** 汉化主函数 *****
+
 chrome.extension.sendMessage(dictRequestMsg,
-	function (dict){
-        if(dict == null){
+    function(dict) {
+        if (dict == null) {
             return;
         }
-        
-           var mouse_over=$("ul[id=\"carte\"]");
-	       var i=0;
-            while (mouse_over[i] != undefined) {
-                var p_node = $(mouse_over[i]).find("p");
-                translate(p_node,dict);
-           	    i++;
-           }
-            
-           var card_title = $("p[class=\"nomCarte\"]");
-           var i=0;
-           translate(card_title,dict);
-           while (card_title[i] != undefined) {
-                if(card_title[i].parentNode.nodeName == "DIV"){
-                    card_title[i].setAttribute("style","min-width:60");
-                }
-                i++;
-           }
 
-        //Hand
-           translate($("a[class=\"nomCarte tta_production0 tta_production4\"]"), dict);
-           translate($("a[class=\"nomCarte tta_leader0 tta_leader4\"]"), dict);
-           translate($("a[class=\"nomCarte tta_urban0 tta_urban4\"]"), dict);
-           translate($("a[class=\"nomCarte tta_military0 tta_military4\"]"), dict);
-           translate($("a[class=\"nomCarte tta_wonder0 tta_wonder4\"]"), dict);
-           translate($("a[class=\"nomCarte tta_government0 tta_government4\"]"), dict);
-           translate($("a[class=\"nomCarte tta_special0 tta_special4\"]"), dict);
-           translate($("a[class=\"nomCarte tta_action0 tta_action4\"]"), dict);
+        //悬停弹出的卡牌完整说明
+        var mouse_over = $("ul[id=\"carte\"]");
+        var i = 0;
+        while (mouse_over[i] != undefined) {
+            var p_node = $(mouse_over[i]).find("p");
+            translate(p_node, dict);
+            i++;
+        }
 
-           translate($("a[class=\"nomCarte tta_event1\"]"), dict);
-           translate($("a[class=\"nomCarte tta_aggression1\"]"), dict);
-           translate($("a[class=\"nomCarte tta_war1\"]"), dict);
-           translate($("a[class=\"nomCarte tta_bonus1\"]"), dict);
-           translate($("a[class=\"nomCarte tta_pact1\"]"), dict);
-           translate($("a[class=\"nomCarte tta_tactic1\"]"), dict);
+        //卡牌列上卡牌的名字
+        //这里要调整一下列宽，设置最小列宽防止中文截断的过于暴力
+        var card_title = $("p[class=\"nomCarte\"]");
+        var i = 0;
+        translate(card_title, dict);
+        while (card_title[i] != undefined) {
+            if (card_title[i].parentNode.nodeName == "DIV") {
+                card_title[i].setAttribute("style", "min-width:60");
+            }
+            i++;
+        }
 
-	    //Gov
-           translate($("strong"), dict);
+        //手牌区，事件区等任何横条显示卡牌的地方
+        translate($("a[class=\"nomCarte tta_production0 tta_production4\"]"), dict);
+        translate($("a[class=\"nomCarte tta_leader0 tta_leader4\"]"), dict);
+        translate($("a[class=\"nomCarte tta_urban0 tta_urban4\"]"), dict);
+        translate($("a[class=\"nomCarte tta_military0 tta_military4\"]"), dict);
+        translate($("a[class=\"nomCarte tta_wonder0 tta_wonder4\"]"), dict);
+        translate($("a[class=\"nomCarte tta_government0 tta_government4\"]"), dict);
+        translate($("a[class=\"nomCarte tta_special0 tta_special4\"]"), dict);
+        translate($("a[class=\"nomCarte tta_action0 tta_action4\"]"), dict);
 
-           translate($("li[class=\"nomCarte\"]"), dict);
+        translate($("a[class=\"nomCarte tta_event1\"]"), dict);
+        translate($("a[class=\"nomCarte tta_aggression1\"]"), dict);
+        translate($("a[class=\"nomCarte tta_war1\"]"), dict);
+        translate($("a[class=\"nomCarte tta_bonus1\"]"), dict);
+        translate($("a[class=\"nomCarte tta_pact1\"]"), dict);
+        translate($("a[class=\"nomCarte tta_tactic1\"]"), dict);
 
-	    //Webpage element
-	    //1. Cost:
+        //建造中的奇迹
+        var buildingWonder = $("a[class=\"nomCarte tta_wonder2 tta_wonder1\"]");
+        if (buildingWonder[0] != undefined) {
+            buildingWonder[0].setAttribute("style", "min-width:60");
+            translate(buildingWonder.find("p"), dict);
+        }
+
+
+        //打出事件牌的对话框里事件牌的名字 I / Breakthrough
+           translateWithAgePrefix($("p[class=\"tta_action0 titre3\"]"), dict);
+	    //上述事件牌的文本： Develop a technology. After you pay the science cost, score 2 science.
+           translate($("p[class=\"texte\"]"), dict);
+	    //上述事件牌候选项的处理：
+        var actionOptionIterator = $("label");
+        var i = 0;
+	    while (actionOptionIterator[i] != undefined) {
+	        var text = $(actionOptionIterator[i]).html();
+	        if (text.indexOf("Discover") == 0) {
+	            //Discover Swordsmen - 4[Token]
+	            var slashLoc = text.indexOf("-");
+	            var card = text.substr(9, slashLoc - 9 - 1);
+	            actionOptionIterator[i].innerHTML = dict["Discover"] + " " + dict[card] + " " + text.substr(slashLoc);
+	        }
+	        i++;
+	    }
+
+
+	    //政府的名字
+        translate($("strong"), dict);
+
+        //玩家科技板上面的科技牌名字
+        translate($("li[class=\"nomCarte\"]"), dict);
+
+	    //手牌区的悬停文字
+        translate($("p[class=\"libBatiment tta_production0 tta_production4\"]"), dict);
+        translate($("p[class=\"libBatiment tta_urban0 tta_urban4\"]"), dict);
+        translate($("p[class=\"libBatiment tta_military0 tta_military4\"]"), dict);
+
+	    //玩家科技板悬停时提示文字里的"Cost:"
           var i = 0;
 	    var costIterator = $("li[class=\"nombreCarte\"]");
 	    while (costIterator[i] != undefined) {
@@ -286,67 +402,118 @@ chrome.extension.sendMessage(dictRequestMsg,
 	        i++;
 	    }
 
-        //Card Row title
+        //事件和牌堆的标题
 	    var card_title = $("p[class=\"titre3\"]");
 	    translate(card_title, dict);
 
-        //Worker Pool
+        //工人区
 	    var workerPool = $("div[class=\"worker_pool\"]").find("p").first();
-	    workerPool[0].innerHTML = dict["Worker pool"];
+	    if (workerPool[0] != undefined) {
+	        workerPool[0].innerHTML = dict["Worker pool"];
+	    }
 
-	    //important
+	    //important区（其实就一个Last Turn）
 	    var card_title = $("pan[class=\"important\"]");
 	    translate(card_title, dict);
 
-        //Board Title
-	    translate($("p[class=\"libBatiment tta_production0 tta_production4\"]"), dict);
-	    translate($("p[class=\"libBatiment tta_urban0 tta_urban4\"]"), dict);
-	    translate($("p[class=\"libBatiment tta_military0 tta_military4\"]"), dict);
 
-	    //
+	    //手牌区的标题
 	    var tdIterator = $("td[class=\"titre1\"]");
 	    var i = 0;
 	    while (tdIterator[i] != undefined) {
 	        var text = $(tdIterator[i]).html();
-	        if (text.indexOf("Civil&nbsp;cards&nbsp;") == 0) {
-	            var civilCount = text.substr("Civil&nbsp;cards&nbsp;".length);
-	            tdIterator[i].innerHTML = dict["Civil cards"] + " " + civilCount;
+	        if (text.indexOf("Civil&nbsp;cards") == 0) {
+	            var civilCount = text.substr("Civil&nbsp;cards".length);
+	            tdIterator[i].innerHTML = dict["Civil cards"] + civilCount;
+	        } else if (text.indexOf("Military&nbsp;cards") == 0) {
+	            var civilCount = text.substr("Military&nbsp;cards".length);
+	            tdIterator[i].innerHTML = dict["Military cards"] + civilCount;
 	        }
 	        else if (dict[text] != undefined) {
+                //Current event played/Future event played
 	            tdIterator[i].innerHTML = dict[text];
 	        } 
 	        i++;
 	    }
 
-	    //Action  options:
+	    //下拉列表的内容：
 	    var actionOptionIterator = $("option");
 	    var i = 0;
 	    while (actionOptionIterator[i] != undefined) {
 	        var text = $(actionOptionIterator[i]).html();
-	        if (text.indexOf("Play event") == 0) {
-	            var eventName = text.substr(11);
-	            actionOptionIterator[i].innerHTML = dict["Play event"] + " " + dict[eventName];
-	        } else if (text.indexOf("Build") == 0) {
+	        if (text.indexOf("Build") == 0) {
 	        	//Build关键字的出现可能有多种情况。包括
 	        	//Build Iron (5R)
 	        	//Build free temple/Build free warrior.
-	        	//Build 4 stage of Library of Alexandria (1R)
-	            var resourceLoc = text.indexOf("(")
-	            var card = text.substr(6, resourceLoc - 6 - 1);
-	            actionOptionIterator[i].innerHTML = dict["Build"] + " " + dict[card] + " " + text.substr(resourceLoc);
+	            //Build 4 stage of Library of Alexandria (1R)
+	            if (text.indexOf("stage") == 8) {
+	                //Build X stage of Y (XR)
+                    //Build [StageCount] stage of [WonderName] ([ResourceCount]R)
+	                var resourceLoc1 = text.indexOf("(");
+	                var resourceLoc2 = text.indexOf(")");
+
+	                var resourceCount = text.substr(resourceLoc1+1, resourceLoc2 - resourceLoc1-1);
+	                var stageCount = text.substr(6, 1);
+	                var wonderName = dict[text.substr(17, resourceLoc1 - 17 - 1)];
+	                var translatedActionText = dict["Build [StageCount] stage of [WonderName] ([ResourceCount]R)"];
+	                if (translatedActionText != undefined) {
+	                    actionOptionIterator[i].innerHTML = translatedActionText.replace("[StageCount]", stageCount).replace("[WonderName]", wonderName).replace("[ResourceCount]", resourceCount);
+                    }
+	            } else if (text.indexOf("(") > 0) {
+	                var resourceLoc = text.indexOf("(");
+	                var card = text.substr(6, resourceLoc - 6 - 1);
+	                actionOptionIterator[i].innerHTML = dict["Build"] + " " + dict[card] + " " + text.substr(resourceLoc);
+	            } else if (dict[text]!=undefined) {
+	                actionOptionIterator[i].innerHTML = dict[text];
+	            }
 	        } else if (text.indexOf("Discover") == 0) {
 	            var resourceLoc = text.indexOf("(")
 	            var card = text.substr(9, resourceLoc - 9 - 1);
 	            actionOptionIterator[i].innerHTML = dict["Discover"] + " " + dict[card] + " " + text.substr(resourceLoc);
+	        } else if (text.indexOf("Upgrade") == 0) {
+	            //Upgrade Agriculture -> Irrigation (2R)
+	            var resourceLoc = text.indexOf("(");
+	            var arrowLoc = text.indexOf("-");
+
+	            var card1 = dict[text.substr(8, arrowLoc-9)];
+	            var card2 = dict[text.substr(arrowLoc + 6, resourceLoc - arrowLoc -7)];
+	            actionOptionIterator[i].innerHTML = dict["Upgrade"] + " " + card1 + " -> " + card2 + " "+text.substr(resourceLoc);
 	        } else if (text.indexOf("Play") == 0) {
 	        	//Play关键字的出现可能有多种情况。包括
 	        	//Play A / Rich Land
 	        	//Play event Pestilence
-	        	//Play event Developed Territory II
-	            var levelLoc = text.indexOf("/")
-	            var card = text.substr(levelLoc+2);
-	            actionOptionIterator[i].innerHTML = dict["Play"] +" "+ text.substr(5, text.length-levelLoc ) + dict[card];
-	        }  else if (text.indexOf("Set up new tactics") == 0) {
+	            //Play event Developed Territory II
+	            if (text.indexOf("/") > 0) {
+	                //Play A / Rich Land
+	                var levelLoc = text.indexOf("/");
+	                var card = text.substr(levelLoc + 2);
+	                actionOptionIterator[i].innerHTML = dict["Play"] + " " + text.substr(5,  levelLoc - 3) + dict[card];
+	            } else if (text.indexOf("Play event") == 0) {
+	                if (text.endsWith(" A") || text.endsWith(" I") || text.endsWith(" II") || text.endsWith(" III")) {
+	                    var conlonySplit = text.split(" ");
+	                    var conlonyName = "";
+                        for (var j = 1; j < conlonySplit.length-1; j++) {
+                            conlonyName += conlonySplit[j] + " ";
+                        }
+                        conlonyName=conlonyName.trim();
+	                    actionOptionIterator[i].innerHTML = dict["Play conlony"] + " " + dict[conlonyName] + " " + conlonySplit[conlonySplit.length-1];
+	                } else {
+	                    var eventName = text.substr(11);
+	                    actionOptionIterator[i].innerHTML = dict["Play event"] + " " + dict[eventName];
+	                }
+	            } 
+	        } else if (text.indexOf("Declare") == 0) {
+	            var warSplit = text.split(" ");
+	            var warName = "";
+	            for (var j = 1; j < warSplit.length - 1; j++) {
+	                warName += warSplit[j] + " ";
+	            }
+	            warName = warName.trim();
+	            actionOptionIterator[i].innerHTML = dict["Declare"] + " " + dict[warName] + " " + warSplit[warSplit.length - 1];
+	        } else if (text.indexOf("Increase") == 0) {
+	            var resourceLoc = text.indexOf("(")
+	            actionOptionIterator[i].innerHTML = dict["Increase population"] + " " + text.substr(resourceLoc);
+	        } else if (text.indexOf("Set up new tactics") == 0) {
 	            var card = text.substr(21);
 	            actionOptionIterator[i].innerHTML = dict["Set up new tactics"] + " " + dict[card];
 	        } else if (text.indexOf("Adopt tactics") == 0) {
@@ -355,7 +522,18 @@ chrome.extension.sendMessage(dictRequestMsg,
 	        } else if (dict[text] != undefined) {
 	            actionOptionIterator[i].innerHTML = dict[text];
 	        } else {
-	            actionOptionIterator[i].innerHTML = actionOptionIterator[i].innerHTML;
+	            //可能是侵略牌
+	            if (text.endsWith(" A") || text.endsWith(" I") || text.endsWith(" II") || text.endsWith(" III")) {
+	                var aggressionSplit = text.split(" ");
+	                var aggressionName = "";
+	                for (var j = 0; j < aggressionSplit.length - 1; j++) {
+	                    aggressionName += aggressionSplit[j] + " ";
+	                }
+	                aggressionName=aggressionName.trim();
+	                actionOptionIterator[i].innerHTML = dict[aggressionName] + " " + aggressionSplit[aggressionSplit.length - 1];
+	            } else {
+	                actionOptionIterator[i].innerHTML = actionOptionIterator[i].innerHTML;
+	            }
 	        }
 
 	        i++;

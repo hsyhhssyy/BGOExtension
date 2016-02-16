@@ -103,7 +103,7 @@ loadLegend();
 
 //init plugin
 if (localStorage['chrome.bgo-extension.refresh-interval'] == undefined) {
-    localStorage['chrome.bgo-extension.refresh-interval'] = "3";
+    localStorage['chrome.bgo-extension.refresh-interval'] = "30";
     localStorage['chrome.bgo-extension.auto-refresh'] = "true";
 
     localStorage['chrome.bgo-extension.notification-global-enabled'] = "true";
