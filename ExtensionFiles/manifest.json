@@ -1,6 +1,5 @@
 ﻿{
   "manifest_version": 2,
-  "update_url": "https://github.com/hsyhhssyy/BGOExtension/blob/master/CheckForUpdate/CheckForUpdate.xml?raw=true",
 	"name": "BGO Auto Refresh",
 	"version": "2.1.1",
 	"background": { "scripts": ["jquery-2.0.0.min.js", "background.js"] },
@@ -9,7 +8,7 @@
 			"19": "favicon.ico",
 			"38": "favicon.ico"
 		},
-		"default_title": "BGO Auto Refresh", // shown in tooltip
+		"default_title": "BGO Auto Refresh",
 		"default_popup": "popup.html"
 	},
 	"permissions" : ["tabs","notifications","storage","http://localhost/"],
@@ -22,5 +21,5 @@
 		"favicon.ico",
     "translation_legend.txt",
     "dict_zh-cn.txt"
-    	]
+   ]
 }
