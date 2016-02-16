@@ -20,7 +20,7 @@ A Chrome extension for helping Boardgaming-Online website users.<br>
 It automatically refresh the webpage.<br>
 When it is your turn, it will raise sound alert and send desktop notifications.<br>
 ## How to use
-1.![Install From Chrome Web Store](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)
+1.[Install From Chrome Web Store](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)
 2. Open a game on BGO and enjoy.
 3. You don't need to toggle auto refresh off when you take your actions. It will automatically stop, and will restart when you end your turn.
 4. When you are on BGO website, an additional button will appear at the end of the address bar, click and you will find the configurations.<br>
@@ -39,7 +39,7 @@ When it is your turn, it will raise sound alert and send desktop notifications.<
 提供自动刷新，让BGO能稍微有那么一点点实时性。<br>
 在轮到你的时候停止刷新，并发出提示音和桌面提示。<br>
 ## 如何使用
-1. ![从Chrome应用商店安装](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)下载ExtensionFiles.crx
+1. [从Chrome应用商店安装](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)下载ExtensionFiles.crx
 2. 或者你在墙内的话，下载![插件文件](https://github.com/hsyhhssyy/BGOExtension/blob/master/ExtensionFiles.crx?raw=true) <br>
 然后打开Chrome的菜单->更多工具->扩展程序，再把下载的crx文件拖进去
 3. 打开一个BGO游戏页面，插件会自动运行。
