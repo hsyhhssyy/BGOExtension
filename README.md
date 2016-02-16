@@ -20,9 +20,9 @@ A Chrome extension for helping Boardgaming-Online website users.<br>
 It automatically refresh the webpage.<br>
 When it is your turn, it will raise sound alert and send desktop notifications.<br>
 ## How to use
-1.[Install From Chrome Web Store](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)
-2. Open a game on BGO and enjoy.
-3. You don't need to toggle auto refresh off when you take your actions. It will automatically stop, and will restart when you end your turn.
+1.[Install From Chrome Web Store](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)<br>
+2. Open a game on BGO and enjoy.<br>
+3. You don't need to toggle auto refresh off when you take your actions. It will automatically stop, and will restart when you end your turn.<br>
 4. When you are on BGO website, an additional button will appear at the end of the address bar, click and you will find the configurations.<br>
 ![ConfigurationDemo](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-example1.jpg)
 5. [Bug] [Can't fix due to BGO website structure] When you Reset Action Phase, you will receive a sound/notification alert if you choose to alert on `Your Turn`.<br>
@@ -39,11 +39,10 @@ When it is your turn, it will raise sound alert and send desktop notifications.<
 提供自动刷新，让BGO能稍微有那么一点点实时性。<br>
 在轮到你的时候停止刷新，并发出提示音和桌面提示。<br>
 ## 如何使用
-1. [从Chrome应用商店安装](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)下载ExtensionFiles.crx
-2. 或者你在墙内的话，下载![插件文件](https://github.com/hsyhhssyy/BGOExtension/blob/master/ExtensionFiles.crx?raw=true) <br>
-然后打开Chrome的菜单->更多工具->扩展程序，再把下载的crx文件拖进去
-3. 打开一个BGO游戏页面，插件会自动运行。
-4. 当轮到你进行操作时，你不需要关闭自动刷新，他会自动停止。当你结束你的回合后，他会自动回复。
+1. [从Chrome应用商店安装](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)<br>
+2. 或者你在墙内的话，下载[插件文件](https://github.com/hsyhhssyy/BGOExtension/blob/master/ExtensionFiles.crx?raw=true)，然后打开Chrome的菜单->更多工具->扩展程序，再把下载的crx文件拖进去。<br>
+3. 打开一个BGO游戏页面，插件会自动运行。<br>
+4. 当轮到你进行操作时，你不需要关闭自动刷新，他会自动停止。当你结束你的回合后，他会自动回复。<br>
 5. 当你在BGO页面上时，在地址栏末端，会多出一个小按钮，按一下便打开了设置。设置对所有BGO页面生效。<br>
 ![ConfigurationDemo](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-example1.jpg)
 6. [Bug][由于BGO的原因无法解决]当你Reset Action Phase后，会收到`Your Turn`的语音或者桌面提示（如果你打开了）。<br>
