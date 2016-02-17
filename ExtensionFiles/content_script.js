@@ -1,11 +1,5 @@
 ﻿var playerColors = ["Unknown", "Orange", "Purple", "Green", "Red"];
-var ageEnum = {
-    A: 0,
-    I: 1,
-    II:2,
-    III:3,
-    IV:4
-}
+
 
 /** ***********************
 **
@@ -17,7 +11,6 @@ var boardInfo = $("div").first();
 var msg = {
     type: "bgo-board-information",
     playerName: $("span[class=\"nom\"]").text().replace(/\s/g, " "),
-    age:$("span[class=\"infoModule\"]").text(),
     rivals: [],
     message: $("td[class=\"titre3\"]").first().text(),
     lastAction: $("td[class=\"titreNote\"]").first().text(),
@@ -52,176 +45,14 @@ chrome.runtime.sendMessage(msg);
 ** 把卡牌列复制到每个玩家的面板上
 **
 ** ************************/
-var card_row = $("div[id=\"card_row\"]");
-if (card_row[0] != undefined) {
-
-    var temp_card_row = card_row.clone(true);
-    var card_row_cards = temp_card_row.find("td");
-    var j = 0;
-    var removedCards = 3;
-    while (card_row_cards[j] != undefined) {
-        if ($(card_row_cards[j]).find("a")[0] != undefined) {
-            if (j >= 1 && j <= 3) {
-                $(card_row_cards[j]).remove();
-            }else
-            if ($(card_row_cards[j]).find("a")[0].getAttribute("class").indexOf("carteEnMain") >= 0) {
-                $(card_row_cards[j]).remove();
-                if (j > 3) {
-                    removedCards++;
-                }
-            }
-        }
-        j++;
-    }
-
-    var seperator = temp_card_row.find("td[class=\"fond3\"]");
-    var pattern = seperator.next().clone()
-    pattern.find("p[class=\"titre3\"]")[0].innerHTML = "&nbsp;";
-    pattern.find("p[class=\"nombre\"]")[0].innerHTML = "&nbsp;";
-    pattern.find("p[class=\"ageDosCarte\"]")[0].innerHTML = "N";
-    //pattern.find("p[class=\"ageDosCarte\"]")[0].setAttribute("class", "ageCarte ageCarte1x");
-    while (removedCards > 0) {
-        var element = $("")
-        pattern.clone(true).insertBefore(seperator);
-        removedCards--;
-    }
-
-    //fond重算
-    var j = 0;
-    var card_row_cards = temp_card_row.find("td");
-    while (card_row_cards[j] != undefined) {
-        if (j < 6) {
-            card_row_cards[j].setAttribute("class","tdMidC fond1")
-        }
-        if (j >= 6 && j<10) {
-            card_row_cards[j].setAttribute("class", "tdMidC fond2")
-        }
-        if (j >= 10) {
-            card_row_cards[j].setAttribute("class", "tdMidC fond3")
-        }
-        j++;
-        if (j > 13) {
-            break;
-        }
-    }
-
+if (card_row == undefined) {
+    var card_row = $("div[id=\"card_row\"]");
     var card_tr = $("<tr></tr>");
     var card_td = $("<td colspan=\"2\"></td>");
-    card_td.append(temp_card_row.clone(true));
+    card_td.append(card_row.clone(true));
     card_tr.append(card_td.clone(true));
     var player2table = $("div[id=\"Plateau" + (3 - msg.playerNo) + "\"]").first().find("table").first().find("tbody").first();
     player2table.prepend(card_tr.clone(true))
-}
-
-
-/** ***********************
-**
-** 把Discard Pile复制过来
-**
-** ************************/
-
-var menuSelector = $("a");
-var discardPileFrame = undefined;
-var currentTitle = document.title;
-function discardPileOperate()
-{
-    if (discardPileFrame != undefined) {
-        document.title = currentTitle;
-
-        var innerDocument = $(discardPileFrame[0].contentDocument);
-        var civilCardtable = innerDocument.find("tr[id=\"civilCards\"]");
-        //decideCurrentAge
-        var ageStr = msg.age;
-        ageStr=ageStr.split(" ")[1];
-        if (ageEnum[ageStr] != undefined) {
-            var ageNum = ageEnum[ageStr];
-            if (ageNum <=3) {
-                var tdElement = civilCardtable.find("td[class=\"tdTop\"]")[ageNum];
-                var tableElement = $(tdElement).find("table").first().clone(true);
-                //<table width=\"80%\" class=\"tableau\"><tbody><tr id=\"civilCards\">\"</tr></tbody></table>
-
-                var j = 0;
-                var deletedUls = tableElement.find("ul[id=\"carte\"]");
-                while (deletedUls[j] != undefined) {
-                    $(deletedUls[j]).remove();
-                    j++;
-                }
-
-                //移除表头
-                tableElement.find("td").first().remove();
-
-                //检查卡牌列
-                var cardRowContent = [];
-                if (card_row != undefined) {
-                    var card_row_cards = card_row.find("a");
-                    var j = 0;
-                    while (card_row_cards[j] != undefined) {
-                        if (card_row_cards[j].getAttribute("class").indexOf("carteEnMain") < 0) {
-                            var cardA = $(card_row_cards[j]).find("p[class=\"nomCarte\"]")[0];
-                            if (cardA != undefined) {
-                                cardRowContent[cardRowContent.length] = cardA.innerHTML.substr(0, cardA.innerHTML.length - 4);
-                            } else {
-                                cardA = cardA;
-                            }
-                        }
-                        j++;
-                    }
-                }
-
-                var tableTDs = tableElement.find("td");
-                tableElement = $("<table class=\"tableau0\"></table>")
-                //重排表格，改为三列
-                var j = 0;
-                var k = 0;
-                var currentTr=$("<tr></tr>")
-                while (tableTDs[j] != undefined) {
-                    if ($(tableTDs[j]).find("a")[0].getAttribute("class").indexOf("0") > 0) {
-                        var cardName = translationDictionary[$(tableTDs[j]).find("a")[0].innerHTML];
-                        if (cardRowContent.indexOf(cardName) >= 0) {
-                            cardRowContent[cardRowContent.indexOf(cardName)] = "";
-                        } else {
-                            tableTDs[j].setAttribute("width", "25%");
-                            currentTr.append(tableTDs[j]);
-                            k++;
-                        }
-                    }
-
-                    if (k % 4 == 0) {
-                        tableElement.append(currentTr);
-                        currentTr = $("<tr></tr>")
-                    }
-                    j++;
-                }
-                tableElement.append(currentTr);
-
-                var popup = $("<ul id=\"carte\" style=\"width:20%\"><a class=\"paquet dosCarteCivile\" style=\"box-shadow:0px 6px 1px #444;\"></a></ul>");
-                popup.find("a").first().append(tableElement);
-
-                if (translationDictionary != undefined) {
-                    translate(popup.find("a"), translationDictionary);
-                }
-
-                $("a[class=\"paquet dosCarteCivile\"]").parent().append(popup);
-
-
-            }
-        }
-    }
-}
-    
-var i = 0;
-while (menuSelector[i]!=undefined) {
-    if (menuSelector[i].innerHTML == "View discard pile") {
-        var link = menuSelector[i].getAttribute("href");
-        // onload=\"discardPileOperate();\"
-        discardPileFrame = $("<iframe id = \"bgo-extension-discard-pile\" src=\"" + link + "\" border=\"1\" frameborder=\"1\" width=\"0\" height=\"0\"></iframe>")
-        discardPileFrame.get(0).addEventListener('load', function () {
-            discardPileOperate();
-        });
-        $("body").append(discardPileFrame);
-        break;
-    }
-    i++;
 }
 
 /** ***********************
@@ -508,14 +339,12 @@ var dictRequestMsg = {
 };
 
 // ***** 汉化主函数 *****
-var translationDictionary = undefined;
+
 chrome.extension.sendMessage(dictRequestMsg,
     function(dict) {
         if (dict == null) {
             return;
         }
-
-        translationDictionary = dict;
 
         //悬停弹出的卡牌完整说明
         var mouse_over = $("ul[id=\"carte\"]");
@@ -554,12 +383,6 @@ chrome.extension.sendMessage(dictRequestMsg,
         translateWithAgePrefix($("a[class=\"nomCarte tta_bonus1\"]"), dict);
         translateWithAgePrefix($("a[class=\"nomCarte tta_pact1\"]"), dict);
         translateWithAgePrefix($("a[class=\"nomCarte tta_tactic1\"]"), dict);
-
-        //DiscardPile
-        if (discardPileFrame != undefined) {
-            var innerDocument = $(discardPileFrame[0].contentDocument);
-            translateWithAgePrefix(innerDocument.find("a"), dict);
-        }
 
         //建造中的奇迹
         var buildingWonder = $("a[class=\"nomCarte tta_wonder2 tta_wonder1\"]");
