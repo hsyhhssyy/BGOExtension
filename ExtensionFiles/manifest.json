@@ -1,25 +1,25 @@
 ﻿{
   "manifest_version": 2,
 	"name": "BGO Auto Refresh",
-	"version": "2.1.1",
-	"background": { "scripts": ["jquery-2.0.0.min.js", "background.js"] },
+	"version": "2.1.3",
+	"background": { "scripts": ["lib/jquery-2.0.0.min.js", "translation/translation_background.js","background.js"] },
 	"page_action": {
 		"default_icon": {
 			"19": "favicon.ico",
 			"38": "favicon.ico"
 		},
 		"default_title": "BGO Auto Refresh",
-		"default_popup": "popup.html"
+		"default_popup": "popup/popup.html"
 	},
 	"permissions" : ["tabs","notifications","storage","http://localhost/"],
 	"content_scripts":[{
 		"matches":["http://boardgaming-online.com/*","http://www.boardgaming-online.com/*"],
-		"js":["jquery-2.0.0.min.js", "content_script.js"]
+		"js":["lib/jquery-2.0.0.min.js","content_script.js", "alert_refresh/alert_content_script.js","translation/translation_content_script.js"]
 	}],
 	"web_accessible_resources": [
-		"Alert-08.m4a",
+		"alert_refresh/alert.m4a",
 		"favicon.ico",
-    "translation_legend.txt",
-    "dict_zh-cn.txt"
+    "translation/translation_legend.txt",
+    "translation/dict_zh-cn.txt"
    ]
 }
