@@ -6,13 +6,17 @@ It added many usful tools and functions to the website.<br>
 一个增强BGO（Boardgaming-Online）网站的扩展，为网页添加许多帮助玩家进行游戏的有用工具<br>
 <br>
 
+2016-02-18<br>
+[2.1.3 Released./2.1.3发布啦](https://github.com/hsyhhssyy/BGOExtension#21320160225)<br>
+<br>
+
 Index / 目录:<br>
 1.  ------- [Introduce](https://github.com/hsyhhssyy/BGOExtension#bgoextension-1)<br>
 2.  ------- [How To Use](https://github.com/hsyhhssyy/BGOExtension#how-to-use)<br>
 3.  ------- [简介](https://github.com/hsyhhssyy/BGOExtension#bgoextension-2)<br>
 4.  ------- [安装与使用](https://github.com/hsyhhssyy/BGOExtension#如何使用)<br>
-5.  ------- [Bugs/已知的Bug](https://github.com/hsyhhssyy/BGOExtension#Bugs/已知的Bug)<br>
-6.  ------- [Updates/版本更新列表](https://github.com/hsyhhssyy/BGOExtension#VersionUpdate/版本更新说明)<br>
+5.  ------- [Bugs/已知的Bug](https://github.com/hsyhhssyy/BGOExtension#bugs已知的bug)<br>
+6.  ------- [Updates/版本更新列表](https://github.com/hsyhhssyy/BGOExtension#versionupdate版本更新说明)<br>
 
 # BGOExtension
 
@@ -64,14 +68,14 @@ Unfixable bug/无法修复的Bug：<br>
 
 #VersionUpdate/版本更新说明
 
-## 2016.02.25 2.1.3
+###  2.1.3/2016.02.25
 加入了显示下一轮卡牌列和剩余牌堆的功能。<br>
 为新功能预留了设置选项<br>
 修改默认刷新时间到30秒<br>
 修复了很多Bug<br>
 更新到了Chrome商店里<br>
 
-## 2016.02.25 2.1.0
+###  2.1.0/2016.02.25
 更新了汉化功能<br>
 现在程序可以将BGO的UI，卡牌描述，行动选项等等全部汉化为中文
 修复了很多Bug<br>
