@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', function () {
         setCheckboxValue("beep-action-update");
         setCheckboxValue("beep-end-of-game");
 
+        setCheckboxValue("advanced-card-row");
+        setCheckboxValue("advanced-card-row-sim-next-turn");
+        setCheckboxValue("advanced-card-row-active-player-disp-current");
+        setCheckboxValue("advanced-card-row-not-on-last-turn");
     }
 
     //bind actions
@@ -70,5 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
     registerCheckBox("beep-your-turn");
     registerCheckBox("beep-action-update");
     registerCheckBox("beep-end-of-game");
+
+    registerCheckBox("advanced-card-row");
+    registerCheckBox("advanced-card-row-sim-next-turn");
+    registerCheckBox("advanced-card-row-active-player-disp-current");
+    registerCheckBox("advanced-card-row-not-on-last-turn");
 
 });

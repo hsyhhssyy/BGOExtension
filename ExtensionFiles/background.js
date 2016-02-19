@@ -33,6 +33,11 @@ if (localStorage['chrome.bgo-extension.refresh-interval'] == undefined) {
     localStorage['chrome.bgo-extension.beep-action-update'] = "false";
     localStorage['chrome.bgo-extension.beep-end-of-game'] = "false";
 
+    localStorage['chrome.bgo-extension.advanced-card-row'] = "true";
+    localStorage['chrome.bgo-extension.advanced-card-row-sim-next-turn'] = "false";
+    localStorage['chrome.bgo-extension.advanced-card-row-active-player-disp-current'] = "false";
+    localStorage['chrome.bgo-extension.advanced-card-row-not-on-last-turn'] = "false";
+
     //init language
 
     var localLanguage = navigator.language.toLocaleLowerCase();

@@ -99,14 +99,11 @@ var dictRequestMsg = {
 };
 
 // ***** 汉化主函数 *****
-var translationDictionary = undefined;
 chrome.extension.sendMessage(dictRequestMsg,
     function (dict) {
         if (dict == null) {
             return;
         }
-
-        translationDictionary = dict;
 
         //悬停弹出的卡牌完整说明
         var mouse_over = $("ul[id=\"carte\"]");
@@ -146,12 +143,7 @@ chrome.extension.sendMessage(dictRequestMsg,
         translateWithAgePrefix($("a[class=\"nomCarte tta_pact1\"]"), dict);
         translateWithAgePrefix($("a[class=\"nomCarte tta_tactic1\"]"), dict);
 
-        //DiscardPile
-        if (discardPileFrame != undefined) {
-            var innerDocument = $(discardPileFrame[0].contentDocument);
-            translateWithAgePrefix(innerDocument.find("a"), dict);
-        }
-
+        
         //建造中的奇迹
         var buildingWonder = $("a[class=\"nomCarte tta_wonder2 tta_wonder1\"]");
         if (buildingWonder[0] != undefined) {
