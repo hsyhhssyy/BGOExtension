@@ -38,6 +38,9 @@ if (localStorage['chrome.bgo-extension.refresh-interval'] == undefined) {
     localStorage['chrome.bgo-extension.advanced-card-row-active-player-disp-current'] = "false";
     localStorage['chrome.bgo-extension.advanced-card-row-not-on-last-turn'] = "false";
 
+    localStorage["chrome.bgo-extension.check-confirm-end-turn-by-default"] = "false";
+    localStorage["chrome.bgo-extension.check-confirm-end-turn-by-default-except"] = "true";
+
     //init language
 
     var localLanguage = navigator.language.toLocaleLowerCase();

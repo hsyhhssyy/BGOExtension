@@ -1,21 +1,33 @@
 ﻿{
   "manifest_version": 2,
-	"name": "BGO Auto Refresh",
-	"version": "2.1.4",
-	"background": { "scripts": ["lib/jquery-2.0.0.min.js", "translation/translation_background.js","background.js"] },
-	"page_action": {
-		"default_icon": {
-			"19": "favicon.ico",
-			"38": "favicon.ico"
-		},
-		"default_title": "BGO Auto Refresh",
-		"default_popup": "popup/popup.html"
-	},
-	"permissions" : ["tabs","notifications","storage","http://localhost/"],
-	"content_scripts":[{
-		"matches":["http://boardgaming-online.com/*","http://www.boardgaming-online.com/*"],
-		"js":["lib/jquery-2.0.0.min.js","content_script.js","tools/advanced_card_row_content_script.js" ,"tools/discard_pile_content_script.js" ,"alert_refresh/alert_content_script.js","translation/translation_content_script.js"]
-	}],
+  "name": "Boardgaming-online (BGO) Enhancement Toolbox",
+  "version": "2.1.5",
+
+  "description": "A toolbox that enhance Boardgaming-online (BGO) user experience.",
+
+  "author":"Songyang.Huo",
+
+  "background": { "scripts": [ "lib/jquery-2.0.0.min.js", "translation/translation_background.js", "background.js" ] },
+  "page_action": {
+    "default_icon": {
+      "19": "favicon.ico",
+      "38": "favicon.ico"
+    },
+    "default_title": "BGO Enhancement Toolbox",
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": [ "tabs", "notifications", "storage", "http://localhost/" ],
+  "content_scripts": [
+    {
+      "matches": [ "http://boardgaming-online.com/*", "http://www.boardgaming-online.com/*" ],
+      "js": [ "lib/jquery-2.0.0.min.js", "content_script.js",
+        "tools/advanced_card_row_content_script.js",
+        "tools/discard_pile_content_script.js",
+        "tools/auto_check_checkbox_content_script.js",
+        "alert_refresh/alert_content_script.js",
+         "translation/translation_content_script.js" ]
+    }
+  ],
 	"web_accessible_resources": [
 		"alert_refresh/alert.m4a",
 		"favicon.ico",

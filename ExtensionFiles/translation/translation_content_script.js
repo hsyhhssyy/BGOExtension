@@ -245,16 +245,18 @@ chrome.extension.sendMessage(dictRequestMsg,
                 //Build关键字的出现可能有多种情况。包括
                 //Build Iron (5R)
                 //Build free temple/Build free warrior.
-                //Build 4 stage of Library of Alexandria (1R)
-                if (text.indexOf("stage") == 8) {
+                //Build 1 stage of Library of Alexandria (1R)
+                //Build 4 stages of Library of Alexandria (1R)
+                if (text.indexOf("stage") == 8 || text.indexOf("stages") == 8) {
+                    var keywordLenght = text.indexOf("stages") == 8 ? 6 : 5;
                     //Build X stage of Y (XR)
                     //Build [StageCount] stage of [WonderName] ([ResourceCount]R)
                     var resourceLoc1 = text.indexOf("(");
                     var resourceLoc2 = text.indexOf(")");
 
                     var resourceCount = text.substr(resourceLoc1 + 1, resourceLoc2 - resourceLoc1 - 2);
-                    var stageCount = text.substr(6, 1);
-                    var wonderName = dict[text.substr(17, resourceLoc1 - 17 - 1)];
+                    var stageCount = text.substr(keywordLenght+1, 1);
+                    var wonderName = dict[text.substr(keywordLenght + 12, resourceLoc1 - keywordLenght -13)];
                     var translatedActionText = dict["Build [StageCount] stage of [WonderName] ([ResourceCount]R)"];
                     if (translatedActionText != undefined) {
                         translated_text = translatedActionText.replace("[StageCount]", stageCount).replace("[WonderName]", wonderName).replace("[ResourceCount]", resourceCount);
@@ -266,12 +268,19 @@ chrome.extension.sendMessage(dictRequestMsg,
                 } else if (dict[text] != undefined) {
                     translated_text = dict[text];
                 }
-            } else if (text.indexOf("Discover") == 0) {
+            }else if (text.indexOf("Revolution") == 0) {
+                //Revolution changes to XXXX (1S)
+                var resourceLoc = text.indexOf("(")
+                var card = text.substr(22, resourceLoc - 22 - 1);
+                translated_text = dict["Revolution changes to"] + " " + dict[card] + " " + text.substr(resourceLoc);
+            }  
+            else if (text.indexOf("Discover") == 0) {
                 var resourceLoc = text.indexOf("(")
                 var card = text.substr(9, resourceLoc - 9 - 1);
                 translated_text = dict["Discover"] + " " + dict[card] + " " + text.substr(resourceLoc);
-            } else if (text.indexOf("Elect") == 0) {
+            } else if (text.indexOf("Elect") == 0) {    
                 //Elect leader: Moses
+                //Elect leader: Moses (for 1MA)
                 var leaderName = text.substr(14);
                 translated_text = dict["Elect leader"] + " " + dict[leaderName];
             } else if (text.indexOf("Upgrade") == 0) {
@@ -282,6 +291,10 @@ chrome.extension.sendMessage(dictRequestMsg,
                 var card1 = dict[text.substr(8, arrowLoc - 9)];
                 var card2 = dict[text.substr(arrowLoc + 6, resourceLoc - arrowLoc - 7)];
                 translated_text = dict["Upgrade"] + " " + card1 + " -> " + card2 + " " + text.substr(resourceLoc);
+            } else if (text.indexOf("Bid") == 0) {
+                //Upgrade Agriculture -> Irrigation (2R)
+                var price = text.substr(4);
+                translated_text = dict["Bid"] + " " + price;
             } else if (text.indexOf("Play") == 0) {
                 //Play关键字的出现可能有多种情况。包括
                 //Play A / Rich Land
@@ -361,7 +374,88 @@ chrome.extension.sendMessage(dictRequestMsg,
 
             i++;
         }
-        //
 
+        //执行了某些事件后，行动选单下方出现的一堆checkbox
+        var actionOptionIterator = $('tr[id="sacrificeUnites"]').first().find("label");
+        var i = 0;
+        while (actionOptionIterator[i] != undefined) {
+            var text = actionOptionIterator[i].innerHTML;
+            text = text.removeCharacterEntities().trim();
+
+            var levelLoc = text.indexOf("-");
+
+            if (levelLoc < 0) {
+                levelLoc = -2;
+            }
+
+            var resourceLoc = text.indexOf("(")
+            var card = text.substr(levelLoc + 2, resourceLoc - levelLoc - 3);
+            if(dict[card]!=undefined){
+                translated_text = (levelLoc > 0 ? (text.substr(0, levelLoc + 1) + " " ): "") + dict[card] + " " + text.substr(resourceLoc);
+                actionOptionIterator[i].innerHTML = translated_text;
+            }
+
+            i++;
+        }
+
+
+        //类似国际条约的事件的牌
+        var actionOptionIterator = $('tr[id="pacteActuel"]').first().find("label");
+        var i = 0;
+        while (actionOptionIterator[i] != undefined) {
+            var text = actionOptionIterator[i].innerHTML;
+            text = text.removeCharacterEntities().trim();
+
+            var levelLoc = text.indexOf("/");
+
+            if (levelLoc < 0) {
+                levelLoc = -2;
+            }
+
+            var resourceLoc = text.indexOf("(")
+            var card = text.substr(levelLoc + 2, resourceLoc - levelLoc - 3);
+            if (dict[card] != undefined) {
+                translated_text = (levelLoc > 0 ? (text.substr(0, levelLoc + 1) + " ") : "") + dict[card] + " " + text.substr(resourceLoc);
+                actionOptionIterator[i].innerHTML = translated_text;
+            }
+
+            i++;
+        }
+
+        //弃牌阶段要弃掉的牌
+        //valTRA以及Check to confirm end of turn也会被这个xpath选中
+        var actionOptionIterator = $('table[class="tableau2"]').find('td[class="texte"]').find("label");
+        var i = 0;
+        while (actionOptionIterator[i] != undefined) {
+            var text = actionOptionIterator[i].innerHTML;
+            text = text.removeCharacterEntities().trim();
+
+            var levelLoc = text.indexOf("/");
+
+            if (levelLoc < 0) {
+                levelLoc = -2;
+            }
+            var card = text.substr(levelLoc + 2, text.length - levelLoc - 2);
+            if (dict[card] != undefined) {
+                translated_text = (levelLoc > 0 ? (text.substr(0, levelLoc + 1) + " ") : "") + dict[card] ;
+                actionOptionIterator[i].innerHTML = translated_text;
+            }
+
+            i++;
+        }
+
+
+        //Select 2 cards to discard:
+        //Select 1 card to discard:
+        var actionOptionIterator = $('table[class="tableau2"]').find('td[class="texte"]')[0];
+        var text = actionOptionIterator.firstChild.nodeValue;
+        if (text!=null&&text.indexOf(" card") >= 8) {
+            var digit = text.substr(7, text.indexOf(" card") - 7);
+            text = text.substr(0, 7) + "[Num]" + text.substring(text.indexOf(" card"));
+            if (dict[text] != undefined) {
+                translated_text = dict[text].replaceAll("[Num]",digit);
+                actionOptionIterator.firstChild.nodeValue = translated_text;
+            }
+        }
     }
 );

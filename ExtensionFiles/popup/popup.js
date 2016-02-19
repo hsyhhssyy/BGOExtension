@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
         setCheckboxValue("advanced-card-row-sim-next-turn");
         setCheckboxValue("advanced-card-row-active-player-disp-current");
         setCheckboxValue("advanced-card-row-not-on-last-turn");
+
+        setCheckboxValue("check-confirm-end-turn-by-default");
+        setCheckboxValue("check-confirm-end-turn-by-default-except");
     }
 
     //bind actions
@@ -79,5 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
     registerCheckBox("advanced-card-row-sim-next-turn");
     registerCheckBox("advanced-card-row-active-player-disp-current");
     registerCheckBox("advanced-card-row-not-on-last-turn");
+
+    registerCheckBox("check-confirm-end-turn-by-default");
+    registerCheckBox("check-confirm-end-turn-by-default-except");
 
 });
