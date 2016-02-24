@@ -50,7 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
     $("#activate-refresh").get(0).addEventListener('click', function () {
         localStorage['chrome.bgo-extension.auto-refresh'] = $("#activate-refresh").get(0).checked;
     });
-    
+
+    //
+    $("#toolbox-statistic").get(0).addEventListener('click', function () {
+        chrome.tabs.create({ url: "http://boardgaming-online.com/index.php?cnt=100" });
+    });
+
     $("#translate-language").get(0).addEventListener('change', function () {
         localStorage['chrome.bgo-extension.translate-language'] = $("#translate-language").get(0).value;
     });

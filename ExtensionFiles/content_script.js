@@ -53,16 +53,25 @@ if (typeof String.prototype.trim != 'function') {
 **
 ** ************************/
 var combo = $("form[id=\"formAction\"]");
-var boardInfo = $("div").first();
 var msg = {
     type: "bgo-board-information",
+    //账号玩家的名字
     playerName: $("span[class=\"nom\"]").text().replace(/\s/g, " "),
-    age:$("span[class=\"infoModule\"]").text(),
+    //当前游戏的时代，A I II III IV
+    age: $("span[class=\"infoModule\"]").text(),
+    //游戏中所有的玩家，按玩家行动顺序，注意不包括自己
     rivals: [],
+    //当前最后一条标题消息，为英文
     message: $("td[class=\"titre3\"]").first().text(),
+    //当前正在行动的玩家，是根据标题解析的
     currentPlayer: $("td[class=\"titre3\"]").first().find('span').first().html(),
+    //最后一个行动的内容，也是根据标题解析的
     lastAction: $("td[class=\"titreNote\"]").first().text(),
+    //账号玩家的行动序号
+    playerNo: null,
+    //当前可用的行动数
     listbox: combo.length,
+    //页面的url
     url: document.URL
 };
 
@@ -87,6 +96,8 @@ while (player_names[i] != undefined) {
 }
 
 chrome.runtime.sendMessage(msg);
+
+var boardInfo = msg;
 
 /** ***********************
 **

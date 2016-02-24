@@ -117,6 +117,7 @@ chrome.extension.sendMessage(dictRequestMsg,
                 discardPileFrame = $("<iframe id = \"bgo-extension-discard-pile\" src=\"" + link + "\" border=\"1\" frameborder=\"1\" width=\"0\" height=\"0\"></iframe>")
                 discardPileFrame.get(0).addEventListener('load', function () {
                     discardPileOperate();
+                    discardPileFrame.remove();
                 });
                 $("body").append(discardPileFrame);
                 break;

@@ -160,21 +160,37 @@ chrome.extension.sendMessage(dictRequestMsg,
         var actionOptionIterator = $("label");
         var i = 0;
         while (actionOptionIterator[i] != undefined) {
+            var translated_text = "undefined";
             var text = $(actionOptionIterator[i]).html();
-            if (text.indexOf("Discover") == 0) {
-                //Discover Swordsmen - 4[Token]
+            if (text.indexOf("Discover") >= 0) {
+                //<XXXXXX>Discover Swordsmen - 4[Token]
+                var disLoc = text.indexOf("Discover");
                 var slashLoc = text.indexOf("-");
                 var card = text.substr(9, slashLoc - 9 - 1);
-                actionOptionIterator[i].innerHTML = dict["Discover"] + " " + dict[card] + " " + text.substr(slashLoc);
-            } else if (text.indexOf("Upgrade") == 0) {
-                //Upgrade Agriculture -> Irrigation (2R)
+                translated_text = dict["Discover"] + " " + dict[card] + " " + text.substr(slashLoc);
+            } if (text.indexOf("Build") >= 0) {
+                //<XXXXXX>Build Religin - 4[Token]
+                var disLoc = text.indexOf("Build");
+                var slashLoc = text.indexOf("-");
+                var card = text.substr(6, slashLoc - 6 - 1);
+                translated_text = dict["Build"] + " " + dict[card] + " " + text.substr(slashLoc);
+            } else if (text.indexOf("Upgrade") >= 0) {
+                //<XXXXX>Upgrade Agriculture -> Irrigation (2R)
+                var upgLoc = text.indexOf("Upgrade");
                 var toLoc = text.indexOf(" to ");
                 var arrowLoc = text.indexOf("-");
 
-                var card1 = dict[text.substr(8, toLoc - 8)];
+                var card1 = dict[text.substr(upgLoc + 8, toLoc - upgLoc - 8)];
                 var card2 = dict[text.substr(toLoc + 4, arrowLoc - toLoc - 5)];
-                actionOptionIterator[i].innerHTML = dict["Upgrade"] + " " + card1 + " -> " + card2 + " " + text.substr(arrowLoc);
+                if (card1 != undefined && card2 != undefined) {
+                    translated_text = (upgLoc == 0 ? "" : text.substr(0, upgLoc)) + dict["Upgrade"] + " " + card1 + " -> " + card2 + " " + text.substr(arrowLoc);
+                }
             }
+
+            if (translated_text.indexOf("undefined") < 0) {
+                actionOptionIterator[i].innerHTML = translated_text;
+            }
+
             i++;
         }
 
@@ -448,14 +464,70 @@ chrome.extension.sendMessage(dictRequestMsg,
         //Select 2 cards to discard:
         //Select 1 card to discard:
         var actionOptionIterator = $('table[class="tableau2"]').find('td[class="texte"]')[0];
-        var text = actionOptionIterator.firstChild.nodeValue;
-        if (text!=null&&text.indexOf(" card") >= 8) {
-            var digit = text.substr(7, text.indexOf(" card") - 7);
-            text = text.substr(0, 7) + "[Num]" + text.substring(text.indexOf(" card"));
-            if (dict[text] != undefined) {
-                translated_text = dict[text].replaceAll("[Num]",digit);
-                actionOptionIterator.firstChild.nodeValue = translated_text;
+        if (actionOptionIterator != undefined) {
+            var text = actionOptionIterator.firstChild.nodeValue;
+            if (text != null && text.indexOf(" card") >= 8) {
+                var digit = text.substr(7, text.indexOf(" card") - 7);
+                text = text.substr(0, 7) + "[Num]" + text.substring(text.indexOf(" card"));
+                if (dict[text] != undefined) {
+                    translated_text = dict[text].replaceAll("[Num]", digit);
+                    actionOptionIterator.firstChild.nodeValue = translated_text;
+                }
             }
+        }
+
+        //对菜单的汉化
+        var actionOptionIterator = $('a');
+        var i = 0;
+        while (actionOptionIterator[i] != undefined) {
+            var text = actionOptionIterator[i].innerHTML;
+            text = text.removeCharacterEntities().trim();
+
+            if (dict["[Menu]" + text] != undefined) {
+                actionOptionIterator[i].innerHTML = dict["[Menu]" + text];
+            }else if (dict[text] != undefined) {
+                actionOptionIterator[i].innerHTML = dict[text];
+            }
+
+            i++;
+        }
+
+        //Age I round 5
+        var actionOptionIterator = $('span[class="infoModule"]');
+        if (actionOptionIterator[0] != undefined) {
+            var text = actionOptionIterator[0].innerHTML;
+            text = text.removeCharacterEntities().trim();
+
+            if (text.indexOf("Age") >= 0 && text.indexOf("round") >= 0) {
+                var roundLoc = text.indexOf("round");
+                var age = text.substr(4, roundLoc - 5);
+                var round = text.substr(roundLoc + 6);
+                var translated_text = dict["Age [Age] round [Round]"];
+                if (translated_text != undefined) {
+                    translated_text=translated_text.replaceAll("[Age]", age);
+                    translated_text = translated_text.replaceAll("[Round]", round);
+                    actionOptionIterator[0].innerHTML = translated_text;
+                }
+            }
+
+            i++;
+        }
+
+        //texteOnglet3
+        var actionOptionIterator = $('ul[id="indJoueur"]').find("li");
+        var i = 0;
+        while (actionOptionIterator[i] != undefined) {
+            var liNode = $(player_names[i]).find("li");
+            var text=liNode.html();
+
+            if (name== "Journal"
+                ||name== "Chat") {
+                var translated_text = dict[text];
+                if (translated_text != undefined) {
+                    liNode[0].innerHTML = translated_text;
+                }
+            }
+            i++;
         }
     }
 );

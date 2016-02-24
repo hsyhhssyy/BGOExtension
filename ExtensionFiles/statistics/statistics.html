@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	    <title>
+	        BGO Statistics Tool
+	    </title>
+        <link rel="stylesheet" type="text/css" href="statistics.css" />
+	</head>
+<body>
+
+<div id="content">
+    <table>
+        <tr>
+            <td colSpan="4">
+                Please input your name:&nbsp;&nbsp;<input id="player-name" type="text" size="10"/><Button id="start-button">Start</Button>
+            </td>
+        </tr>
+        <tr>
+            <td class="item-name" style="width: 10%">&nbsp;</td>
+            <td class="item-name" style="width: 25%">ID</td>
+            <td class="item-name" style="width: 40%">Name</td>
+            <td class="item-name" style="width: 25%">Result</td>
+        </tr>
+        <tr>
+            <td class="item-name" style="width: 10%"><input id="notification-your-turn" type="checkbox"/></td>
+            <td class="item-name" style="width: 25%">7306136</td>
+            <td class="item-name" style="width: 40%">AWeak Parrot's Game</td>
+            <td class="item-name" style="width: 25%">Lose</td>
+        </tr>
+        <tr>
+            <td colSpan="4">
+                <Button id="analyze-button" width="100%">Analyze above matches</Button>
+            </td>
+        </tr>
+    </table>
+    <!-- <iframe id="statistic-frame" border="1" frameborder="1" width="0" height="0"></iframe> -->
+    <iframe id="statistic-frame"></iframe>
+</div>
+</body>
+<script src="../lib/jquery-2.0.0.min.js"></script>
+<script src="statistics.js"></script>
+</html>
