@@ -6,8 +6,8 @@ It added many usful tools and functions to the website.<br>
 一个增强BGO（Boardgaming-Online）网站的扩展，为网页添加许多帮助玩家进行游戏的有用工具<br>
 <br>
 
-2016-02-18<br>
-[2.1.3 Released./2.1.3发布啦](https://github.com/hsyhhssyy/BGOExtension#21320160225)<br>
+2016-02-24<br>
+[2.1.6 Released./2.1.6发布啦](https://github.com/hsyhhssyy/BGOExtension#21620160224)<br>
 <br>
 
 Index / 目录:<br>
@@ -68,14 +68,19 @@ Unfixable bug/无法修复的Bug：<br>
 
 #VersionUpdate/版本更新说明
 
-###  2.1.3/2016.02.25
+###  2.1.6/2016.02.24
+加入了统计功能<br>
+修改了插件的名字，并修复了许多翻译的Bug<br>
+注意在这个版本中，牌堆展示功能可能有错误，有些你已经获得的卡可能会出现在其中。<br>
+
+###  2.1.3/2016.01.25
 加入了显示下一轮卡牌列和剩余牌堆的功能。<br>
 为新功能预留了设置选项<br>
 修改默认刷新时间到30秒<br>
 修复了很多Bug<br>
 更新到了Chrome商店里<br>
 
-###  2.1.0/2016.02.25
+###  2.1.0/2016.01.25
 更新了汉化功能<br>
 现在程序可以将BGO的UI，卡牌描述，行动选项等等全部汉化为中文
 修复了很多Bug<br>
