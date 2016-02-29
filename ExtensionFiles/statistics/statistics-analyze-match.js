@@ -1,127 +1,50 @@
 ﻿
-function analyzeSelectedMatch() {
-
-
-    if (matches.length <= 0) {
-        $("#card-list-status")[0].innerHTML = "Please list matches first.";
-        return;
-    }
-
-    var matchToAnalyze = [];
-
-    for (var i = 0; i < matches.length; i++) {
-        var checkbox = $('tr[aindex="' + i+'"]').find("#analyze-this-match")[0];
-        if (checkbox != undefined&&checkbox.checked==true) {
-            matchToAnalyze[matchToAnalyze.length] = matches[i];
-        }
-    }
-
-    cardStatistics = [];
-
-    loadDocument("http://boardgaming-online.com/index.php?cnt=52&pl=" + matches[0].id + "&nat=-1", { "page": 1, "matches": matchToAnalyze, "index": 0 }, getJournalCallback);
-}
-
-function getJournalCallback(frame, document, token) {
-
-    var journal = token.matches[token.index].journal;
-
-    var journalTable = document.find("table[class='tableau']");
-
-    var rows = journalTable.find("tr");
-
-    if (rows == undefined || rows.length <=1) {
-        loadJournalFinished(token);
-        return;
-    }
-
-
-    var i = 0;
-    while (rows[i] != undefined) {
-        var currentRow = rows[i];
-        var tds = $(currentRow).find("td");
-
-        if ($(tds[0]).find("p").length <= 0) {
-            i++;
-            continue;
-        }
-
-        var log = {
-            player: $(tds[1]).find("p").text(),
-            age: $(tds[2]).find("p").text(),
-            ture: $(tds[3]).find("p").text(),
-            journal: $(tds[4]).find("p").text(),
-
-        }
-
-        journal[journal.length] = log;
-
-        i++;
-    }
-
-    token.matches[token.index].journal = journal;
-    token.page += 1;
-
-    loadDocument("http://boardgaming-online.com/index.php?cnt=52&pl=" + token.matches[token.index].id+ "&nat=-1&pg=" + token.page + "&flt=", token, getJournalCallback);
-
-}
 
 var findCardTaken = /([\s\S]*?) takes ([\s\S]*?) in hand/;
 var findCardPutBack = /([\s\S]*?) puts ([\s\S]*?) back/;
 
-var findMyColor = /IS ([\s\S]*?) AS ([\s\S]*?) \(/;
-var findMyColorG = /IS ([\s\S]*?) AS ([\s\S]*?) \(/g;
 
-function analyzeFinished() {
-    for(var card in cardStatistics) {
-        var status = cardStatistics[card];
+var totalWl = {
+    "total": 0,
+    "win": 0,
+    "lose": 0,
+    "tie": 0,
+    "resign": 0
+};
 
-        var tr = $("#card-list-simple").first().clone();
-        tr[0].removeAttribute("hidden");
-        tr.find("#card-name")[0].innerHTML = card;
-        tr.find("#card-taken")[0].innerHTML = status.taken;
-        tr.find("#card-win")[0].innerHTML = status.win;
-        tr.find("#card-lose")[0].innerHTML = status.lose;
-        tr.find("#card-tie")[0].innerHTML = status.tie;
-        tr.find("#card-resign")[0].innerHTML = status.resign;
+function collectTotalWl(match, color) {
 
-        $("#card-list").append(tr);
-
+    totalWl.total += 1;
+    if (match.wl == "Win") {
+        totalWl.win += 1;
+    } else if (match.wl == "Lose") {
+        totalWl.lose += 1;
+    } else if (match.wl == "Tie") {
+        totalWl.tie += 1;
+    } else if (match.wl == "Resign") {
+        totalWl.resign += 1;
     }
+
 }
 
-function loadJournalFinished(token) {
+function collectTotalWlFinished() {
 
-    var username = $("span[class=\"nom\"]").text().replace(/\s/g, " ");
-    var match = token.matches[token.index];
+    if (totalWl.total == 0) {
+        $("#statistic-status")[0].innerHTML = "0 match analyzed.";
+    } else {
+        $("#statistic-status")[0].innerHTML = "A total of " + totalWl.total + " match(es) analyzed: Win " + totalWl.win + "(" + (100 * totalWl.win / totalWl.total).toFixed(2) + "%), Lose " + totalWl.lose + "(" + (100 * totalWl.lose / totalWl.total).toFixed(2) +
+            "%), Tie " + totalWl.tie + "(" + (100 * totalWl.tie / totalWl.total).toFixed(2) + "%), Resign " + totalWl.resign + "(" + (100 * totalWl.resign / totalWl.total).toFixed(2) + "%)";
+    }
 
+}
+
+function collectCardTaken(match, color) {
     var journal = match.journal;
 
-    var endGameJournal = journal[0].journal.toUpperCase();
-    var myColorMatches = endGameJournal.match(findMyColorG);
-    if (myColorMatches == null) {
-        $("#card-list-status")[0].innerHTML = "Error reading journal.";
-        return;
-    }
-
-    var color = undefined;
-    for (var i = 0; myColorMatches[i] != undefined; i ++ ) {
-        var colorLine = myColorMatches[i].match(findMyColor);
-        if (colorLine[1] == username.toUpperCase()) {
-            color = colorLine[2];
-        }
-
-    }
-
-    if (color == undefined) {
-        $("#card-list-status")[0].innerHTML = "Error reading journal.";
-        return;
-    }
-
-    color = color.substr(0, 1).toUpperCase() + color.substr(1).toLowerCase();
 
     //Process Journal
     var i = 1;
-    for(var i=1;journal[i] != undefined;i++) {
+    for (var i = 1; journal[i] != undefined; i++) {
         var log = journal[i];
         var text = log.journal;
 
@@ -161,33 +84,154 @@ function loadJournalFinished(token) {
             }
 
             cardStatistics[card].taken += num;
-            if (token.matches[token.index].wl == "Win") {
+            if (match.wl == "Win") {
                 cardStatistics[card].win += num;
-            } else if (token.matches[token.index].wl == "Lose") {
+            } else if (match.wl == "Lose") {
                 cardStatistics[card].lose += num;
-            } else if (token.matches[token.index].wl == "Tie") {
-               cardStatistics[card].tie += num;
-            } else if (token.matches[token.index].wl == "Resign") {
+            } else if (match.wl == "Tie") {
+                cardStatistics[card].tie += num;
+            } else if (match.wl == "Resign") {
                 cardStatistics[card].resign += num;
             }
         }
     }
 
-    var tr = $('tr[mindex="' + token.matches[token.index].id + '"]');
-    var tds = tr.find("td");
-
-    for (var i = 0; tds[i] != undefined; i++) {
-        tds[i].setAttribute("class", "batiment1 tta_military1");
-    }
-
-    $("#card-list-status")[0].innerHTML = "" + (token.index + 1) + " Matches analyzed......";
-
-    if (token.matches.length > token.index + 1) {
-
-        token.page = 1;
-        token.index += 1;
-        loadDocument("http://boardgaming-online.com/index.php?cnt=52&pl=" + token.matches[token.index].id + "&nat=-1", token, getJournalCallback);
-    } else {
-        analyzeFinished();
-    }
 }
+
+
+function collectCardTakenFinished() {
+
+    var totalWinRate = 100 * totalWl.win / totalWl.total;
+
+    for (var card in cardStatistics) {
+        var status = cardStatistics[card];
+
+        var tr = $("#card-list-simple").first().clone();
+        tr[0].removeAttribute("hidden");
+        tr.find("#card-name")[0].innerHTML = card;
+        tr.find("#card-taken")[0].innerHTML = `${status.taken}`
+        tr.find("#card-taken-rate")[0].innerHTML = `${(100 * status.taken / totalWl.total).toFixed(2)}%`;
+        tr.find("#card-win")[0].innerHTML = `${status.win}`;
+        tr.find("#card-win-rate-taken")[0].innerHTML = `${(100 * status.win / status.taken).toFixed(2)}%`;
+        if (100 * status.win / status.taken >= totalWinRate) {
+            tr.find("#card-win-rate-taken")[0].parentNode.parentNode.parentNode.setAttribute("class", "batiment1 tta_leader1");
+        } else {
+            tr.find("#card-win-rate-taken")[0].parentNode.parentNode.parentNode.setAttribute("class", "batiment1 tta_military1");
+        }
+        tr.find("#card-win-rate-not-taken")[0].innerHTML = `${(100 * (totalWl.win - status.win) / (totalWl.total - status.taken)).toFixed(2)}%`;
+        if (100 * (totalWl.win - status.win) / (totalWl.total - status.taken)  >= totalWinRate) {
+            tr.find("#card-win-rate-not-taken")[0].parentNode.parentNode.parentNode.setAttribute("class", "batiment1 tta_leader1");
+        } else {
+            tr.find("#card-win-rate-not-taken")[0].parentNode.parentNode.parentNode.setAttribute("class", "batiment1 tta_military1");
+        }
+
+        tr.find("#card-lose")[0].innerHTML = status.lose;
+        tr.find("#card-tie")[0].innerHTML = status.tie;
+        tr.find("#card-resign")[0].innerHTML = status.resign;
+
+        $("#card-list").append(tr);
+
+    }
+
+    $("#card-list")[0].removeAttribute("hidden");
+}
+
+function judgePlayerColor(match) {
+    var colors = match.playerColors;
+
+    var color = undefined;
+    for (var name in colors) {
+        if (aliasNames.indexOf(name) >= 0) {
+            color = colors[name];
+        }
+    }
+
+    if (color != undefined) {
+        color = color.substr(0, 1).toUpperCase() + color.substr(1).toLowerCase();
+    }
+    return color;
+}
+
+function analyzeSelectedMatch() {
+
+
+    if (matches.length <= 0) {
+        $("#statistic-status")[0].innerHTML = "Please list matches first.";
+        return;
+    }
+
+    var matchToAnalyze = [];
+
+    for (var i = 0; i < matches.length; i++) {
+        var checkbox = $('tr[aindex="' + i+'"]').find("#analyze-this-match")[0];
+        if (checkbox != undefined&&checkbox.checked==true) {
+            matchToAnalyze[matchToAnalyze.length] = matches[i];
+        }
+    }
+
+    //重置所有分析结果
+    cardStatistics = [];
+    totalWl = {
+        "total": 0,
+        "win": 0,
+        "lose": 0,
+        "tie": 0,
+        "resign": 0
+    };
+
+    for (var i = 0; i < matchToAnalyze.length; i++) {
+        var match = matchToAnalyze[i];
+        var skipMatch = false;
+
+        var playerColor = judgePlayerColor(match);
+
+        if (playerColor == undefined) {
+            skipMatch = true;
+        }
+
+        //玩家数量过滤器
+        switch(match.players.length) {
+            case 2:
+                if ($("#option-count-2-player")[0].checked != true) {
+                    skipMatch = true;
+                }
+                break;
+            case 3:
+                if ($("#option-count-3-player")[0].checked != true) {
+                    skipMatch = true;
+                }
+                break;
+            case 4:
+                if ($("#option-count-4-player")[0].checked != true) {
+                    skipMatch = true;
+                }
+                break;
+        }
+
+
+        if (skipMatch == true) {
+            //将有问题的比赛颜色变一下
+            var tr = $('tr[mindex="' + match.id + '"]');
+            var tds = tr.find("td");
+
+            for (var j = 0; tds[j] != undefined; j++) {
+                tds[j].setAttribute("class", "batiment1 tta_production1");
+            }
+            continue;
+        } else {
+            var tr = $('tr[mindex="' + match.id + '"]');
+            var tds = tr.find("td");
+
+            for (var j = 0; tds[j] != undefined; j++) {
+                tds[j].setAttribute("class", "batiment1 tta_leader1");
+            }
+        }
+        collectCardTaken(match, playerColor);
+        collectTotalWl(match, playerColor);
+    }
+
+    collectCardTakenFinished();
+    collectTotalWlFinished();
+}
+
+

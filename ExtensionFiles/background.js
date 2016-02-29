@@ -10,7 +10,7 @@
 }
 
 function checkForValidUrl(tabId, changeInfo, tab) {
-    if (getDomainFromUrl(tab.url).toLowerCase() == "boardgaming-online.com" || getDomainFromUrl(tab.url).toLowerCase() == "www.boardgaming-online.com") {
+    if (getDomainFromUrl(tab.url).toLowerCase() == "84.200.224.32" || getDomainFromUrl(tab.url).toLowerCase() == "boardgaming-online.com" || getDomainFromUrl(tab.url).toLowerCase() == "www.boardgaming-online.com") {
         chrome.pageAction.show(tabId);
     }
 };

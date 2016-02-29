@@ -2,27 +2,54 @@
 
     var username = $("span[class=\"nom\"]").text().replace(/\s/g, " ");
 
-    $("#match-list-status")[0].innerHTML = "Loading match lists (Page 1)......";
+    $("#statistic-status")[0].innerHTML = "Listing all matches ......";
 
-    loadDocument("http://boardgaming-online.com/index.php?cnt=14&pg=1&flt=" + username.toLowerCase(), { "page": 1, "callback": callback, "username": username }, listMatchCallback);
+    loadDocument("http://boardgaming-online.com/index.php?cnt=14&pg=1&flt=" + username.toLowerCase(), { "page": 1, "callback": callback, "username": username },
+        function (frame, document, token) {
+
+            //获取总页数并加入token
+            //numPageLien
+            var pageNum=document.find('a[class="numPageLien"]')
+
+            if (pageNum == undefined || pageNum.length <= 0) {
+                //没有去往第二页的链接，检查一下本页是否是唯一的一页
+
+                var rows = document.find("table[class='tableau2']").find("tr");
+
+                if (rows == undefined || rows.length == 0) {
+                    //第一页也没有任何一行
+                    $("#statistic-status")[0].innerHTML = "Can't find any matches, check if your username only contains English characters.";
+                    return;
+                } else {
+                    token.maxPage = 1;
+                }
+            } else {
+                var maxPageNum = 0;
+                for (var i = 0; pageNum[i] != undefined; i++) {
+                    var number = parseInt(pageNum[i].innerHTML);
+                    if (number > maxPageNum) {
+                        maxPageNum = number;
+                    }
+                }
+
+                token.maxPage = maxPageNum;
+            }
+
+            $("#statistic-status")[0].innerHTML = "Listing all matches (1/"+token.maxPage+")......";
+
+            listMatchCallback(frame, document, token);
+        });
 
 };
 
-function listMatchCallback(frame,document,token) {
+function listMatchCallback(frame, document, token) {
+
     //add current page into match list
     var listTable = document.find("table[class='tableau2']");
 
-    var playerName = $('span[class="nom"]').html().replace("&nbsp;"," ");
+    var playerName = token.username;
 
     var rows = listTable.find("tr");
-
-    if (rows == undefined || rows.length == 0) {
-        $("#match-list-status")[0].innerHTML = "" + matches.length + " Matches loaded";
-        $("#card-list")[0].removeAttribute("hidden");
-        
-        token.callback();
-        return;
-    }
 
     var i = 0;
     while (rows[i] != undefined) {
@@ -82,8 +109,8 @@ function listMatchCallback(frame,document,token) {
             "board":tds[2].innerHTML,
             "players": players,
             "wl": winOrLose,
-            "playerNumber": -1,
-            "journal":[]
+            "journal": [],
+            "playerColors": {}
         }
 
 
@@ -98,6 +125,7 @@ function listMatchCallback(frame,document,token) {
             tr.find("#match-id")[0].innerHTML = match.id;
             tr.find("#match-name")[0].innerHTML = match.name;
             tr.find("#match-result")[0].innerHTML = match.wl;
+            tr.find("#match-player-count")[0].innerHTML = match.players.length;
 
             $("#match-list").append(tr);
         }
@@ -107,7 +135,14 @@ function listMatchCallback(frame,document,token) {
     }
 
     token.page += 1;
-    $("#match-list-status")[0].innerHTML = "Loading match lists (Page " + token.page + ")......";
+
+    //如果最后一页也已经完毕
+    if (token.page > token.maxPage) {
+        token.callback(token);
+        return;
+    }
+
+    $("#statistic-status")[0].innerHTML = "Listing all matches ("+token.page+"/" + token.maxPage + ")......";
     loadDocument("http://boardgaming-online.com/index.php?cnt=14&pg=" + token.page  + "&flt=" + token.username.toLowerCase(), token, listMatchCallback);
 }
 
