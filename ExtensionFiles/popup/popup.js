@@ -9,7 +9,32 @@ function registerCheckBox(messageName) {
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', function () {
+
+
+    //l18n
+    (function () {
+        var cfgLanguage = localStorage['chrome.bgo-extension.translate-language'];
+
+        var dict = chrome.extension.getBackgroundPage().translationDictionary[cfgLanguage];
+
+        if (dict == undefined) {
+            return;
+        }
+
+        var iterators = $('div[class="divl18n"]');
+        for (var i = 0; iterators[i] != undefined; i++) {
+            var divText = "[ExtensionConfig]" + iterators[i].innerHTML;
+            var translated_text = dict[divText];
+            if (translated_text != undefined) {
+                iterators[i].innerHTML = translated_text;
+            }
+        }
+
+    }());
+    //
+
     //Get background data
     var data = chrome.extension.getBackgroundPage().bgoData;
     if (data.error) {
@@ -58,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $("#translate-language").get(0).addEventListener('change', function () {
         localStorage['chrome.bgo-extension.translate-language'] = $("#translate-language").get(0).value;
+        location.reload(true);
     });
 
     var refreshIntervalCheck = function () {

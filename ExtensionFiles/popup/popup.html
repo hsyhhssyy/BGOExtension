@@ -1,82 +1,88 @@
 ﻿<!DOCTYPE html>
 <html>
-	<head>
-		<title>
-			Message Object viewer
-		</title>
-		<link rel="stylesheet" type="text/css" href="popup.css" />
-	</head>
+<head>
+    <title>
+        Message Object viewer
+    </title>
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+</head>
 <body>
-<p id="message">Error Message</p>
-<div id="content">
-	<table>
-        <tr>
-			<td colSpan="2">&nbsp;&nbsp;Language: &nbsp;&nbsp;<select id="translate-language">
-  	            <option value ="en-us">English(US)</option>
-                <option value ="zh-cn">简体中文</option>
-                </select>
-            </td>
-		</tr>
-		<tr>
-			<td class="item-name" style="width:30%">Player Name</td>
-			<td style="width:70%"><div id="content-player-name" class="content-div">&nbsp;</div></td>
-		</tr>
-		<tr>
-			<td class="item-name">Possible Action</td>
-			<td><div id="content-action-count" class="content-div">&nbsp;</div></td>
-		</tr>
-		<tr>
-			<td class="item-name">Player Number</td>
-			<td><div id="content-player-no" class="content-div">&nbsp;</div></td>
-		</tr>
-		<tr>
-			<td class="item-name">Message</td>
-			<td><div id="content-message" class="content-div">&nbsp;</div></td>
-		</tr>
-	    <tr>
-	        <td class="item-name">Last Action</td>
-	        <td>
-	            <div id="content-last-action" class="content-div">&nbsp;</div></td>
-	    </tr>
-        <tr>
-            <td colSpan="2"><input id="activate-refresh" type="checkbox" />Activate auto refresh every <input id="refresh-interval" type="text" size="1" /> second.</td>
-        </tr>
-        <tr>
-            <td colSpan="2"><input id="advanced-card-row" type="checkbox"/>Activate advanced card row display:
-                <li>
-                    <input id="advanced-card-row-sim-next-turn" type="checkbox" />Simulate next trun's card row. &nbsp;&nbsp;</li>
-                <li>
-                    <input id="advanced-card-row-active-player-disp-current" type="checkbox" />Active player display current. &nbsp;
-                </li>
-                <li hidden="=true">
-                    <input id="advanced-card-row-not-on-last-turn" type="checkbox" />Not on last turn. &nbsp;&nbsp;
-                </li>
-            </td>
-        </tr>
-        <tr>
-            <td colSpan="2"><input id="check-confirm-end-turn-by-default" type="checkbox"/>Check "Check to confirm end of turn" by default.<br/>
-                <li><input id="check-confirm-end-turn-by-default-except" type="checkbox" />except when there are other warnings. </li></td>
-        </tr>
-		<tr>
-			<td  colSpan="2"><input id="notification-global-enabled" type="checkbox"/>Send desktop notification on: 
-			<li><input  id="notification-your-turn"  type="checkbox"/>Your Turn. &nbsp;&nbsp; 
-			<input id="notification-action-update"  type="checkbox"/>Action Update&nbsp;&nbsp; 
-			<input id="notification-end-of-game" type="checkbox"/>End of Game</li></td>
-		</tr>
-	    <tr>
-	        <td colSpan="2"><input id="beep-global-enabled" type="checkbox"/>Play alert sound when:
-	        <li><input id="beep-your-turn" type="checkbox"/>Your Turn. &nbsp;&nbsp;
-	            <input id="beep-action-update" type="checkbox"/>Action Update&nbsp;&nbsp;
-	            <input id="beep-end-of-game" type="checkbox"/>End of Game</li>
-	        <!-- Custom Alert Sound: <input id="beep-custom-sound" type="text" size="13"/>&nbsp;<input id="beep-browse" type="button" width="1" value="Browse"/></td>-->
-	    </tr>
-	    <tr>
-	        <td colSpan="2"> Toolbox:
-                <Button id="toolbox-statistic">Statistic Tool</Button>
-            </td>
-	    </tr>
-	</table>
-</div>
+    <p id="message">Error Message</p>
+    <div id="content">
+        <table>
+            <tr>
+                <td colSpan="2">
+                    <div class="divl18n">Language:</div>&nbsp;<select id="translate-language">
+                        <option value="en-us">English(US)</option>
+                        <option value="zh-cn">简体中文</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="item-name" style="width:30%"><div class="divl18n">Player Name</div></td>
+                <td style="width:70%"><div id="content-player-name" class="content-div">&nbsp;</div></td>
+            </tr>
+            <tr>
+                <td colSpan="2">
+                    <input id="activate-refresh" type="checkbox" />
+                    <div class="divl18n">Activate auto refresh every <input id="refresh-interval" type="text" size="1" /> second.</div>
+                </td>
+            </tr>
+            <tr>
+                <td colSpan="2">
+                    <input id="advanced-card-row" type="checkbox" /><div class="divl18n">Activate advanced card row display:</div>
+                    <ul style="margin: 0">
+                        <li>
+                            <input id="advanced-card-row-sim-next-turn" type="checkbox" /><div class="divl18n">Simulate next trun's card row. </div>
+                        </li>
+                        <li>
+                            <input id="advanced-card-row-active-player-disp-current" type="checkbox" /><div class="divl18n">Active player display current. </div>
+                        </li>
+                        <li hidden="hidden">
+                            <input id="advanced-card-row-not-on-last-turn" type="checkbox" />Not on last turn. &nbsp;&nbsp;
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colSpan="2">
+                    <input id="check-confirm-end-turn-by-default" type="checkbox" /><div class="divl18n">Check "Check to confirm end of turn" by default.</div><br />
+                    <ul style="margin: 0"><li><input id="check-confirm-end-turn-by-default-except" type="checkbox" /><div class="divl18n">except when there are other warnings. </div></li></ul>
+                </td>
+            </tr>
+            <tr>
+                <td colSpan="2">
+                    <input id="notification-global-enabled" type="checkbox" /><div class="divl18n">Send desktop notification on:</div>
+                    <ul style="margin: 0">
+                        <li>
+                            <input id="notification-your-turn" type="checkbox" /><div class="divl18n">Your Turn</div>&nbsp;&nbsp;
+                            <input id="notification-action-update" type="checkbox" /><div class="divl18n">Action Update</div>&nbsp;&nbsp;
+                            <input id="notification-end-of-game" type="checkbox" /><div class="divl18n">End of Game</div>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colSpan="2">
+                    <input id="beep-global-enabled" type="checkbox" />
+                    <div class="divl18n">Play alert sound when:</div>
+                    <ul style="margin: 0">
+                        <li>
+                            <input id="beep-your-turn" type="checkbox" /><div class="divl18n">Your Turn</div>&nbsp;&nbsp;
+                            <input id="beep-action-update" type="checkbox" /><div class="divl18n">Action Update</div>&nbsp;&nbsp;
+                            <input id="beep-end-of-game" type="checkbox" /><div class="divl18n">End of Game</div>
+                        </li>
+                    </ul>
+                    <!-- Custom Alert Sound: <input id="beep-custom-sound" type="text" size="13"/>&nbsp;<input id="beep-browse" type="button" width="1" value="Browse"/></td>-->
+            </tr>
+            <tr>
+                <td colSpan="2">
+                    <div class="divl18n">Toolbox:</div>
+                    <Button id="toolbox-statistic"><div class="divl18n">Statistic Tool</div></Button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 <script src="../lib/jquery-2.0.0.min.js"></script>
 <script src="popup.js"></script>
