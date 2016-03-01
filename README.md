@@ -20,7 +20,7 @@
 1. [从Chrome应用商店安装](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)<br>
 2. 或者你在墙内的话，下载[插件文件](https://github.com/hsyhhssyy/BGOExtension/blob/master/ExtensionFiles.crx?raw=true)，然后打开Chrome的菜单->更多工具->扩展程序，再把下载的crx文件拖进去。<br>
 3. 打开一个BGO游戏页面，插件会自动运行。<br>
-4. 当你在BGO页面上时，在地址栏末端，会多出一个小按钮，按一下便打开了设置。设置对所有BGO页面生效。<br>
+4. 当你在BGO页面上时，在地址栏末端，会多出一个小按钮，按一下便打开了设置。设置对所有BGO页面生效。<br><br>
 ![插件设置](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-cfg-icon.jpg)<br>
 
 ## 功能列表
@@ -34,18 +34,18 @@
 
 ### 声音警告和桌面提示
 当你启用了声音警告和桌面提示时，当指定的事件发生时，会弹出桌面通知和发出叮咚的声音。<br>
-![弹窗设置](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-notification2.jpg)<br>
+      ![弹窗设置](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-notification2.jpg)<br>
 第一次弹出桌面通知时，Chrome会询问是否允许弹出桌面通知。<br>
-![申请弹窗权限](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-notification1.jpg)<br>
+      ![申请弹窗权限](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-notification1.jpg)<br>
 弹出的桌面提示如下图，在Chrome不在前台的时候仍会弹出，可能会影响全屏游戏。<br>
-![桌面通知](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-example2.jpg)<br>
+      ![桌面通知](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-example2.jpg)<br>
 <br>
-在这些选项里：<br>
+**在这些选项里：**<br>
 `你的回合` 表示当轮到你操作时，进行提醒，这包括且仅包括任何出现行动选项下拉列表单的情况。<br>
 `发生任何行动` 表示某次页面刷新后，在你的回合外，其他玩家进行了行动，由于刷新是定时的，因此该提醒不一定能准确反映玩家的每一步行动。<br>
 `游戏结束` 表示当游戏结束时并计分时，发送一个提醒。<br>
 <br>
-已知的Bug：<br>
+**已知的Bug：**<br>
 [Bug]当你Reset Action Phase后，会收到`你的回合`的语音或者桌面提示（如果你打开了）。<br>
 [Bug]游戏的第一和第二回合无法正常播放声音和提示。<br>
 
@@ -56,7 +56,7 @@
 由于网速的原因，这个窗口有时候并不会立即加载，你可能会看到Loading的字样，稍等片刻再指上去即可。<br>
 注意这个剩余牌堆并不包含当前在卡牌列上的牌，与BGO提供的Discard Pile略有不同。<br>
 有的时候，指上去会遇到Error的字样，这表示计算内政卡遇到了困难，需要到下个回合才能正确的显示。<br>
-
+<br>
 2. 除了你的面板外，其余玩家的面板上也会显示卡牌列，这样就可以方便的观察其他玩家的面板而不用来换切换。<br>
 下面两个子选项就是用于微调该功能的。<br>
 选项`在另一位玩家的面板上模拟下一回合的卡牌列`会使得另一位玩家的卡牌列自动模拟成下回合的状态。<br>
@@ -96,6 +96,11 @@
 10. `拿取%` 的意义为拿取的局占总局数的百分比，与胜负无关。<br>
 
 # 版本更新说明
+
+###  2.1.8/2016.03.01
+将插件的设置页面汉化<br>
+修复了统计功能的一些bug<br>
+修复了汉化的一部分错误<br>
 
 ###  2.1.6/2016.02.24
 加入了统计功能<br>
