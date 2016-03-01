@@ -7,14 +7,15 @@
 [For English Readme, Click this link.](https://github.com/hsyhhssyy/BGOExtension/blob/master/README-enUS.md)<br>
 <br>
 
-2016-02-24<br>
+2016-03-01 更新<br>
 [2.1.8发布啦](https://github.com/hsyhhssyy/BGOExtension#21820160301)<br>
-<br>
+统计功能大升级！<br>
 
 目录:<br>
 1.  ------- [安装与使用](https://github.com/hsyhhssyy/BGOExtension#如何使用)<br>
-2.  ------- [功能列表](https://github.com/hsyhhssyy/BGOExtension#bugs功能列表)<br>
-4.  ------- [版本更新列表](https://github.com/hsyhhssyy/BGOExtension#versionupdate版本更新说明)<br>
+2.  ------- [功能列表](https://github.com/hsyhhssyy/BGOExtension#功能列表)<br>
+3.  ------- [数据统计功能](https://github.com/hsyhhssyy/BGOExtension#数据统计)<br>
+4.  ------- [版本更新列表](https://github.com/hsyhhssyy/BGOExtension#版本更新说明)<br>
 
 ## 如何使用
 1. [从Chrome应用商店安装](https://chrome.google.com/webstore/detail/bgo-auto-refresh/lmcmoogkhhaomncoipfgkonpabnihiff)<br>
