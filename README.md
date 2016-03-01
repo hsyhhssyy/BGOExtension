@@ -34,11 +34,11 @@
 
 ### 声音警告和桌面提示
 当你启用了声音警告和桌面提示时，当指定的事件发生时，会弹出桌面通知和发出叮咚的声音。<br>
-      ![弹窗设置](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-notification2.jpg)<br>
+![弹窗设置](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-notification2.jpg)<br><br>
 第一次弹出桌面通知时，Chrome会询问是否允许弹出桌面通知。<br>
-      ![申请弹窗权限](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-notification1.jpg)<br>
+![申请弹窗权限](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-notification1.jpg)<br><br>
 弹出的桌面提示如下图，在Chrome不在前台的时候仍会弹出，可能会影响全屏游戏。<br>
-      ![桌面通知](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-example2.jpg)<br>
+![桌面通知](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/bgo-example2.jpg)<br>
 <br>
 **在这些选项里：**<br>
 `你的回合` 表示当轮到你操作时，进行提醒，这包括且仅包括任何出现行动选项下拉列表单的情况。<br>
