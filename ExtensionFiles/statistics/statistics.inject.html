@@ -1,32 +1,41 @@
 ﻿<link rel="stylesheet" href="themes/theme_1/styles/tta7.css?v=112">
+<style>
+    .divl18n {
+        display: inline;
+    }
+</style>
 <div id="content">
     <table>
         <tr>
-            <td  colSpan="3">
+            <td colSpan="3">
                 <table style="width: 100%;">
                     <tr>
-                        <td style="width: 8%;">
-                            <Button id="list-match-button" class="bouton5">List All Matches</Button>
+                        <td class="titre3" style="width: 10%;"><div class="divl18n">Player Name:</div>
+<input id="username" type="text" /></td>
+                        <td style="width: 10%;">
+                            <Button id="list-match-button" class="bouton5">
+                                <div class="divl18n">List All Matches</div>
+                            </Button>
+                            <Button id="collect-journal-button" class="bouton5" hidden="hidden">
+                                <div class="divl18n">Collect Journal</div>
+                            </Button>
+                            <Button id="analyze-button" class="bouton5" hidden="hidden">
+                                <div class="divl18n">Analyze Selected</div>
+                            </Button>
                         </td>
-                        <td style="width: 8%;">
-                            <Button id="collect-journal-button" class="bouton5" hidden="hidden">Collect Journal</Button>
+                        <td style="width: 25%;" class="titre3">
+                            <input id="option-count-2-player" type="checkbox" checked="checked" />
+                            <div class="divl18n">2-players' match.</div><br/>
+                            <input id="option-count-4-player" type="checkbox" checked="checked" />
+                            <div class="divl18n">3-players' match.</div><br />
+                            <input id="option-count-3-player" type="checkbox" checked="checked" />
+                            <div class="divl18n">4-players' match.</div><br />
                         </td>
-                        <td style="width: 8%;">
-                            <Button id="analyze-button" class="bouton5" hidden="hidden">Analyze Selected</Button>
+                        <td id="statistic-status" style="width: 55%; min-width: 500px;" class="titre3" colSpan="2">
+                            <div class="divl18n">Please click [List All Matches] button.</div>
                         </td>
-                        <td style="width: 25%;" class="titre3"  >
-                            <input id="option-count-2-player" type="checkbox" checked="checked"/>2-players' match.&nbsp;&nbsp;<input id="option-count-4-player" type="checkbox" checked="checked"/>3-players' match.<br />
-                            <input  id="option-count-3-player" type="checkbox" checked="checked"/>4-players' match 
-                        </td>
-                        <td id="statistic-status" style="width: 45%; min-width: 500px;" class="titre3" colSpan="2">Please click [List All Matches] button.</td>
                     </tr>
-
                 </table>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;
             </td>
         </tr>
         <tr>
@@ -37,45 +46,45 @@
                         <td class="tdMid" style="width: 10%; min-width: 40px;">
                             <p class="libBatiment tta_production0 tta_production4">&nbsp;</p>
                         </td>
-                        <td class="tdMid" style="width: 25%; min-width: 80px;">
-                            <p class="libBatiment tta_production0 tta_production4">ID</p>
+                        <td class="tdMid" style="width: 20%; min-width: 80px;">
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">ID</p></div>
                         </td>
                         <td class="tdMid" style="width: 45%; min-width: 200px;">
-                            <p class="libBatiment tta_production0 tta_production4">Name</p>
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Name</p></div>
                         </td>
-                        <td class="tdMid" style="width: 10%; min-width: 40px;">
-                            <p class="libBatiment tta_production0 tta_production4">Player</p>
+                        <td class="tdMid" style="width: 15%; min-width: 40px;">
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Player</p></div>
                         </td>
                         <td class="tdMid" style="width: 10%; min-width: 80px;">
-                            <p class="libBatiment tta_production0 tta_production4">Result</p>
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Result</p></div>
                         </td>
                     </tr>
                     <tr id="match-list-simple" hidden="hidden">
-                        <td class="batiment1 tta_production1" style="width: 10%">
+                        <td class="batiment1 tta_production1" >
                             <input id="analyze-this-match" type="checkbox" checked />
                         </td>
-                        <td class="batiment1 tta_production1" style="width: 25%">
+                        <td class="batiment1 tta_production1" >
                             <ul id="descBatiment">
                                 <li>
                                     <p id="match-id" class="nomCarte">739564445</p>
                                 </li>
                             </ul>
                         </td>
-                        <td class="batiment1 tta_production1" style="width: 40%;">
+                        <td class="batiment1 tta_production1" >
                             <ul id="descBatiment">
                                 <li>
                                     <p id="match-name" class="nomCarte" style="white-space: nowrap;">刚克老师真是厉害呀-1</p>
                                 </li>
                             </ul>
                         </td>
-                        <td class="batiment1 tta_production1" style="width: 25%">
+                        <td class="batiment1 tta_production1" >
                             <ul id="descBatiment">
                                 <li>
                                     <p id="match-player-count" class="nomCarte">3</p>
                                 </li>
                             </ul>
                         </td>
-                        <td class="batiment1 tta_production1" style="width: 25%">
+                        <td class="batiment1 tta_production1" >
                             <ul id="descBatiment">
                                 <li>
                                     <p id="match-result" class="nomCarte">Win</p>
@@ -93,12 +102,12 @@
                             <p class="libBatiment tta_production0 tta_production4">&nbsp;</p>
                         </td>
                         <td class="tdMid" style="width: 90%; min-width: 200px;">
-                            <p class="libBatiment tta_production0 tta_production4">Name</p>
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Username</p></div>
                         </td>
                     </tr>
                     <tr id="alias-name-simple" hidden="hidden">
                         <td class="batiment1 tta_urban1" style="width: 10%">
-                            <input id="alias-name-checked" type="checkbox"/>
+                            <input id="alias-name-checked" type="checkbox" />
                         </td>
                         <td class="batiment1 tta_urban1" style="width: 40%;">
                             <ul id="descBatiment">
@@ -114,38 +123,38 @@
                         <td colspan="9" class="tdMid" style="width: 50%; min-width: 200px;">
                             <ul id="descBatiment">
                                 <li>
-                                    <p id="card-name" class="nomCarte">Win%(T): Win while taken / total win<br/>Win%(NT): Win while not taken / total not taken.<br/>Red cells are below your average win rate.<br/>Green cells are above your average win rate.</p>
+                                    <div class="divl18n"><p class="nomCarte">Win%(T): Win while taken / total win<br>Win%(NT): Win while not taken / total not taken.<br>Red cells are below your average win rate.<br>Green cells are above your average win rate.</p></div>
                                 </li>
                             </ul>
                         </td>
                     </tr>
                     <tr>
-                        <td class="tdMid" style="width: 31%; min-width: 200px;">
-                            <p class="libBatiment tta_production0 tta_production4">Card</p>
+                        <td class="tdMid" style="width: 26%; min-width: 200px;">
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Card</p></div>
                         </td>
                         <td class="tdMid" style="width: 7%; min-width: 40px;">
-                            <p class="libBatiment tta_production0 tta_production4">Taken</p>
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Taken</p></div>
+                        </td>
+                        <td class="tdMid" style="width: 9%; min-width: 40px;">
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Taken%</p></div>
                         </td>
                         <td class="tdMid" style="width: 7%; min-width: 40px;">
-                            <p class="libBatiment tta_production0 tta_production4">Taken%</p>
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Win</p></div>
                         </td>
                         <td class="tdMid" style="width: 7%; min-width: 40px;">
-                            <p class="libBatiment tta_production0 tta_production4">Win</p>
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Lose</p></div>
                         </td>
                         <td class="tdMid" style="width: 7%; min-width: 40px;">
-                            <p class="libBatiment tta_production0 tta_production4">Lose</p>
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Tie</p></div>
                         </td>
                         <td class="tdMid" style="width: 7%; min-width: 40px;">
-                            <p class="libBatiment tta_production0 tta_production4">Tie</p>
-                        </td>
-                        <td class="tdMid" style="width: 7%; min-width: 40px;">
-                            <p class="libBatiment tta_production0 tta_production4">Resign</p>
-                        </td>
-                        <td class="tdMid" style="width: 12%; min-width: 40px;">
-                            <p class="libBatiment tta_production0 tta_production4">Win%(T)</p>
+                           <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Resign</p></div>
                         </td>
                         <td class="tdMid" style="width: 15%; min-width: 40px;">
-                            <p class="libBatiment tta_production0 tta_production4">Win%(NT)</p>
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Win%(T)</p></div>
+                        </td>
+                        <td class="tdMid" style="width: 15%; min-width: 40px;">
+                            <div class="divl18n"><p class="libBatiment tta_production0 tta_production4">Win%(NT)</p></div>
                         </td>
                     </tr>
                     <tr id="card-list-simple" hidden="hidden">

@@ -1,37 +1,42 @@
-﻿
-
-/** ***********************
+﻿/** ***********************
 **
 ** 获得当前玩家的相关信息，构造msg传给后台以供显示
 **
 ** ************************/
+
 (function() {
 
     var combo = $("form[id=\"formAction\"]");
-    ttaBoardInformation = {
+
+    var infoMsg = {
         type: "bgo-board-information",
-        //账号玩家的名字
         playerName: $("span[class=\"nom\"]").text().replace(/\s/g, " "),
-        //当前游戏的时代，A I II III IV
-        age: $("span[class=\"infoModule\"]").text(),
-        //游戏中所有的玩家，按玩家行动顺序，注意不包括自己
-        rivals: [],
-        //当前最后一条标题消息，为英文
-        message: $("td[class=\"titre3\"]").first().text(),
-        //当前正在行动的玩家，是根据标题解析的
-        currentPlayer: $("td[class=\"titre3\"]").first().find('span').first().html(),
-        //最后一个行动的内容，也是根据标题解析的
-        lastAction: $("td[class=\"titreNote\"]").first().text(),
-        //账号玩家的行动序号
-        playerNo: null,
-        //当前可用的行动数
-        listbox: combo.length,
-        //页面的url
-        url: document.URL
+        url: document.URL,
     };
+    chrome.runtime.sendMessage(ttaBoardInformation);
+
+    //账号玩家的名字
+    ttaBoardInformation.playerName = $("span[class=\"nom\"]").text().replace(/\s/g, " ");
+    //当前游戏的时代，A I II III IV
+    ttaBoardInformation.age = $("span[class=\"infoModule\"]").text();
+    //游戏中所有的玩家，按玩家行动顺序，注意不包括自己
+    ttaBoardInformation.rivals = [];
+    //当前最后一条标题消息，为英文
+    ttaBoardInformation.message = $("td[class=\"titre3\"]").first().text();
+    //当前正在行动的玩家，是根据标题解析的
+    ttaBoardInformation.currentPlayer = $("td[class=\"titre3\"]").first().find('span').first().html();
+    //最后一个行动的内容，也是根据标题解析的
+    ttaBoardInformation.lastAction = $("td[class=\"titreNote\"]").first().text();
+    //账号玩家的行动序号
+    ttaBoardInformation.playerNo = null;
+    //当前可用的行动数
+    ttaBoardInformation.listbox = combo.length;
+    //页面的url
+    ttaBoardInformation.url = document.URL;
+
 
     //填充player list
-    var player_name_table = $("table[class=\"tableau0\"]")[1];
+    var player_name_table = $($('div[id="contenu"] > table[class="tableau0"]'))[0];
     player_name_table = $(player_name_table);
     var player_names = player_name_table.find("ul[id=\"indJoueur\"]");
     var i = 0;
@@ -52,8 +57,17 @@
 
     ttaBoardInformation.players = player_names;
 
-    chrome.runtime.sendMessage(ttaBoardInformation);
 
+    var cfgRequestMsg = {
+        type: "bgo-configuration-query"
+    };
+
+
+    chrome.extension.sendMessage(cfgRequestMsg,
+        function (config) {
+            ttaBoardInformation.config = config;
+            ttaBoardInformation.executeReady.onReady(ttaBoardInformation);
+        });
 }());
 
 /** ***********************

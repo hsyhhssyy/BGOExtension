@@ -5,7 +5,6 @@
 ** ************************/
 
 
-var ttaCivilopedia = {};
 
 (function() {
 
@@ -19,23 +18,32 @@ var ttaCivilopedia = {};
         for (var i = 0; i < civilopediaTextSplit.length; i++) {
             var pediaRowText = civilopediaTextSplit[i].trim();
 
-            var slash = pediaRowText.indexOf("|");
+            var slash = pediaRowText.split("|");
 
-            var cardName = "";
+            if (slash.length < 3) {
+                return;
+            }
 
-            var dictRowLoc = dictRowText.indexOf("|", 0);
-            if (dictRowLoc < dictRowText.length - 1) {
-                var key = convertLegend(dictRowText.substr(0, dictRowLoc));
-                var value = convertLegend(dictRowText.substr(dictRowLoc + 1));
-                localDict[key] = value;
-                localDict[key + "<br>"] = value + "<br>";
+            var cardName = slash[0];
+            var cardProp = slash[1];
+            var cardUL = $(slash[2]);
+
+            ttaCivilopedia.cardLibrary[cardName] = {
+                "cardProp": cardProp,
+                "cardUL":cardUL
             }
         }
 
         translationDictionary[languageStr] = localDict;
+
+        ttaCivilopedia.executeReady.onReady(ttaCivilopedia);
     });
 
-    ttaCivilopedia.getCardPopupUL = function() {
-
+    ttaCivilopedia.getCardPopupUL = function (cardName) {
+        if (ttaCivilopedia.cardLibrary[cardName] != undefined) {
+            return ttaCivilopedia.cardLibrary[cardName].cardUL;
+        } else {
+            return undefined;
+        }
     }
 })();

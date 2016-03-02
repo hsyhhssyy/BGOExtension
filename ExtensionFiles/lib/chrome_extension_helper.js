@@ -17,7 +17,7 @@ if (typeof String.prototype.removeCharacterEntities != 'function') {
         for (var name in empty_obj) {
             txt = name;
         }
-        return txt;
+        return txt.trim();
     };
 }
 
@@ -48,8 +48,7 @@ if (typeof String.prototype.trim != 'function') {
 
 //Constants
 
-var playerColors = ["Unknown", "Orange", "Purple", "Green", "Red"];
-
+var playerColors = ["Unknown", "Orange", "Purple", "Green", "Grey"];
 var ageEnum = {
     A: 0,
     I: 1,
@@ -57,6 +56,22 @@ var ageEnum = {
     III: 3,
     IV: 4
 };
+
+//标准TTA插件对象：
+
+var ttaTranslation = {};
+
+ttaTranslation.getTranslatedText = function (txt) {
+    return txt;
+};
+
+var ttaBoardInformation = {};
+
+var ttaStatistics = {};
+
+var ttaCivilopedia = {};
+
+
 
 //自定义工具组
 
@@ -101,15 +116,114 @@ if (typeof extensionTools.loadLocalText != 'function') {
                 callback(localText);
             }
         }
-        xhr.open('GET', dtextUrlictUrl, true);
+        xhr.open('GET', textUrl, true);
         xhr.send(null);
     }
 }
 
-//标准TTA插件对象：
+(function () {
+    var normalInfos = [];
 
-var ttaTranslation = {};
-ttaTranslation.getTranslatedText = function(txt) {
-    return txt;
-}
-var ttaBoardInformation = {};
+    var onReady= function(obj) {
+        var executeReadyList = obj.executeReady;
+        if (executeReadyList.ready == true) {
+            return;
+        } else {
+            executeReadyList.ready = true;
+        }
+
+        for (var infoIndex = 0; executeReadyList.infoList[infoIndex] != undefined; infoIndex++) {
+            var info = executeReadyList.infoList[infoIndex];
+            var index = info.required.indexOf(obj);
+            info.required.splice(index, 1);
+
+            if (info.required.length <= 0) {
+                info.func();
+            }
+
+            normalInfos.splice(normalInfos.indexOf(info), 1);
+        }
+
+        if (normalInfos.length <= 0 && obj != extensionTools.executeReady.afterAllAction) {
+            extensionTools.executeReady.afterAllAction.executeReady.onReady(extensionTools.executeReady.afterAllAction);
+        }
+    }
+
+    //设置支持的对象
+    ttaStatistics.executeReady = {
+        "infoList": [],
+        "ready": false,
+        "onReady": onReady,
+    }
+    ttaBoardInformation.executeReady = {
+        "infoList": [],
+        "ready": false,
+        "onReady": onReady,
+    }
+    ttaCivilopedia.executeReady = {
+        "infoList": [],
+        "ready": false,
+        "onReady": onReady,
+    }
+    ttaTranslation.executeReady = {
+        "infoList": [],
+        "ready": false,
+        "onReady": onReady,
+    }
+
+
+    if (typeof extensionTools.executeReady != 'function') {
+        extensionTools.executeReady = function() {
+            var func = arguments[arguments.length - 1];
+            if (typeof func != 'function') {
+                throw new Error("executeReady function's last argument must be a function.");
+            }
+
+            var executeReadyInfo = {
+                "required": [],
+                "func":func
+            };
+
+            var specialFlag = { "afterAllaction": false };
+            
+            for (var i = 0; i <= arguments.length - 2; i++) {
+                var requiredObj = arguments[i];
+
+                if (requiredObj == extensionTools.executeReady.afterAllAction) {
+                    specialFlag.afterAllaction = true;
+                }
+
+                if (requiredObj.executeReady == undefined) {
+
+                    return;
+                } else {
+                    if (requiredObj.executeReady.ready == true) {
+                        continue;
+                    }
+                }
+
+                requiredObj.executeReady.infoList[requiredObj.executeReady.infoList.length] = executeReadyInfo;
+                executeReadyInfo.required[executeReadyInfo.required.length] = requiredObj;
+            }
+
+            if (specialFlag.afterAllaction==false) {
+                normalInfos[normalInfos.length] = executeReadyInfo;
+            }
+
+            if (executeReadyInfo.required.length == 0) {
+                func();
+            }
+
+        }
+
+        extensionTools.executeReady.afterAllAction = {
+            "executeReady": {
+                "infoList": [],
+                "ready": false,
+                "onReady": onReady,
+            }
+        }
+
+    }
+}());
+
