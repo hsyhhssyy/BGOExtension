@@ -76,6 +76,7 @@
 ### 默认启用并且无法关闭的功能
 下面是一些默认启用并且无法关闭的功能:<br>
 1. 自己面板右下角的Save Notes本来是不能正确的存储中文的，现在可以了。<br>
+![Note](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-save-note.png)<br>
 <br>
 2. 游戏中饥荒/腐败/战争/暴动的提示由横排变为竖排，并且指上去会有更详尽的提示。<br>
 ![状态栏](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-status-bar.png)<br>
@@ -83,7 +84,10 @@
 3. 我的游戏（My games）页面现在被放到主面板的一个独立标签之中。这样就可以不用点击菜单就可以切换不同的游戏了。<br>
 ![我的游戏](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-mygame.jpg)<br>
 <br>
-4. 玩家的名版上会用文字标注出玩家的颜色<br>
+4. 网页的标题被修改为显示局数 - 玩家 - BGO的模式，方便在标签多起来的时候分辨<br>
+![标题栏](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-title.jpg)<br>
+<br>
+5. 玩家的名版上会用文字标注出玩家的颜色<br>
 ![玩家颜色](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-colorblind1.jpg)<br>
 <br>
 ## 数据统计
