@@ -1,15 +1,16 @@
 # BGOExtension
 
 <br>
-一个增强BGO（Boardgaming-Online）网站的扩展，为网页添加许多帮助玩家进行游戏的有用工具。<br>
+一个增强BGO（[Boardgaming-Online](http://boardgaming-online.com/)）网站的扩展，为网页添加许多帮助玩家进行游戏的有用工具。<br>
 包括自动刷新，并在轮到你的时候停止刷新，并发出提示音和桌面提示。<br>
 除此之外，还汉化了整个BGO的页面。还包括许许多多的小工具，欢迎自由探索。<br>
 [For English Readme, Click this link.](https://github.com/hsyhhssyy/BGOExtension/blob/master/README-enUS.md)<br>
 <br>
 
 2016-03-01 更新<br>
-[2.1.8发布啦](https://github.com/hsyhhssyy/BGOExtension#21820160301)<br>
-统计功能大升级！<br>
+[2.1.9发布啦](https://github.com/hsyhhssyy/BGOExtension#21920160302)<br>
+插件选项和统计工具也都支持中文啦。<br>
+只要语言选择为简体中文，bgo上几乎没有布满英文的地方了。<br>
 
 目录:<br>
 1.  ------- [安装与使用](https://github.com/hsyhhssyy/BGOExtension#如何使用)<br>
@@ -80,28 +81,48 @@
 ![状态栏](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-status-bar.png)<br>
 <br>
 3. 我的游戏（My games）页面现在被放到主面板的一个独立标签之中。这样就可以不用点击菜单就可以切换不同的游戏了。<br>
-![状态栏](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-mygame.jpg)<br>
+![我的游戏](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-mygame.jpg)<br>
+<br>
+4. 玩家的名版上会用文字标注出玩家的颜色<br>
+![玩家颜色](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-colorblind1.jpg)<br>
 <br>
 ## 数据统计
 数据统计是插件提供的一个辅助工具，点击插件设置页面下方工具箱中的“统计工具”按钮，即可打开统计工具页面。<br>
 统计工具能够自动分析你的比赛历史，并给出许多统计结果。<br>
 1. 统计工具仅支持英文ID，假如你是中文ID，你可以先临时改成英文ID，统计之后再改回来。<br>
-2. 想要开始统计，首先点击上方的`列出比赛历史`按钮。<br>
+2. 想要开始统计，首先确认显示的玩家名称，假如你想收集别人的比赛记录，也可以修改成别人的名称。之后点击上方的`列出比赛`按钮。<br>
 3. 接下来，请耐心等待插件分析并列出所有的比赛，这个过程可能持续5-10分钟甚至更长，取决于你究竟打过多少比赛。<br>
 4. 等到比赛全部列出，一个新的按钮`收集日志`出现在上方。在点击该按钮之前，请检查已经列出的比赛，将你不想要参与统计的比赛前面的复选框去掉。注意如果你想按照玩家人数筛选，那么上方提供了三个复选框统一操作，不需要你查看每场比赛并取消勾选具体的场次。<br>
+![收集日志](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-statistics-1.jpg)<br>
+<br>
 5. 比赛日志会一场一场进行收集，收集过的场次底色会变红。注意就算你勾选了按照玩家人数筛选的复选框，这里仍然会收集日志，只不过在稍后统计的时候并不参与统计。<br>
 6. 日志全部收集完成后，会出现`开始统计`按钮。在按下该按钮之前，首先请注意是否弹出玩家姓名选择面板。<br>
-7. 假如弹出玩家姓名选择面板（如下图），则表明有一部分比赛的日志中没有以你当前玩家名称参与的玩家。这可能是因为你在该比赛之后改了名，或者你是中文ID临时改名来统计。这种情况下，请勾选上所有你曾经使用过的ID。<br>
+7. 假如弹出玩家姓名选择面板（如下图），则表明有一部分比赛的日志中没有以你当前玩家名称参与的玩家。这可能是因为你在该比赛之后改了名，或者你是中文ID临时改名来统计，亦或者是你创建了一局比赛你不在其中的比赛。这种情况下，请勾选上所有你曾经使用过的ID。<br>
+![曾用名](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-statistics-2.jpg)<br>
 8. 当你确认所有你曾经使用过的ID都被勾选，或者根本没有弹出姓名选择面板，你就可以点击`开始统计`按钮了。统计结果会以列表的形式展示在右侧。<br>
 9. 其中`胜%(拿取)`项表明在所有拿了该牌的比赛中，你的总体胜率。`胜%(放过)`项表明在所有没有拿该牌的比赛中，你的总体胜率。这两个项目中，低于你总体平均胜率的单元格会被标注红底。高于你平均胜率的单元格会标注绿底。<br>
 10. `拿取%` 的意义为拿取的局占总局数的百分比，与胜负无关。<br>
+11. 在胜率计算时，负，平和投都记为负。<br>
+12. 行动卡（黄牌）的统计是不准确的，因为他们可以多次拿取，而本统计工具中拿取的单位实际上不是“场”而是“张”。因此会造成黄牌有错误加权的问题。<br>
 
 # 版本更新说明
+
+###  2.1.9/2016.03.02
+将统计工具页面汉化<br>
+修复了汉化的一部分错误<br>
+添加了玩家颜色指示器<br>
+牌堆示加入了校验，假如计算出张数和显示剩余不符，会显示error从而不会误导玩家。<br>
 
 ###  2.1.8/2016.03.01
 将插件的设置页面汉化<br>
 修复了统计功能的一些bug<br>
 修复了汉化的一部分错误<br>
+加入了面板状态栏高级显示功能<br>
+
+###  2.1.8/2016.03.01
+修复了统计功能的一些bug<br>
+修复了汉化的一部分错误<br>
+我的游戏面板现在作为一个标签内置在其中<br>
 
 ###  2.1.6/2016.02.24
 加入了统计功能<br>
