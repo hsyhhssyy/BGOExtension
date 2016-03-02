@@ -27,14 +27,14 @@
 
 ## 功能列表
 
-###全页面汉化功能
+### 1. 全页面汉化功能
 插件会自动汉化整个BGO页面，只需要你在语言选项里选择简体中文即可。<br>
 ![语言下拉单](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-language.jpg)<br>
 
-### 自动刷新功能
+### 2. 自动刷新功能
 当轮到你进行操作时，你不需要关闭自动刷新，他会自动停止。当你结束你的回合后，他会自动继续开始刷新。<br>
 
-### 声音警告和桌面提示
+### 3. 声音警告和桌面提示
 当你启用了声音警告和桌面提示时，当指定的事件发生时，会弹出桌面通知和发出叮咚的声音。<br>
 ![弹窗设置](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-notification2.jpg)<br><br>
 第一次弹出桌面通知时，Chrome会询问是否允许弹出桌面通知。<br>
@@ -51,7 +51,7 @@
 [Bug]当你Reset Action Phase后，会收到`你的回合`的语音或者桌面提示（如果你打开了）。<br>
 [Bug]游戏的第一和第二回合无法正常播放声音和提示。<br>
 
-### 高级卡牌列增强
+### 4. 高级卡牌列增强
 启用高级卡牌列增强后，卡牌列会出现以下几个变化。<br>
 1. 卡牌列末端，当前内政卡处，鼠标悬停会显示当前剩余内政卡。<br>
 ![剩余牌堆](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-advanced-card-row-1.jpg)<br>
@@ -67,16 +67,16 @@
 <br>
 选项`在非当前行动的玩家的面板模拟下一回合的卡牌列`进一步微调该功能，现在会使得模拟卡牌列显示在非当前玩家的面板上，也就是说，假如你不是当前玩家，那么你的面板上显示的是模拟的下一回合卡牌列而不是当前卡牌列。<br>
 
-### 默认勾选结束回合
+### 5. 默认勾选结束回合
 启用`默认勾选”勾选以确认结束回合”复选框`后，回合结束的复选框会自动被勾选上。<br>
 ![默认结束1](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-endturn2.jpg)<br>
 选项`除非提示文本中包含警告信息`勾选后后，假如回合结束的提示框如下图一样有红字警告，那么结束回合复选框并不会自动被勾选上。<br>
 ![默认结束2](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-endturn1.jpg)<br>
 
-### 默认启用并且无法关闭的功能
+### 6. 一些无法关闭的功能
 下面是一些默认启用并且无法关闭的功能:<br>
 1. 自己面板右下角的Save Notes本来是不能正确的存储中文的，现在可以了。<br>
-![Note](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-save-note.png)<br>
+![Note](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-save-note.jpg)<br>
 <br>
 2. 游戏中饥荒/腐败/战争/暴动的提示由横排变为竖排，并且指上去会有更详尽的提示。<br>
 ![状态栏](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-status-bar.png)<br>
