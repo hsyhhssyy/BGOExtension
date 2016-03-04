@@ -60,13 +60,12 @@
 
         var rows = listTable.find("tr");
 
-        var i = 0;
-        while (rows[i] != undefined) {
+       
+        for ( var i = 0;rows[i] != undefined;i++) {
             var currentRow = rows[i];
 
             var tds = $(currentRow).find("td");
             if (tds[0].getAttribute("rowspan") == undefined) {
-                i++;
                 continue;
             }
 
@@ -123,30 +122,33 @@
             }
 
 
-            if (match.board == "Through the Ages: A New Story of Civilization") {
-                ttaStatistics.matches[ttaStatistics.matches.length] = match;
-                var tr = $("#match-list-simple").first().clone();
-                tr[0].removeAttribute("hidden");
-                tr[0].setAttribute("aindex", (ttaStatistics.matches.length - 1));
-                tr[0].setAttribute("mindex", match.id);
-                tr[0].setAttribute("id", "match-list-" + (ttaStatistics.matches.length - 1));
-
-                tr.find("#match-id")[0].innerHTML = match.id;
-                tr.find("#match-name")[0].innerHTML = match.name;
-
-                var divText = "[Statistic]" + match.wl;
-                var note = ttaTranslation.getTranslatedText(divText);
-                if (note == divText) {
-                    note = match.wl;
-                }
-                tr.find("#match-result")[0].innerHTML = note;
-                tr.find("#match-player-count")[0].innerHTML = match.players.length;
-
-                $("#match-list").append(tr);
+            if (match.board == "Through the Ages: A New Story of Civilization" && $("#option-new-story")[0].checked==true) {
+                //
+            }else if (match.board == "Through the Ages" && $("#option-old-story")[0].checked == true) {
+                //
+            } else {
+                continue;
             }
 
-            i++;
+            ttaStatistics.matches[ttaStatistics.matches.length] = match;
+            var tr = $("#match-list-simple").first().clone();
+            tr[0].removeAttribute("hidden");
+            tr[0].setAttribute("aindex", (ttaStatistics.matches.length - 1));
+            tr[0].setAttribute("mindex", match.id);
+            tr[0].setAttribute("id", "match-list-" + (ttaStatistics.matches.length - 1));
 
+            tr.find("#match-id")[0].innerHTML = match.id;
+            tr.find("#match-name")[0].innerHTML = match.name;
+
+            var divText = "[Statistic]" + match.wl;
+            var note = ttaTranslation.getTranslatedText(divText);
+            if (note == divText) {
+                note = match.wl;
+            }
+            tr.find("#match-result")[0].innerHTML = note;
+            tr.find("#match-player-count")[0].innerHTML = match.players.length;
+
+            $("#match-list").append(tr);
         }
 
         token.page += 1;

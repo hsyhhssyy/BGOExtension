@@ -40,6 +40,7 @@ if (localStorage['chrome.bgo-extension.refresh-interval'] == undefined) {
 
     localStorage["chrome.bgo-extension.check-confirm-end-turn-by-default"] = "false";
     localStorage["chrome.bgo-extension.check-confirm-end-turn-by-default-except"] = "true";
+    localStorage["chrome.bgo-extension.page-font"] = "Default";
 
     //init language
 

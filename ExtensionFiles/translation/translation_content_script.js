@@ -201,6 +201,11 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
     ttaTranslation.translateWithAgePrefix($('span[class="titre3"]'));
 
     //下拉列表的内容：
+    //var optionStyleGreen = "background:#83a839;color:white";
+    //var optionStylePurple = "background:#794890;color:white";
+    //var optionStyleRed = "background:#e6260d;color:white";
+    //var optionStyleBlack = "color:green";
+
     var actionOptionIterator = $("option");
     var i = 0;
     while (actionOptionIterator[i] != undefined) {
@@ -264,7 +269,7 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
             var card2 = dict[text.substr(arrowLoc + 6, resourceLoc - arrowLoc - 7)];
             translated_text = dict["Upgrade"] + " " + card1 + " -> " + card2 + " " + text.substr(resourceLoc);
         } else if (text.indexOf("Bid") == 0) {
-            //Upgrade Agriculture -> Irrigation (2R)
+            //Bid 4
             var price = text.substr(4);
             translated_text = dict["Bid"] + " " + price;
         } else if (text.indexOf("Play") == 0) {
@@ -286,9 +291,11 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
                     }
                     conlonyName = conlonyName.trim();
                     translated_text = dict["Play conlony"] + " " + dict[conlonyName] + " " + conlonySplit[conlonySplit.length - 1];
+                    //actionOptionIterator[i].setAttribute("style", optionStyleGreen)
                 } else {
                     var eventName = text.substr(11);
                     translated_text = dict["Play event"] + " " + dict[eventName];
+                    //actionOptionIterator[i].setAttribute("style", optionStylePurple)
                 }
             }
         } else if (text.indexOf("Declare") == 0) {
@@ -308,8 +315,18 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
         } else if (text.indexOf("Adopt tactics") == 0) {
             var card = text.substr(16);
             translated_text = dict["Adopt tactics"] + " " + dict[card];
-        } else if (dict[text] != undefined) {
-            translated_text = dict[text];
+        } else if (text.indexOf("Columbus discovers") == 0) {
+            //Columbus discovers I/ Strategic Territory
+            var card = text.substr(19);
+            translated_text = dict["Columbus discovers"] + " " + ttaTranslation.getTranslatedText(card);
+            //actionOptionIterator[i].setAttribute("style", optionStyleGreen)
+        } else if (text.indexOf("Barbarossa enlists") == 0) {
+            //Barbarossa enlists a Warrior (3F/1R)
+            var resourceLoc = text.indexOf("(");
+            var card =  text.substr(21, resourceLoc - 21 - 1);
+            var resource = text.substr(resourceLoc);
+            translated_text = ttaTranslation.getTranslatedText("Barbarossa enlists") + " " +
+            ttaTranslation.getTranslatedText(card) + " "+ resource;
         } else if (text.endsWith(" A") || text.endsWith(" I") || text.endsWith(" II") || text.endsWith(" III")) {
             //可能是侵略牌
             var aggressionSplit = text.split(" ");
@@ -319,11 +336,14 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
             }
             aggressionName = aggressionName.trim();
             translated_text = dict[aggressionName] + " " + aggressionSplit[aggressionSplit.length - 1];
+            //actionOptionIterator[i].setAttribute("style", optionStyleRed)
         } else if (text.startsWith("A/") || text.startsWith("I/") || text.startsWith("II/") || text.startsWith("III/")) {
             //是Disband/Destory的Option
             var levelLoc = text.indexOf("/");
             var card = text.substr(levelLoc + 2);
             translated_text = text.substr(0, levelLoc + 2) + dict[card];
+        } else if (dict[text] != undefined) {
+            translated_text = dict[text];
         } else {
             translated_text = "undefined";
 
@@ -346,6 +366,9 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
 
         i++;
     }
+
+    //某些事件触发的时候，待结算事件的名称
+    ttaTranslation.translateWithAgePrefix($('span[class="texte evtActif"]'));
 
     //执行了某些事件后，行动选单下方出现的一堆checkbox
     var actionOptionIterator = $('tr[id="sacrificeUnites"]').first().find("label");

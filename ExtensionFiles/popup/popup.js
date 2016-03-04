@@ -12,12 +12,11 @@ function registerCheckBox(messageName) {
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    var cfgLanguage = localStorage['chrome.bgo-extension.translate-language'];
+    var dict = chrome.extension.getBackgroundPage().translationDictionary[cfgLanguage];
 
     //l18n
     (function () {
-        var cfgLanguage = localStorage['chrome.bgo-extension.translate-language'];
-
-        var dict = chrome.extension.getBackgroundPage().translationDictionary[cfgLanguage];
 
         if (dict == undefined) {
             return;
@@ -49,7 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
         $("#content-last-action").text(data.lastAction);
         $("#activate-refresh").get(0).checked = (localStorage['chrome.bgo-extension.auto-refresh'] == "true");
         $("#refresh-interval").get(0).value = localStorage['chrome.bgo-extension.refresh-interval'];
-	    $("#translate-language").get(0).value = localStorage['chrome.bgo-extension.translate-language'];
+        $("#translate-language").get(0).value = localStorage['chrome.bgo-extension.translate-language'];
+
+        var defaultFont = (dict!=undefined&&dict["Default"] == undefined) ? "Default" : dict["Default"];
+        $("#page-font").find("option")[0].innerHTML = defaultFont;
+        $("#page-font").get(0).value = "Default";
 
         //$("#notification-global-enabled").get(0).checked = (localStorage['chrome.bgo-extension.notification-global-enabled'] == "true");
         setCheckboxValue("notification-global-enabled");
@@ -86,6 +89,18 @@ document.addEventListener('DOMContentLoaded', function () {
         location.reload(true);
     });
 
+    
+    chrome.fontSettings.getFontList(function (fontlist) {
+       for (var i = 0; i < fontlist.length; i++) {
+           var option = $('<option value="' + fontlist[i].displayName + '">' + fontlist[i].displayName + '</option>');
+           $("#page-font").append(option);
+       }
+        $("#page-font").get(0).value = localStorage['chrome.bgo-extension.page-font'];
+    });
+    $("#page-font").get(0).addEventListener('change', function () {
+        localStorage['chrome.bgo-extension.page-font'] = $("#page-font").get(0).value;
+    });
+    
     var refreshIntervalCheck = function () {
         var interval_value = $("#refresh-interval").get(0).value;
         interval_value = interval_value.replace(/[^\d]/g, '');
@@ -93,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage['chrome.bgo-extension.refresh-interval'] = interval_value;
         } else if (interval_value != "") {
             interval_value = localStorage['chrome.bgo-extension.refresh-interval'];
-        }
+        }   
         $("#refresh-interval").get(0).value = interval_value;
     };
     $("#refresh-interval").get(0).addEventListener('keyup', refreshIntervalCheck);

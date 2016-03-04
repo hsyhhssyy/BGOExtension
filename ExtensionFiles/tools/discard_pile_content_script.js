@@ -70,7 +70,8 @@ extensionTools.executeReady(ttaTranslation,function() {
                                 if (cardA != undefined) {
                                     var ageTitle = $(card_row_cards[j]).find("p[class=\"ageCarte ageCarte1x\"]")[0];
                                     if (ageTitle == undefined || ageTitle.innerHTML == ageStr) {
-                                        cardRowContent[cardRowContent.length] = cardA.innerHTML.substr(0, cardA.innerHTML.length - 4);
+                                        
+                                        cardRowContent[cardRowContent.length] = ttaTranslation.getTranslatedText(cardA.innerHTML.substr(0, cardA.innerHTML.length - 4));
                                     }
                                 } else {
                                     cardA = cardA;
@@ -83,8 +84,8 @@ extensionTools.executeReady(ttaTranslation,function() {
                     }
 
                     var tableTDs = tableElement.find("td");
-                    tableElement = $("<table class=\"tableau0\"></table>")
 
+                    tableElement = $("<table class=\"tableau0\"></table>")
                     tableElement.append($('<tr><td width="25%" colspan="4"><p class="ageCarte ageCarte1x">Card Deck Inspector (Beta)</p></td></tr>'));
 
                     //重排表格，改为三列
@@ -93,15 +94,11 @@ extensionTools.executeReady(ttaTranslation,function() {
                     var currentTr = $("<tr></tr>")
                     while (tableTDs[j] != undefined) {
                         if ($(tableTDs[j]).find("a")[0].getAttribute("class").indexOf("0") > 0) {
-                            var cardName = $(tableTDs[j]).find("a")[0].innerHTML;
-                            var translatedCardName = cardName;
-                            if (translationDictionary != undefined) {
-                                var translatedCardName = translationDictionary[$(tableTDs[j]).find("a")[0].innerHTML];
-                                if (translatedCardName != undefined) {
-                                    $(tableTDs[j]).find("a")[0].innerHTML = translatedCardName;
-                                }
-                            }
-                            if (cardRowContent.indexOf(cardName) >= 0 || cardRowContent.indexOf(translatedCardName) >= 0) {
+                            var cardName = ttaTranslation.getTranslatedText($(tableTDs[j]).find("a")[0].innerHTML);
+
+                            $(tableTDs[j]).find("a")[0].innerHTML = cardName;
+                            
+                            if (cardRowContent.indexOf(cardName) >= 0) {
                                 cardRowContent[cardRowContent.indexOf(cardName)] = "";
                             } else {
                                 tableTDs[j].setAttribute("width", "25%");
@@ -132,8 +129,8 @@ extensionTools.executeReady(ttaTranslation,function() {
                     var popupParents = $("a[class=\"paquet dosCarteCivile\"]").parent();
                     for (var i = 0; popupParents[i] != undefined; i++) {
                         if (popupParents[i].nodeName == "LI") {
-                            $(popupParents[i]).find("ul").remove();
-                            $(popupParents[i]).append(popup.clone());
+                            //$(popupParents[i]).find("ul").remove();
+                            //$(popupParents[i]).append(popup.clone());
                         }
                     }
                 }

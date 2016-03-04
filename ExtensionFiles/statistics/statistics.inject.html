@@ -10,26 +10,42 @@
             <td colSpan="3">
                 <table style="width: 100%;">
                     <tr>
-                        <td class="titre3" style="width: 10%;"><div class="divl18n">Player Name:</div>
-<input id="username" type="text" /></td>
-                        <td style="width: 10%;">
-                            <Button id="list-match-button" class="bouton5">
-                                <div class="divl18n">List All Matches</div>
-                            </Button>
-                            <Button id="collect-journal-button" class="bouton5" hidden="hidden">
-                                <div class="divl18n">Collect Journal</div>
-                            </Button>
-                            <Button id="analyze-button" class="bouton5" hidden="hidden">
-                                <div class="divl18n">Analyze Selected</div>
-                            </Button>
+                        <td class="titre3" style="width: 10%;">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td class="titre3">
+                                        <div class="divl18n">Player Name:</div>
+                                        <input id="username" type="text"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 10%;">
+                                        <Button id="list-match-button" class="bouton5">
+                                            <div class="divl18n">List All Matches</div>
+                                        </Button>
+                                        <Button id="collect-journal-button" class="bouton5" hidden="hidden">
+                                            <div class="divl18n">Collect Journal</div>
+                                        </Button>
+                                        <Button id="analyze-button" class="bouton5" hidden="hidden">
+                                            <div class="divl18n">Analyze Selected</div>
+                                        </Button>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                         <td style="width: 25%;" class="titre3">
-                            <input id="option-count-2-player" type="checkbox" checked="checked" />
+                            <input id="option-count-2-player" type="checkbox" checked="checked"/>
                             <div class="divl18n">2-players' match.</div><br/>
-                            <input id="option-count-4-player" type="checkbox" checked="checked" />
-                            <div class="divl18n">3-players' match.</div><br />
-                            <input id="option-count-3-player" type="checkbox" checked="checked" />
-                            <div class="divl18n">4-players' match.</div><br />
+                            <input id="option-count-4-player" type="checkbox" checked="checked"/>
+                            <div class="divl18n">3-players' match.</div><br/>
+                            <input id="option-count-3-player" type="checkbox" checked="checked"/>
+                            <div class="divl18n">4-players' match.</div><br/>
+                        </td>
+                        <td style="width: 25%;" class="titre3">
+                            <input id="option-new-story" type="checkbox" checked="checked" />
+                            <div class="divl18n">New story</div><br />
+                            <input id="option-old-story" type="checkbox" />
+                            <div class="divl18n">Old version</div><br />
                         </td>
                         <td id="statistic-status" style="width: 55%; min-width: 500px;" class="titre3" colSpan="2">
                             <div class="divl18n">Please click [List All Matches] button.</div>

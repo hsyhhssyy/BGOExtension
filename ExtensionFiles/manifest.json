@@ -1,7 +1,7 @@
 ﻿{
   "manifest_version": 2,
   "name": "Boardgaming-online (BGO) Enhancement Toolbox",
-  "version": "2.1.9",
+  "version": "2.1.11",
 
   "description": "A toolbox that enhance Boardgaming-online (BGO) user experience.",
 
@@ -16,7 +16,7 @@
     "default_title": "BGO Enhancement Toolbox",
     "default_popup": "popup/popup.html"
   },
-  "permissions": [ "tabs", "notifications", "storage", "http://localhost/" ],
+  "permissions": [ "tabs", "notifications", "storage", "http://localhost/" ,"fontSettings"],
   "content_scripts": [
     {
       "matches": [
@@ -39,6 +39,7 @@
         "tools/auto_check_checkbox_content_script.js",
         "tools/status_bar_content_script.js",
         "tools/color_marker_content_script.js",
+        "tools/change_font_content_script.js",
         "alert_refresh/alert_content_script.js",
         "translation/translation_content_script.js"
       ]
@@ -54,6 +55,14 @@
         "statistics/statistics-collect-journal.js",
         "statistics/statistics-solve-alias.js",
         "statistics/statistics-analyze-match.js"
+      ]
+    },
+    {
+      "matches": [ "http://boardgaming-online.com/index.php?cnt=10", "http://www.boardgaming-online.com/index.php?cnt=10", "http://84.200.224.32/index.php?cnt=10" ],
+      "js": [
+        "lib/jquery-2.0.0.min.js",
+        "lib/chrome_extension_helper.js",
+        "translation/translation_library.js"
       ]
     }
   ],
