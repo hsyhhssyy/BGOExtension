@@ -15,26 +15,26 @@ extensionTools.executeReady(ttaTranslation,function() {
         card_row = ttaBoardInformation.cardRow;
     }
 
-    var popupParent = $("a[class=\"paquet dosCarteCivile\"]").parent();
+    var popupParents = $("a[class=\"paquet dosCarteCivile\"]");//.parent();
+
     var popup = $("<ul id=\"carte\" style=\"width:20%\"><a class=\"paquet dosCarteCivile\" style=\"box-shadow:0px 6px 1px #444;\"></a></ul>");
     var messageBox = $('<p class="ageDosCarte">Loading......</p>');
     popup.find("a").first().append(messageBox);
-    popupParent.append(popup);
-    //messageBox = $('p[class="ageDosCarte"]');
+    for(var i=0;popupParents[i] != undefined;i++) {
+        $(popupParents[i]).parent().append(popup.clone());
+    }
 
     var menuSelector = $("a");
     var discardPileFrame = undefined;
-    var currentTitle = document.title;
 
-    function discardPileOperate() {
+    function discardPileOperate(discardPileFrame,innerDocument) {
         if (discardPileFrame != undefined) {
-            document.title = currentTitle;
 
-            var innerDocument = $(discardPileFrame[0].contentDocument);
+            //var innerDocument = $(discardPileFrame[0].contentDocument);
             var civilCardtable = innerDocument.find("tr[id=\"civilCards\"]");
 
             //获得系统给出的张数
-            var actualCardCount = parseInt(popupParent.parent().parent().find('p[class="nombre"]').html());
+            var actualCardCount = parseInt($(popupParents[0]).parent().parent().parent().find('p[class="nombre"]').html());
             if (actualCardCount == NaN) {
                 return;
             }
@@ -120,18 +120,16 @@ extensionTools.executeReady(ttaTranslation,function() {
                     if (k != actualCardCount) {
                         messageBox[0].innerHTML = "Error";
 
-                        popup.find("a").first().append(messageBox);
+                        popup.find("a").first().append(messageBox.clone());
                     } else {
 
-                        popup.find("a").first().append(tableElement);
+                        popup.find("a").first().append(tableElement.clone());
                     }
 
-                    var popupParents = $("a[class=\"paquet dosCarteCivile\"]").parent();
+
                     for (var i = 0; popupParents[i] != undefined; i++) {
-                        if (popupParents[i].nodeName == "LI") {
-                            //$(popupParents[i]).find("ul").remove();
-                            //$(popupParents[i]).append(popup.clone());
-                        }
+                        $(popupParents[i]).parent().find("ul").remove();
+                        $(popupParents[i]).parent().append(popup.clone());
                     }
                 }
             }
@@ -142,13 +140,16 @@ extensionTools.executeReady(ttaTranslation,function() {
     while (menuSelector[i] != undefined) {
         if (menuSelector[i].innerHTML == "View discard pile") {
             var link = menuSelector[i].getAttribute("href");
+
+            extensionTools.loadDocument(link, popupParents, discardPileOperate);
+            /*
             // onload=\"discardPileOperate();\"
             discardPileFrame = $("<iframe id = \"bgo-extension-discard-pile\" src=\"" + link + "\" border=\"1\" frameborder=\"1\" width=\"0\" height=\"0\"></iframe>")
             discardPileFrame.get(0).addEventListener('load', function() {
                 discardPileOperate();
                 discardPileFrame.remove();
             });
-            $("body").append(discardPileFrame);
+            $("body").append(discardPileFrame);*/
             break;
         }
         i++;

@@ -39,10 +39,13 @@
     var player_name_table = $($('div[id="contenu"] > table[class="tableau0"]'))[0];
     player_name_table = $(player_name_table);
     var player_names = player_name_table.find("ul[id=\"indJoueur\"]");
-    var i = 0;
-    while (player_names[i] != undefined) {
+    
+    for (var i = 0;player_names[i] != undefined;i++) {
         var name = $(player_names[i]).find("li").contents().get(0).nodeValue;
 
+        if (name == undefined || name == null) {
+            continue;
+        }
         if (name.valueOf() == ttaBoardInformation.playerName.valueOf()) {
             ttaBoardInformation.playerNo = i / 2 + 1;
         } else {
@@ -52,7 +55,6 @@
                 ttaBoardInformation.rivals.push(name);
             }
         }
-        i++;
     }
 
     ttaBoardInformation.players = player_names;

@@ -79,9 +79,8 @@ var extensionTools = {};
 
 if (typeof extensionTools.jumpurl != 'function') {
     extensionTools.jumpurl = function(url, data, callback) {
-        chrome.extension.sendMessage(cfgRequestMsg,
-            function(config) {
-                if (config['chrome.bgo-extension.auto-refresh'] != "true") {
+    	extensionTools.executeReady(ttaBoardInformation,function(){
+                if (ttaBoardInformation.config['chrome.bgo-extension.auto-refresh'] != "true") {
                     setTimeout('extensionTools.jumpurl()', 5000);
                 } else {
                     location = document.URL;
@@ -122,51 +121,70 @@ if (typeof extensionTools.loadLocalText != 'function') {
 }
 
 (function () {
-    var normalInfos = [];
+    var allRequestToken = [];
 
-    var onReady= function(obj) {
-        var executeReadyList = obj.executeReady;
-        if (executeReadyList.ready == true) {
-            return;
-        } else {
-            executeReadyList.ready = true;
-        }
+    function checkSpecialFlags() {
 
-        for (var infoIndex = 0; executeReadyList.infoList[infoIndex] != undefined; infoIndex++) {
-            var info = executeReadyList.infoList[infoIndex];
-            var index = info.required.indexOf(obj);
-            info.required.splice(index, 1);
+        var afterAllAction = true;
 
-            if (info.required.length <= 0) {
-                info.func();
+        for (var i = 0; i < allRequestToken.length; i ++ ) {
+            var token = allRequestToken[i];
+
+            for (var j = 0; j < token.required.length; j++) {
+                
+                if (token.required[j] != extensionTools.executeReady.afterAllAction) {
+                    afterAllAction = false;
+                }
             }
-
-            normalInfos.splice(normalInfos.indexOf(info), 1);
         }
 
-        if (normalInfos.length <= 0 && obj != extensionTools.executeReady.afterAllAction) {
+        if (afterAllAction) {
             extensionTools.executeReady.afterAllAction.executeReady.onReady(extensionTools.executeReady.afterAllAction);
         }
     }
 
+    var onReady= function(obj) {
+        var executeReadyToken = obj.executeReady;
+        if (executeReadyToken.ready == true) {
+            return;
+        } else {
+            executeReadyToken.ready = true;
+        }
+
+        for (var infoIndex = 0; executeReadyToken.requestTokenList[infoIndex] != undefined; infoIndex++) {
+            var requestToken = executeReadyToken.requestTokenList[infoIndex];
+            var index = requestToken.required.indexOf(obj);
+            requestToken.required.splice(index, 1);
+
+            if (requestToken.required.length <= 0) {
+                requestToken.func();
+                allRequestToken.splice(allRequestToken.indexOf(requestToken), 1);
+                
+            }
+
+        }
+
+        checkSpecialFlags()
+    }
+
     //设置支持的对象
     ttaStatistics.executeReady = {
-        "infoList": [],
+        "requestTokenList": [],
         "ready": false,
         "onReady": onReady,
     }
     ttaBoardInformation.executeReady = {
-        "infoList": [],
+        "requestTokenList": [],
         "ready": false,
         "onReady": onReady,
     }
     ttaCivilopedia.executeReady = {
-        "infoList": [],
+        "requestTokenList": [],
         "ready": false,
         "onReady": onReady,
     }
     ttaTranslation.executeReady = {
-        "infoList": [],
+        "requestTokenList": [],
         "ready": false,
         "onReady": onReady,
     }
@@ -179,22 +197,16 @@ if (typeof extensionTools.loadLocalText != 'function') {
                 throw new Error("executeReady function's last argument must be a function.");
             }
 
-            var executeReadyInfo = {
+            var requestToken = {
                 "required": [],
                 "func":func
             };
 
-            var specialFlag = { "afterAllaction": false };
             
             for (var i = 0; i <= arguments.length - 2; i++) {
                 var requiredObj = arguments[i];
 
-                if (requiredObj == extensionTools.executeReady.afterAllAction) {
-                    specialFlag.afterAllaction = true;
-                }
-
                 if (requiredObj.executeReady == undefined) {
-
                     return;
                 } else {
                     if (requiredObj.executeReady.ready == true) {
@@ -202,23 +214,25 @@ if (typeof extensionTools.loadLocalText != 'function') {
                     }
                 }
 
-                requiredObj.executeReady.infoList[requiredObj.executeReady.infoList.length] = executeReadyInfo;
-                executeReadyInfo.required[executeReadyInfo.required.length] = requiredObj;
+                requiredObj.executeReady.requestTokenList[requiredObj.executeReady.requestTokenList.length] = requestToken;
+                requestToken.required[requestToken.required.length] = requiredObj;
             }
 
-            if (specialFlag.afterAllaction==false) {
-                normalInfos[normalInfos.length] = executeReadyInfo;
-            }
+            
 
-            if (executeReadyInfo.required.length == 0) {
+            if (requestToken.required.length == 0) {
                 func();
+            }
+            else
+            {
+                allRequestToken[allRequestToken.length] = requestToken;
             }
 
         }
 
         extensionTools.executeReady.afterAllAction = {
             "executeReady": {
-                "infoList": [],
+                "requestTokenList": [],
                 "ready": false,
                 "onReady": onReady,
             }

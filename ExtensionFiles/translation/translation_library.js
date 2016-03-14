@@ -50,6 +50,10 @@
     ttaTranslation.translateWithAgePrefix = function (iterators) {
         var dict = ttaTranslation.dictionary;
 
+        if (dict == undefined) {
+            return;
+        }
+
         for (var i=0;iterators[i] != undefined;i++) {
             var text_gathered = $(iterators[i]).html();
             text_gathered = text_gathered.replaceAll("\n", "").removeCharacterEntities();
@@ -61,10 +65,6 @@
                     continue;;
                 }
 
-                var j = 0;
-                for (j = 0; j < iterators[i].length; j++) {
-                    iterators[i].removeChild(iterators[i][j]);
-                }
                 iterators[i].innerHTML = translated_text;
 
             } else {
@@ -73,31 +73,27 @@
         }
     }
 
-    ttaTranslation.translate = function (iterators) {
+    ttaTranslation.translateNodeText = function (iterators) {
         var dict = ttaTranslation.dictionary;
 
-        var i = 0;
-        while (iterators[i] != undefined) {
-            var text_gathered = $(iterators[i]).html();
-            text_gathered = text_gathered.replaceAll("\n", "").removeCharacterEntities();
-            if (text_gathered != undefined) {
-                if (dict[text_gathered] != undefined) {
-                    var translated_text = dict[text_gathered];
-                    var j = 0;
-                    for (j = 0; j < iterators[i].length; j++) {
-                        iterators[i].removeChild(iterators[i][j]);
-                    }
-                    //var translated_node = $(translated_text);
-                    //iterators[i].prepend(translated_node);
-                    iterators[i].innerHTML = translated_text;
+        if (dict == undefined) {
+            return;
+        }
+
+        for (var i = 0; iterators[i] != undefined; i++) {
+            var outerHtml = "";
+            for (var j = 0; iterators[i].childNodes[j] != undefined;j++) {
+                if (iterators[i].childNodes[j].nodeType == 3) {
+                    //TextNode
+                    var translated_text = ttaTranslation.getTranslatedText(iterators[i].childNodes[j].data);
+
+                    outerHtml += translated_text;
                 } else {
-                    text_gathered = undefined;
+                    outerHtml += iterators[i].childNodes[j].outerHTML;
                 }
-            } else {
-                text_gathered = undefined;
             }
 
-            i++;
+            iterators[i].innerHTML = outerHtml;
         }
     }
 
@@ -108,11 +104,10 @@
 // ***** 汉化主函数 *****
     chrome.extension.sendMessage(dictRequestMsg,
         function(dict) {
-            if (dict == null) {
-                return;
+            if (dict != null) {
+                ttaTranslation.dictionary = dict;
             }
 
-            ttaTranslation.dictionary = dict;
             ttaTranslation.executeReady.onReady(ttaTranslation);
 
         }

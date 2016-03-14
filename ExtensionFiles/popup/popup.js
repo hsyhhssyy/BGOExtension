@@ -49,8 +49,11 @@ document.addEventListener('DOMContentLoaded', function () {
         $("#activate-refresh").get(0).checked = (localStorage['chrome.bgo-extension.auto-refresh'] == "true");
         $("#refresh-interval").get(0).value = localStorage['chrome.bgo-extension.refresh-interval'];
         $("#translate-language").get(0).value = localStorage['chrome.bgo-extension.translate-language'];
-
-        var defaultFont = (dict!=undefined&&dict["Default"] == undefined) ? "Default" : dict["Default"];
+	
+	 var defaultFont ="Default";
+	 if(dict!=undefined){
+             defaultFont = dict["Default"] == undefined ? "Default" : dict["Default"];
+	 }
         $("#page-font").find("option")[0].innerHTML = defaultFont;
         $("#page-font").get(0).value = "Default";
 
@@ -72,6 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setCheckboxValue("check-confirm-end-turn-by-default");
         setCheckboxValue("check-confirm-end-turn-by-default-except");
+
+        setCheckboxValue("option-box-enhancement");
+        setCheckboxValue("option-box-enhancement-seperate-colony-event");
     }
 
     //bind actions
@@ -132,4 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
     registerCheckBox("check-confirm-end-turn-by-default");
     registerCheckBox("check-confirm-end-turn-by-default-except");
 
+    registerCheckBox("option-box-enhancement");
+    registerCheckBox("option-box-enhancement-seperate-colony-event");
 });

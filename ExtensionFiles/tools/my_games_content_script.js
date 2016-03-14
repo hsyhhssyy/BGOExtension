@@ -1,11 +1,8 @@
 ﻿
-var cfgRequestMsg = {
-    type: "bgo-configuration-query"
-};
-
-chrome.extension.sendMessage(cfgRequestMsg,
-    function(config) {
-
+extensionTools.executeReady(ttaBoardInformation,function(){
+	
+	var config = ttaBoardInformation.config;
+	
         var currentTitle = document.title;
         var myGamesFrame = null;
 

@@ -17,7 +17,20 @@ extensionTools.executeReady(ttaTranslation,function() {
 
         div.find("li").append($(img));
         div.find("li").append($('<b>'+title+'</b>'))
-        div.find("li").append(ul);
+        div.find("li").append(ul.clone());
+        $(parent).append(div);
+    }
+
+    function addPopupTip(text, title, img) {
+        var parent = img.parentNode;
+        img.parentNode.removeChild(img);
+        var div = $('<ul class="carteMain"><li/></ul>');
+
+        var ul = $('<ul id="carte" class="tta_event0"><p class="ageCarte ageCarte20">&nbsp;</p><li><div class="fondCarte tta_event1"><p class="ssTypeCarte tta_event3">Rule</p><p class="tta_event1 nomCarte nomCarteMilitaire">'
+            + title + '</p><p class="texteCarte">' + text + '</p><p class="commentaire&quot;">&nbsp;</p></div></li><p class="prodCarte">&nbsp;</p></ul>');
+
+        div.find("li").append($(img));
+        div.find("li").append(ul.clone());
         $(parent).append(div);
     }
 
@@ -72,12 +85,25 @@ extensionTools.executeReady(ttaTranslation,function() {
                 div.find("li").append($(imgs[i]));
                 div.find("li").append($('<b>' + warAgainst + '</b>'));
                 if (warCardUL != undefined) {
-                    div.find("li").append(warCardUL);
+                    div.find("li").append(warCardUL.clone());
                 }
 
                 $(parent).append(div);
             }());
         }
+    }
+
+    var pans = $("div[id='statusBar']").find("pan");
+    for (var i = 0; pans[i] != undefined; i++) {
+        for (var j = 0; pans[i].childNodes[j] != undefined; j++) {
+            if (pans[i].childNodes[j].nodeType != 3) {
+                $(pans[i]).parent().append($(pans[i].childNodes[j]));
+            }
+        }
+
+        var translated_text = ttaTranslation.getTranslatedText('The game ends when both two conditions are satitfied:<br>1. The last civil card of Age III has been put on the card row. <br>2. All players have played at least one complete turn (Include political phase) after the first condition.');
+        var translated_title = ttaTranslation.getTranslatedText('Last turn');
+        addPopupTip(translated_text, translated_title, pans[i]);
     }
 
 

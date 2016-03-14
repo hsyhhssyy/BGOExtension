@@ -10,12 +10,16 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
 
     var dict = ttaTranslation.dictionary;
 
+    if (dict == null || dict == undefined) {
+        return;
+    }
+
     //悬停弹出的卡牌完整说明
     var mouse_over = $("ul[id=\"carte\"]");
     var i = 0;
     while (mouse_over[i] != undefined) {
         var p_node = $(mouse_over[i]).find("p");
-        ttaTranslation.translate(p_node);
+        ttaTranslation.translateWithAgePrefix(p_node);
         i++;
     }
 
@@ -23,7 +27,7 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
     //这里要调整一下列宽，设置最小列宽防止中文截断的过于暴力
     var card_title = $("p[class=\"nomCarte\"]");
     var i = 0;
-    ttaTranslation.translate(card_title);
+    ttaTranslation.translateWithAgePrefix(card_title);
     while (card_title[i] != undefined) {
         if (card_title[i].parentNode.nodeName == "DIV") {
             card_title[i].setAttribute("style", "min-width:60");
@@ -75,9 +79,10 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
     var buildingWonder = $("a[class=\"nomCarte tta_wonder2 tta_wonder1\"]");
     if (buildingWonder[0] != undefined) {
         buildingWonder[0].setAttribute("style", "min-width:60");
-        ttaTranslation.translate(buildingWonder.find("p"), dict);
+        ttaTranslation.translateWithAgePrefix(buildingWonder.find("p"), dict);
         
         var actionOptionIterator = buildingWonder.find("p");
+        //设置一下最小列宽，免得被暴力截断
         for (var i = 0; actionOptionIterator[i] != undefined; i++) {
             actionOptionIterator[i].setAttribute("style", "min-width:40");
         }
@@ -87,7 +92,7 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
     //打出事件牌的对话框里事件牌的名字 I / Breakthrough
     ttaTranslation.translateWithAgePrefix($("p[class=\"tta_action0 titre3\"]"), dict);
     //上述事件牌的文本： Develop a technology. After you pay the science cost, score 2 science.
-    ttaTranslation.translate($("p[class=\"texte\"]"), dict);
+    ttaTranslation.translateWithAgePrefix($("p[class=\"texte\"]"), dict);
 
     //上述事件牌候选项的处理：
     var actionOptionIterator = $("label");
@@ -136,22 +141,22 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
 
 
     //政府的名字
-    ttaTranslation.translate($("strong"), dict);
+    ttaTranslation.translateWithAgePrefix($("strong"), dict);
 
     //玩家科技板上面的科技牌名字
-    ttaTranslation.translate($("li[class=\"nomCarte\"]"), dict);
+    ttaTranslation.translateWithAgePrefix($("li[class=\"nomCarte\"]"), dict);
 
     //手牌区的悬停文字
-    ttaTranslation.translate($("p[class=\"libBatiment tta_production0 tta_production4\"]"), dict);
-    ttaTranslation.translate($("p[class=\"libBatiment tta_urban0 tta_urban4\"]"), dict);
-    ttaTranslation.translate($("p[class=\"libBatiment tta_military0 tta_military4\"]"), dict);
+    ttaTranslation.translateWithAgePrefix($("p[class=\"libBatiment tta_production0 tta_production4\"]"), dict);
+    ttaTranslation.translateWithAgePrefix($("p[class=\"libBatiment tta_urban0 tta_urban4\"]"), dict);
+    ttaTranslation.translateWithAgePrefix($("p[class=\"libBatiment tta_military0 tta_military4\"]"), dict);
 
     //玩家科技板悬停时提示文字里的"Cost:"
     var i = 0;
     var costIterator = $("li[class=\"nombreCarte\"]");
     while (costIterator[i] != undefined) {
         var text = $(costIterator[i]).html();
-        if (text.indexOf("Cost") == 0) {
+        if (text.indexOf("Cost") == 0 && dict["Cost"]!=undefined) {
             costIterator[i].innerHTML = text.replace("Cost", dict["Cost"]);
         }
         i++;
@@ -159,7 +164,7 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
 
     //事件和牌堆的标题
     var card_title = $("p[class=\"titre3\"]");
-    ttaTranslation.translate(card_title, dict);
+    ttaTranslation.translateWithAgePrefix(card_title, dict);
 
     //工人区
     var workerPool = $("div[class=\"worker_pool\"]").find("p");
@@ -172,7 +177,7 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
 
     //important区（其实就一个Last Turn）
     var card_title = $("pan[class=\"important\"]");
-    ttaTranslation.translate(card_title, dict);
+    ttaTranslation.translateNodeText(card_title);
 
 
     //手牌区的标题
@@ -194,17 +199,13 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
         i++;
     }
     //(current/future)
-    ttaTranslation.translate($("td[class=\"texte\"]"), dict);
+    ttaTranslation.translateWithAgePrefix($("td[class=\"texte\"]"), dict);
 
     //最近的事件
-    ttaTranslation.translate($('a[class="titre1 bouton6"]'));
+    ttaTranslation.translateWithAgePrefix($('a[class="titre1 bouton6"]'));
     ttaTranslation.translateWithAgePrefix($('span[class="titre3"]'));
 
     //下拉列表的内容：
-    //var optionStyleGreen = "background:#83a839;color:white";
-    //var optionStylePurple = "background:#794890;color:white";
-    //var optionStyleRed = "background:#e6260d;color:white";
-    //var optionStyleBlack = "color:green";
 
     var actionOptionIterator = $("option");
     var i = 0;
@@ -492,20 +493,23 @@ extensionTools.executeReady(ttaTranslation, extensionTools.executeReady.afterAll
         i++;
     }
 
-    //texteOnglet3
-    var actionOptionIterator = $('ul[id="indJoueur"]').find("li");
-    var i = 0;
-    while (actionOptionIterator[i] != undefined) {
-        var liNode = $(ttaBoardInformation.players[i]).find("li");
-        var text = liNode.html();
+    //面板卡的标题
+    var actionOptionIterator = $('li[class="lienOngletNormal"]');
+    
+    for (var i = 0;actionOptionIterator[i] != undefined;i++) {
+        var liNode = actionOptionIterator[i];
+        var text = liNode.innerHTML;
 
-        if (name == "Journal"
-            || name == "Chat") {
+        if (text == undefined) {
+            continue;
+        }
+
+        if (text == "Journal"
+            || text == "Chat" || text.indexOf("My games")==0) {
             var translated_text = dict[text];
             if (translated_text != undefined) {
-                liNode[0].innerHTML = translated_text;
+                liNode.innerHTML = translated_text;
             }
         }
-        i++;
     }
 });

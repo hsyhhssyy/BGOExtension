@@ -42,6 +42,9 @@ if (localStorage['chrome.bgo-extension.refresh-interval'] == undefined) {
     localStorage["chrome.bgo-extension.check-confirm-end-turn-by-default-except"] = "true";
     localStorage["chrome.bgo-extension.page-font"] = "Default";
 
+    localStorage["chrome.bgo-extension.option-box-enhancement"] = "true";
+    localStorage["chrome.bgo-extension.option-box-enhancement-seperate-colony-event"] = "true";
+
     //init language
 
     var localLanguage = navigator.language.toLocaleLowerCase();
