@@ -73,7 +73,12 @@
 选项`除非提示文本中包含警告信息`勾选后后，假如回合结束的提示框如下图一样有红字警告，那么结束回合复选框并不会自动被勾选上。<br>
 ![默认结束2](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-endturn1.jpg)<br>
 
-### 6. 一些无法关闭的功能
+### 6. 在聊天频道报告卡牌列
+启用`在聊天频道报告卡牌列`复选框后，每当你的回合开始，会生成一条聊天信息。<br>
+![回报聊天1](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-report-card-row.jpg)<br>
+这条信息不会立刻被你看到，你需要在进行一个动作以后，页面刷新后才能看到，但是观战者可以通过刷新页面来获得这个信息。
+
+### 7. 一些无法关闭的功能
 下面是一些默认启用并且无法关闭的功能:<br>
 1. 自己面板右下角的Save Notes本来是不能正确的存储中文的，现在可以了。<br>
 ![Note](https://github.com/hsyhhssyy/BGOExtension/blob/master/Demo/Readme/bgo-readme-image-save-note.jpg)<br>

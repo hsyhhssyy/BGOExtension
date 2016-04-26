@@ -1,7 +1,7 @@
 ﻿{
   "manifest_version": 2,
   "name": "Boardgaming-online (BGO) Enhancement Toolbox",
-  "version": "2.1.13",
+  "version": "2.1.14",
 
   "description": "A toolbox that enhance Boardgaming-online (BGO) user experience.",
 
@@ -40,6 +40,7 @@
         "tools/status_bar_content_script.js",
         "tools/color_marker_content_script.js",
         "tools/change_font_content_script.js",
+        "tools/report_card_row_content_script.js",
         "optionbox/option_box_colony_event_content_script.js",
         "alert_refresh/alert_content_script.js",
         "translation/translation_content_script.js"

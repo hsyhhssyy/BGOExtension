@@ -23,6 +23,8 @@ if (localStorage['chrome.bgo-extension.refresh-interval'] == undefined) {
     localStorage['chrome.bgo-extension.refresh-interval'] = "30";
     localStorage['chrome.bgo-extension.auto-refresh'] = "true";
 
+    localStorage['chrome.bgo-extension.report-card-row'] = "false";
+
     localStorage['chrome.bgo-extension.notification-global-enabled'] = "true";
     localStorage['chrome.bgo-extension.notification-your-turn'] = "true";
     localStorage['chrome.bgo-extension.notification-action-update'] = "false";

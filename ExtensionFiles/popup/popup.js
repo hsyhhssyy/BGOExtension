@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
         $("#page-font").find("option")[0].innerHTML = defaultFont;
         $("#page-font").get(0).value = "Default";
 
+	setCheckboxValue("report-card-row");
+
         //$("#notification-global-enabled").get(0).checked = (localStorage['chrome.bgo-extension.notification-global-enabled'] == "true");
         setCheckboxValue("notification-global-enabled");
         setCheckboxValue("notification-your-turn");
@@ -119,6 +121,8 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     $("#refresh-interval").get(0).addEventListener('keyup', refreshIntervalCheck);
     $("#refresh-interval").get(0).addEventListener('afterpaste', refreshIntervalCheck);
+
+     registerCheckBox("report-card-row");
 
     registerCheckBox("notification-global-enabled");
     registerCheckBox("notification-your-turn");
